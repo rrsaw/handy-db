@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'birthday', 'email', 'phone_number', 'password', 'id_address', 'id_profile_image'
     ];
 
     /**
@@ -26,4 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function address(){
+      return $this->belongsTo('handy/Address', 'id_address');
+    }
+    public function profileImage(){
+      return $this->belongsTo('handy/Image', 'id_profile_image');
+    }
+    public function ownerReview(){
+      return $this->hasOne('handy/Review', 'id_owner');
+    }
+    public function reviwerReview(){
+      return $this->hasOne('handy/Review', 'id_reviewer');
+    }
+    public function ownerLoans(){
+      return $this->hasOne('handy/Loan', 'id_owner');
+    }
+    public function reviwerLoans(){
+      return $this->hasOne('handy/Loan', 'id_reviewer');
+    }
+    public function userItem(){
+      return $this->hasOne('handy/Item', 'id_user');
+    }
 }

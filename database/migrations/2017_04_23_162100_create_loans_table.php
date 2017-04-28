@@ -15,9 +15,10 @@ class CreateLoansTable extends Migration
     {
       Schema::create('loans', function (Blueprint $table) {
           $table->increments('id');
-          $table->text('description');
-          $table->integer('value');
-          $table->date('date');
+          $table->date('start_date');
+          $table->date('end_date');
+          $table->boolean('loan_confermation');
+          $table->boolean('return_confermation');
           $table->timestamps();
       });
     }

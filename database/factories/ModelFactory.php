@@ -12,13 +12,29 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+use Illuminate\Database\Eloquent\Factory;
+use handy\Address;
+use handy\Category;
+use handy\Image;
+use handy\Item;
+use handy\Loan;
+use handy\Review;
+use handy\User;
+
 $factory->define(handy\User::class, function (Faker\Generator $faker) {
     static $password;
+    $id_address_random = Address::all()->pluck('id')->toArray();
+    $id_image_random = Image::all()->pluck('id')->toArray();
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
+        'surname' => $faker->lastName,
+        'birthday' => $faker->date,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'phone_number' => $faker->phoneNumber,
+        'password' => $faker->word, //$password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'id_address' => $faker->randomElement($id_address_random),
+        'id_profile_image' => $faker->randomElement($id_image_random),
     ];
 });
