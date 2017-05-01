@@ -17,7 +17,6 @@ class CreateItemsTable extends Migration
            $table->increments('id');
            $table->string('name');
            $table->text('description')->nullable();
-           $table->binary('images');
            $table->decimal('price', 5, 2);
            $table->date('start_date');
            $table->date('end_date');
