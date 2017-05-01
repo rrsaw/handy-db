@@ -12,8 +12,8 @@ class Review extends Model
   public function owner(){
     return $this->belongsTo('handy/User', 'id_owner');
   }
-  public function reciver(){
-    return $this->belongsTo('handy/User', 'id_reciver');
+  public function reviewer(){
+    return $this->belongsTo('handy/User', 'id_reviewer');
   }
   public function item(){
     return $this->belongsTo('handy/User', 'id_item');

@@ -30,7 +30,7 @@ class User extends Authenticatable
       return $this->belongsTo('handy/Address', 'id_address');
     }
     public function profileImage(){
-      return $this->belongsTo('handy/Image', 'id_profile_image');
+      return $this->belongsTo('handy/ProfileImage', 'id_profile_image');
     }
     public function ownerReview(){
       return $this->hasOne('handy/Review', 'id_owner');
@@ -44,7 +44,7 @@ class User extends Authenticatable
     public function reviwerLoans(){
       return $this->hasOne('handy/Loan', 'id_reviewer');
     }
-    public function userItem(){
-      return $this->hasOne('handy/Item', 'id_user');
+    public function item(){
+      return $this->hasMany('handy/Item', 'id_user');
     }
 }

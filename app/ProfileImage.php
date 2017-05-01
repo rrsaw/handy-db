@@ -4,12 +4,12 @@ namespace handy;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class ProfileImage extends Model
 {
   protected $fillable = [
     'name'
   ];
   public function user(){
-    return $this->belongsTo('handy/Item', 'id_item');
+    return $this->hasOne('handy/User', 'id_profile_image');
   }
 }

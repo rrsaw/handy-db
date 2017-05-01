@@ -14,8 +14,8 @@ class ForeignUserImage extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-          $table->integer('id_profile_image')->unsigned();
-          $table->foreign('id_profile_image')->references('id')->on('images')->onDelete('cascade');
+          $table->integer('id_profile_image')->unsigned()->nullable();
+          $table->foreign('id_profile_image')->references('id')->on('profile_images')->onDelete('cascade');
         });
     }
 
