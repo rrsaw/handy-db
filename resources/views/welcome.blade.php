@@ -7,6 +7,9 @@
 
         <title>Laravel</title>
 
+        <!-- Styles -->
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -45,9 +48,7 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
-            }
+
 
             .links > a {
                 color: #636b6f;

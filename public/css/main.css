@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+.title { font: normal 24px/1.5 "Varela Round", sans-serif; color: #4A4A4A; }
+
+.button { width: 100%; padding: auto 20px; background-color: #22B8CF; border: none; transition: all ease 0.2s; color: #FFF; font: normal 24px/1.5 "Varela Round", sans-serif; border-radius: 10%; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); }
+.button:hover { box-shadow: 0 10px 20px rgba(34, 184, 207, 0.19), 0 6px 6px rgba(34, 184, 207, 0.23); transition: all ease 0.2s; }
+
+/*# sourceMappingURL=main.css.map */

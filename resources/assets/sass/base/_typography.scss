@@ -1,0 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+// font-family: 'Varela Round', sans-serif;
+
+$h1-font: normal 24px/1.5 'Varela Round', sans-serif;
+$h1-color: #4A4A4A;
+
+.title {
+  font: $h1-font;
+  color: $h1-color;
+}
