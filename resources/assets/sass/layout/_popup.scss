@@ -1,0 +1,70 @@
+.popup{
+  background-color: #fff;
+  border-radius: 25px;
+  margin-top: 20vh;
+  width: 100%;
+  @include box_shadow($grey-d, 4);
+
+  .popup-heading{
+    padding: 8% 0;
+
+    a{
+      margin: 0 10%;
+      text-transform: uppercase;
+      @include varelaFont(16px, $grey-m);
+      transition: .1s all ease;
+      padding-bottom: 0px;
+      &:hover{
+        text-decoration: none;
+        border-bottom: 2px solid $orange-d;
+        padding-bottom: 7px;
+      }
+    }
+  }
+  .popup-body{
+    input[type="text"],
+    input[type="email"],
+    input[type="password"]{
+      border: none;
+      border-bottom: 1px solid $grey-l;
+      margin-bottom: 15%;
+      width: 100%;
+      transition: .2s ease-in-out;
+      @include dnipro('medium', 17px, $grey-d);
+      &:focus, &:valid{
+        outline:none;
+        background-color: white;
+        border-bottom: 2px solid $blue-m;
+      }
+      &:valid + .label,
+      &:focus + .label {
+        color: $blue-m;
+        font-size: 10px;
+        top: -25px;
+        pointer-events: none;
+      }
+    }
+    .label {
+      top: -3px;
+      left: 5px;
+      display: flex;
+      position: absolute;
+      cursor: text;
+      transition: .2s ease-in-out;
+      @include dnipro('regular', 14px, $grey-l);
+      height: 3rem;
+    }
+    .rememberMe{
+      margin-top: 9%;
+      label{
+        @include dnipro('medium', 14px, $grey-m);
+      }
+    }
+    .forgotPassword{
+      padding-bottom: 6%;
+      a{
+        @include dnipro('bold', 12px, $grey-d);
+      }
+    }
+  }
+}

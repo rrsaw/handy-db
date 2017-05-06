@@ -1,11 +1,36 @@
 
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-// font-family: 'Varela Round', sans-serif;
+
+@font-face {
+font-family: 'DIN Pro Light';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Light'), url('../../font/DINPro-Light.woff') format('woff');
+}
+
+@font-face {
+font-family: 'DIN Pro Medium';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Medium'), url('../../font/DINPro-Medium.woff') format('woff');
+}
+
+@font-face {
+font-family: 'DIN Pro';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro'), url('../../font/DINPro.woff') format('woff');
+}
+
+@font-face {
+font-family: 'DIN Pro Bold';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Pro Bold'), url('../../font/DINPro-Bold.woff') format('woff');
+}
 
 $h1-font: normal 24px/1.5 'Varela Round', sans-serif;
-$h1-color: #4A4A4A;
 
 .title {
   font: $h1-font;
-  color: $h1-color;
 }
