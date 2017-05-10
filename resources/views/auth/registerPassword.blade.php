@@ -9,11 +9,11 @@
               <div class="row">
                 <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
                   <div class="popup-image text-center">
-                    <div class="personalImage {{ $errors->has('image') ? ' has-error' : '' }}">
+                    <div class="personalImage">
                       <a href="javascript:void(0);">
                         <img src="{{ asset('img/defaultImage.png') }}" alt="">
                       </a>
-                        <input type="file" name="image" class="add-personal-image" name="image" value="{{ old('image') }}" required/>
+                      <input type="file" name="image" class="add-personal-image"/>
                     </div>
                   </div>
                 </div>
@@ -26,7 +26,7 @@
                   </div>
                 </div>
                 <div class="popup-body">
-                    <form role="form" method="POST" action="{{ route('register') }}" autocomplete="off">
+                    <form role="form" method="POST" action="{{ route('login') }}" autocomplete="off">
                         {{ csrf_field() }}
 
                         <div class="{{ $errors->has('name') ? ' has-error' : '' }}">

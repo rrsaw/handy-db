@@ -15,17 +15,22 @@
 
 [type="checkbox"]:checked ~ .checkbox__visual:before { transform: rotate(40deg); height: 20px; width: 10px; top: -7px; left: -4px; border-left: none; border-top: none; border-right: 2px solid #F08C00; border-bottom: 2px solid #F08C00; }
 
-.popup { background-color: #fff; border-radius: 25px; margin-top: 20vh; width: 100%; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
-.popup .popup-heading { padding: 8% 0; }
-.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: .1s all ease; padding-bottom: 0px; }
-.popup .popup-heading a:hover { text-decoration: none; border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
-.popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 15%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
-.popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid { outline: none; background-color: white; border-bottom: 2px solid #22B8CF; }
-.popup .popup-body input[type="text"]:valid + .label, .popup .popup-body input[type="text"]:focus + .label, .popup .popup-body input[type="email"]:valid + .label, .popup .popup-body input[type="email"]:focus + .label, .popup .popup-body input[type="password"]:valid + .label, .popup .popup-body input[type="password"]:focus + .label { color: #22B8CF; font-size: 10px; top: -25px; pointer-events: none; }
+.popup { background-color: #fff; border-radius: 25px; margin-top: 15vh; width: 100%; display: inline-block; padding: 10% 0 7% 0; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
+.popup .popup-heading { margin-bottom: 8%; }
+.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: .1s all ease; padding-bottom: 0px; text-decoration: none; }
+.popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
+.popup .popup-heading a.inactive { opacity: 0.5; }
+.popup .popup-heading a.inactive:hover { opacity: 1; }
+.popup .personalImage { position: absolute; top: -145px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
+.popup .personalImage img { width: 100%; }
+.popup .personalImage .add-personal-image { display: none; }
+.popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"], .popup .popup-body input[type="number"], .popup .popup-body input[type="date"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 15%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid, .popup .popup-body input[type="number"]:focus, .popup .popup-body input[type="number"]:valid, .popup .popup-body input[type="date"]:focus, .popup .popup-body input[type="date"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
+.popup .popup-body input[type="text"]:valid + .label, .popup .popup-body input[type="text"]:focus + .label, .popup .popup-body input[type="email"]:valid + .label, .popup .popup-body input[type="email"]:focus + .label, .popup .popup-body input[type="password"]:valid + .label, .popup .popup-body input[type="password"]:focus + .label, .popup .popup-body input[type="number"]:valid + .label, .popup .popup-body input[type="number"]:focus + .label, .popup .popup-body input[type="date"]:valid + .label, .popup .popup-body input[type="date"]:focus + .label { color: #22B8CF; font-size: 10px; top: -25px; pointer-events: none; }
 .popup .popup-body .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: .2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
+.popup .popup-body .label.dateLabel { top: -20px; }
 .popup .popup-body .rememberMe { margin-top: 9%; }
 .popup .popup-body .rememberMe label { font: normal 14px "DIN Pro Medium", sans-serif; color: #9B9B9B; }
-.popup .popup-body .forgotPassword { padding-bottom: 6%; }
 .popup .popup-body .forgotPassword a { font: normal 12px "DIN Pro Bold", sans-serif; color: #4A4A4A; }
 
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }

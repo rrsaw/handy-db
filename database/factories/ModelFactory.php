@@ -115,7 +115,7 @@ $factory->define(handy\User::class, function (Faker\Generator $faker) {
         'birthday' => $faker->date,
         'email' => $faker->unique()->safeEmail,
         'phone_number' => $faker->phoneNumber,
-        'password' => $faker->word, //$password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         'id_address' => $faker->randomElement($id_address_random),
         'id_profile_image' => $faker->randomElement($id_profile_image_random),

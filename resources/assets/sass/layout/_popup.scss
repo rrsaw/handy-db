@@ -1,12 +1,14 @@
 .popup{
   background-color: #fff;
   border-radius: 25px;
-  margin-top: 20vh;
+  margin-top: 15vh;
   width: 100%;
+  display: inline-block;
+  padding: 10% 0 7% 0;
   @include box_shadow($grey-d, 4);
 
   .popup-heading{
-    padding: 8% 0;
+    margin-bottom: 8%;
 
     a{
       margin: 0 10%;
@@ -14,17 +16,41 @@
       @include varelaFont(16px, $grey-m);
       transition: .1s all ease;
       padding-bottom: 0px;
-      &:hover{
-        text-decoration: none;
+      text-decoration: none;
+      &.active{
         border-bottom: 2px solid $orange-d;
         padding-bottom: 7px;
       }
+      &.inactive{
+        opacity: 0.5;
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .personalImage{
+    position: absolute;
+    top: -145px;
+    text-align: center;
+    background-color: white;
+    border-radius: 200px;
+    @include box_shadow($grey-d, 2);
+    overflow: hidden;
+    img{
+      width: 100%;
+    }
+    .add-personal-image{
+      display: none;
     }
   }
   .popup-body{
     input[type="text"],
     input[type="email"],
-    input[type="password"]{
+    input[type="password"],
+    input[type="number"],
+    input[type="date"]
+    {
       border: none;
       border-bottom: 1px solid $grey-l;
       margin-bottom: 15%;
@@ -34,7 +60,7 @@
       &:focus, &:valid{
         outline:none;
         background-color: white;
-        border-bottom: 2px solid $blue-m;
+        border-bottom: 1px solid $blue-m;
       }
       &:valid + .label,
       &:focus + .label {
@@ -53,6 +79,9 @@
       transition: .2s ease-in-out;
       @include dnipro('regular', 14px, $grey-l);
       height: 3rem;
+      &.dateLabel{
+        top: -20px;
+      }
     }
     .rememberMe{
       margin-top: 9%;
@@ -61,7 +90,6 @@
       }
     }
     .forgotPassword{
-      padding-bottom: 6%;
       a{
         @include dnipro('bold', 12px, $grey-d);
       }
