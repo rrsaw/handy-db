@@ -21,7 +21,7 @@
 .popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
 .popup .popup-heading a.inactive { opacity: 0.5; }
 .popup .popup-heading a.inactive:hover { opacity: 1; }
-.popup .personalImage { position: absolute; top: -145px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
+.popup .personalImage { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
 .popup .personalImage img { width: 100%; }
 .popup .personalImage .add-personal-image { display: none; }
 .popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"], .popup .popup-body input[type="number"], .popup .popup-body input[type="date"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 15%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }

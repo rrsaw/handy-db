@@ -8,6 +8,7 @@ use handy\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Session;
+use Log;
 
 class RegisterController extends Controller
 {
@@ -48,7 +49,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-
+     
 
 
     protected function validator(array $data)
@@ -60,8 +61,8 @@ class RegisterController extends Controller
             'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phoneNumber' => 'required|min:11|numeric',
-            'birthday'   => 'required|date',
-            'image' => 'required|image:jpg,png,jpeg|max:5000'
+            'birthday'   => 'date',
+            'image' => 'image:jpg,png,jpeg|max:5000'
             //'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -75,9 +76,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      return ProfileImage::create([
-          'name' => $data['image'],
-      ]);
+      $info = session($data);
+      Log::info('Showing user profile for user: '.$info);
+
+      // return ProfileImage::create([
+      //     'name' => $data['image'],
+      // ]);
       // return Address::create([
       //     'street' => 'Ginestra',
       //     'civic_number' => '42',
@@ -87,17 +91,17 @@ class RegisterController extends Controller
       //     'latitude' => '-14.438939000000000',
       //     'longitude' => '65.097399000000000',
       // ]);
-      return User::create([
-          'name' => $data['name'],
-          'surname' => $data['surname'],
-          'email' => $data['email'],
-          'phoneNumber' => $data['phoneNumber'],
-          'birthday' => $data['birthday'],
-          'password' => 'pswd',
-          //'password' => bcrypt($data['password']),
-      ]);
-
-    }
+      // return User::create([
+      //     'name' => $data['name'],
+      //     'surname' => $data['surname'],
+      //     'email' => $data['email'],
+      //     'phone_number' => $data['phoneNumber'],
+      //     'birthday' => $data['birthday'],
+      //     'password' => 'pswd',
+      //      'password' => bcrypt($data['password']),
+    //   ]);
+    //
+      }
 
 
      // get forms session data

@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/registration', function () {
+  return view('auth.registration.first');
+});
+Route::post('/registration', 'RegistrationController@firstStep')->name('firstStep');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
