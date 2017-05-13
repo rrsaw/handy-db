@@ -1,0 +1,62 @@
+
+
+.cards {
+  margin-bottom: 20px;
+
+  img {
+    margin-bottom: .75rem;
+    @include box_shadow($grey-m, 3);
+  }
+
+  .item-price {
+    color: $blue-m;
+  }
+  .item-desc {
+    font: $varela;
+    color: $grey-d;
+  }
+
+  p {
+    color: $grey-m;
+  }
+
+  .fa {
+    font-size: 1.5em;
+    padding-right: 20px;
+    color: $blue-m;
+  }
+
+  .no-padding-left {
+    padding-left: 0px;
+  }
+
+  .no-padding-right {
+    padding-right: 0px;
+  }
+
+  .item-divider {
+    background-color: $blue-m;
+    height: 4px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+}
+
+.filters {
+  color: $orange-l;
+  padding-right: 10px;
+}
+.filters-result {
+  padding-right: 15px;
+  color: $grey-m
+}
+
+#btn-side-container {
+  position: fixed;
+
+}
+
+.btn-side-container-extra{
+  position: relative;
+  padding-bottom: 60px;
+}
