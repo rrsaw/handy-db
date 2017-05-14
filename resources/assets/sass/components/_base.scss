@@ -1,0 +1,8 @@
+.error-block{
+  margin-bottom: 10px;
+  display: block;
+  strong{
+    color: $red;
+    text-transform: capitalize;
+  }
+}

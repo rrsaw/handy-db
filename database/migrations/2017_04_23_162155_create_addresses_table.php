@@ -19,7 +19,6 @@ class CreateAddressesTable extends Migration
            $table->string('civic_number');
            $table->string('city');
            $table->string('country');
-           $table->integer('cap');
            $table->float('latitude', 18, 15);
            $table->float('longitude', 18, 15);
            $table->timestamps();

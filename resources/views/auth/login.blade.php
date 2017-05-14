@@ -7,8 +7,8 @@
           <div class="col-md-4 col-sm-10 col-md-offset-4 col-sm-offset-1">
               <div class="popup">
                   <div class="popup-heading text-center">
-                    <a class="active" href="#">Sign in</a>
-                    <a class="inactive" href="/register">Register</a>
+                    <a class="active" href="#">Log in</a>
+                    <a class="inactive" href="/registration">Register</a>
                   </div>
                   <div class="popup-body">
                       <form role="form" method="POST" action="{{ route('login') }}" autocomplete="off">

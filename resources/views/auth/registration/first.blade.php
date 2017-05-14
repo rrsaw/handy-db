@@ -6,25 +6,28 @@
       <div class="row">
         <div class="col-md-4 col-sm-10 col-md-offset-4 col-sm-offset-1">
             <div class="popup">
-
-
                 <div class="row">
                   <div class="popup-heading text-center">
-                    <a class="inactive" href="/login">Sign in</a>
+                    <a class="inactive" href="/login">Log in</a>
                     <a class="active" href="#">Register</a>
                   </div>
                 </div>
                 <div class="popup-body">
-                    <form role="form" method="POST" action="{{ route('firstStep') }}" autocomplete="off">
+                    <form role="form" method="POST" action="{{ route('firstStep') }}" autocomplete="off" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row">
                           <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
                             <div class="popup-image text-center">
-                              <div class="personalImage {{ $errors->has('image') ? ' has-error' : '' }}">
+                              <div class="personal-image {{ $errors->has('image') ? ' has-error' : '' }}">
                                 <a href="javascript:void(0);">
                                   <img src="{{ asset('img/defaultImage.png') }}" alt="">
                                 </a>
                                   <input type="file" name="image" class="add-personal-image" name="image" value="{{ old('image') }}" required/>
+                                  @if ($errors->has('image'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('image') }}</strong>
+                                      </span>
+                                  @endif
                               </div>
                             </div>
                           </div>

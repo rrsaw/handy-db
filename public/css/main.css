@@ -1,12 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Varela+Round");
-@font-face { font-family: 'DIN Pro Light'; font-style: normal; font-weight: normal; src: local("DIN Pro Light"), url("../../font/DINPro-Light.woff") format("woff"); }
-@font-face { font-family: 'DIN Pro Medium'; font-style: normal; font-weight: normal; src: local("DIN Pro Medium"), url("../../font/DINPro-Medium.woff") format("woff"); }
-@font-face { font-family: 'DIN Pro'; font-style: normal; font-weight: normal; src: local("DIN Pro"), url("../../font/DINPro.woff") format("woff"); }
-@font-face { font-family: 'DIN Pro Bold'; font-style: normal; font-weight: normal; src: local("DIN Pro Bold"), url("../../font/DINPro-Bold.woff") format("woff"); }
+@font-face { font-family: 'DIN Pro Light'; font-style: normal; font-weight: normal; src: local("DIN Pro Light"), url("../../fonts/DINPro-Light.woff") format("woff"); }
+@font-face { font-family: 'DIN Pro Medium'; font-style: normal; font-weight: normal; src: local("DIN Pro Medium"), url("../../fonts/DINPro-Medium.woff") format("woff"); }
+@font-face { font-family: 'DIN Pro'; font-style: normal; font-weight: normal; src: local("DIN Pro"), url("../../fonts/DINPro.woff") format("woff"); }
+@font-face { font-family: 'DIN Pro Bold'; font-style: normal; font-weight: normal; src: local("DIN Pro Bold"), url("../../fonts/DINPro-Bold.woff") format("woff"); }
 .title { font: normal 24px/1.5 "Varela Round", sans-serif; }
 
 .blueButton { width: 100%; padding: 10px 0; background-color: #22B8CF; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); }
 .blueButton:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+
+.btn-circle { width: 40px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); margin-bottom: 20px; position: absolute; right: 0px; top: 0px; }
+.btn-circle:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.btn-circle:hover { width: 132px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); box-shadow: 0 14px 28px rgba(155, 155, 155, 0.25), 0 10px 10px rgba(155, 155, 155, 0.22); transition: all ease 0.2s; animation-direction: alternate; }
+.btn-circle:hover:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.btn-circle:focus { outline: none; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); transition: all ease 0.1s; }
+
+.btn-circle-light { width: 40px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); position: absolute; right: 0px; top: 0px; margin-bottom: 20px; }
+.btn-circle-light:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.btn-circle-light:hover { width: 132px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
+.btn-circle-light:hover:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.btn-circle-light:focus { outline: none; }
 
 .checkbox > input[type="checkbox"] { display: none; }
 
@@ -15,24 +27,73 @@
 
 [type="checkbox"]:checked ~ .checkbox__visual:before { transform: rotate(40deg); height: 20px; width: 10px; top: -7px; left: -4px; border-left: none; border-top: none; border-right: 2px solid #F08C00; border-bottom: 2px solid #F08C00; }
 
+.error-block { margin-bottom: 10px; display: block; }
+.error-block strong { color: #D0011B; text-transform: capitalize; }
+
 .popup { background-color: #fff; border-radius: 25px; margin-top: 15vh; width: 100%; display: inline-block; padding: 10% 0 7% 0; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
 .popup .popup-heading { margin-bottom: 8%; }
 .popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: .1s all ease; padding-bottom: 0px; text-decoration: none; }
 .popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
 .popup .popup-heading a.inactive { opacity: 0.5; }
 .popup .popup-heading a.inactive:hover { opacity: 1; }
-.popup .personalImage { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
-.popup .personalImage img { width: 100%; }
-.popup .personalImage .add-personal-image { display: none; }
-.popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"], .popup .popup-body input[type="number"], .popup .popup-body input[type="date"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 15%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.popup .personal-image { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
+.popup .personal-image img { width: 100%; }
+.popup .personal-image .add-personal-image { display: none; }
+.popup .popup-body .input-container { margin-top: 5%; }
+.popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"], .popup .popup-body input[type="number"], .popup .popup-body input[type="date"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
 .popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid, .popup .popup-body input[type="number"]:focus, .popup .popup-body input[type="number"]:valid, .popup .popup-body input[type="date"]:focus, .popup .popup-body input[type="date"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
 .popup .popup-body input[type="text"]:valid + .label, .popup .popup-body input[type="text"]:focus + .label, .popup .popup-body input[type="email"]:valid + .label, .popup .popup-body input[type="email"]:focus + .label, .popup .popup-body input[type="password"]:valid + .label, .popup .popup-body input[type="password"]:focus + .label, .popup .popup-body input[type="number"]:valid + .label, .popup .popup-body input[type="number"]:focus + .label, .popup .popup-body input[type="date"]:valid + .label, .popup .popup-body input[type="date"]:focus + .label { color: #22B8CF; font-size: 10px; top: -25px; pointer-events: none; }
+.popup .popup-body .visibility-password { position: absolute; right: 20px; top: 0px; }
+.popup .popup-body .visibility-password i { font-size: 18px; cursor: pointer; color: #9B9B9B; }
+.popup .popup-body .visibility-password i:hover { color: #4A4A4A; }
 .popup .popup-body .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: .2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
 .popup .popup-body .label.dateLabel { top: -20px; }
 .popup .popup-body .rememberMe { margin-top: 9%; }
 .popup .popup-body .rememberMe label { font: normal 14px "DIN Pro Medium", sans-serif; color: #9B9B9B; }
 .popup .popup-body .forgotPassword a { font: normal 12px "DIN Pro Bold", sans-serif; color: #4A4A4A; }
+.popup .popup-body .blueButton { margin-top: 7%; }
+
+.sidebar { position: fixed; top: 0px; bottom: 0; left: 0; z-index: 1000; padding: 20px; overflow-x: hidden; overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */ border-right: 1px solid #eee; }
+
+.sidebar { padding-left: 0; padding-right: 0; }
+
+.sidebar .nav { margin-bottom: 20px; }
+
+.sidebar .nav-item { width: 100%; }
+
+.sidebar .nav-item + .nav-item { margin-left: 0; }
+
+.sidebar .nav-link { border-radius: 0; }
+
+nav ul { margin-top: 60px; }
+nav i { margin-right: 32px; }
+nav li { font-size: 1.2rem; }
+nav .fa { font-size: 2rem; }
+nav .activate { color: #4A4A4A; }
+nav .deactivate { color: #E7E7E7; }
+
+li .activate { border-left: thick solid #FAB005; }
+
+#logo { width: 90px; height: auto; }
 
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }
+
+.cards { margin-bottom: 20px; }
+.cards img { margin-bottom: .75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); }
+.cards .item-price { color: #22B8CF; }
+.cards .item-desc { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; color: #4A4A4A; }
+.cards p { color: #9B9B9B; }
+.cards .fa { font-size: 1.5em; padding-right: 20px; color: #22B8CF; }
+.cards .no-padding-left { padding-left: 0px; }
+.cards .no-padding-right { padding-right: 0px; }
+.cards .item-divider { background-color: #22B8CF; height: 4px; border-radius: 20px; margin-bottom: 12px; }
+
+.filters { color: #FAB005; padding-right: 10px; }
+
+.filters-result { padding-right: 15px; color: #9B9B9B; }
+
+#btn-side-container { position: fixed; }
+
+.btn-side-container-extra { position: relative; padding-bottom: 60px; }
 
 /*# sourceMappingURL=main.css.map */

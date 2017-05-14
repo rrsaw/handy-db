@@ -28,7 +28,6 @@ $factory->define(handy\Address::class, function (Faker\Generator $faker) {
       'civic_number' => $faker->randomDigitNotNull,
       'city' => $faker->city,
       'country' => $faker->country,
-      'cap' => $faker->randomDigitNotNull,
       'latitude' => $faker->latitude($min = -90, $max = 90) ,
       'longitude' => $faker->longitude($min = -180, $max = 180),
     ];
@@ -46,7 +45,7 @@ $factory->define(handy\Image::class, function (Faker\Generator $faker) {
     $id_item_random = Item::all()->pluck('id')->toArray();
 
     return [
-      'name' => $faker->url,
+      'name' => "objects.png",
       'id_item' => $faker->randomElement($id_item_random),
     ];
 });
@@ -85,7 +84,7 @@ $factory->define(handy\Loan::class, function (Faker\Generator $faker) {
 
 $factory->define(handy\ProfileImage::class, function (Faker\Generator $faker) {
     return [
-      'name' => $faker->url,
+      'name' => "defaultImage.jpg",
     ];
 });
 
