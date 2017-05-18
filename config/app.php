@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -180,6 +181,10 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+
+
+        Dingo\Api\Provider\LaravelServiceProvider::class
+
 
     ],
 
