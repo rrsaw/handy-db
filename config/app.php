@@ -137,8 +137,6 @@ return [
 
     'providers' => [
 
-        //Dingo
-        Dingo\Api\Provider\LaravelServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -184,6 +182,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+
+        handy\Providers\v1\LoanServiceProvider::class,
 
 
 

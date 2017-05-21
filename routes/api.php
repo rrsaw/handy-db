@@ -13,13 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-$api = app('Dingo\Api\Routing\Router');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-$api->version('v1', function ($api) {
-
-    $api->get('test', 'App\Http\Controllers\HomeController@index');
-});
+Route::resource('/v1/loans', v1\LoanController::class);
