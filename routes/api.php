@@ -21,8 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 $api->version('v1', function ($api) {
 
-    $api->get('test', function () {
-        return 'Hey, sembra che succeda qualcosa. Ricordati che una rondine non fa primavera!';
-    });
-
+    $api->get('test', 'App\Http\Controllers\HomeController@index');
 });

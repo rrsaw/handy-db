@@ -137,6 +137,9 @@ return [
 
     'providers' => [
 
+        //Dingo
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -183,7 +186,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
 
-        Dingo\Api\Provider\LaravelServiceProvider::class
 
 
     ],
