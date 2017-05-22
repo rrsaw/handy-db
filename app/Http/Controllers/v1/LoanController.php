@@ -1,10 +1,13 @@
 <?php
 
+
+
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
-use handy\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
+use handy\Http\Controllers\Controller;
 use handy\Services\v1\LoanService;
 
 class LoanController extends Controller
@@ -88,7 +91,16 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+       $loan = $this->loans->updateLoan($request, $id);
+       return response()->json($loan, 200);
+     }
+     catch (ModelNotFoundException $ex) {
+       throw $ex;
+     }
+     catch (Exception $e) {
+       return response()->json(['message' => $e->getMessage()], 500);
+     }
     }
 
     /**
@@ -99,6 +111,15 @@ class LoanController extends Controller
      */
     public function destroy($id)
     {
-        //
+      try {
+       $loan = $this->loans->deleteLoan($id);
+       return response()->make('', 204);
+     }
+     catch (ModelNotFoundException $ex) {
+       throw $ex;
+     }
+     catch (Exception $e) {
+       return response()->json(['message' => $e->getMessage()], 500);
+     }
     }
 }

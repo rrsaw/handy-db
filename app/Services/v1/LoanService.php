@@ -41,10 +41,28 @@ class LoanService {
     $loan->save();
 
     return $this->filterLoans([$loan]);
+  }
 
-    // return $loan;
+  public function updateLoan($req, $id) {
+    $loan = Loan::where('id', $id)->firstOrFail();
 
+    $loan->id = $req->input('id');
+    $loan->start_date = $req->input('start_date');
+    $loan->id_owner = $req->input('id_owner');
+    $loan->start_date = $req->input('start_date');
+    $loan->id_reciver = $req->input('id_receiver');
+    $loan->id_item = $req->input('id_item');
+    $loan->loan_confermation = $req->input('loan_confirmation');
+    $loan->return_confermation = $req->input('return_confirmation');
 
+    $loan->save();
+
+    return $this->filterLoans([$loan]);
+  }
+
+  public function deleteLoan($id) {
+    $loan = Loan::where('id', $id)->firstOrFail();
+    $loan->delete();
   }
 
   protected function filterLoans($loans) {
