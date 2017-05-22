@@ -10,6 +10,6 @@ class ProfileImage extends Model
     'name'
   ];
   public function user(){
-    return $this->hasOne('handy/User', 'id_profile_image');
+    return $this->hasOne('handy\User', 'id_profile_image');
   }
 }

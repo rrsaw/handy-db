@@ -8,27 +8,26 @@
   @include button(40px, $orange-d, 16px);
   margin-bottom: 20px;
   position: absolute;
-  right: 0px; top: 0px;
+  right: 50%; top: 0px;
+  margin-right: -30px;
   &:hover{
     @include button(132px, $orange-d, 16px);
-    @include box_shadow($grey-m, 4);
     transition: all ease 0.2s;
     animation-direction: alternate;
   }
   &:focus {
   outline: none;
-  @include box_shadow($grey-m, 2);
   transition: all ease 0.1s;
   }
 }
 .btn-circle-light {
   @include button(40px, $orange-l, 16px);
   position: absolute;
-  right: 0px; top: 0px;
+  right: 50%; top: 0px;
   margin-bottom: 20px;
+  margin-right: -30px;
   &:hover{
     @include button(132px, $orange-l, 16px);
-    @include box_shadow($grey-m, 2);
     transition: all ease 0.2s;
     animation-direction: alternate;
   }

@@ -54,9 +54,8 @@
   font: normal $fontSize 'Varela Round', sans-serif;
   border-radius: 20px;
   text-transform: uppercase;
-  @include box_shadow($blue-m, 2);
+  @include box_shadow($color, 2);
   &:hover{
-    @include box_shadow($blue-m, 4);
     transition: all ease 0.2s;
   }
 }

@@ -10,6 +10,6 @@ class Category extends Model
     'name', 'icon'
   ];
   public function item(){
-    return $this->hasOne('handy/Item', 'id_category');
+    return $this->hasOne('handy\Item', 'id_category');
   }
 }

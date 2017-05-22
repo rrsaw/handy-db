@@ -10,6 +10,6 @@ class Image extends Model
     'name'
   ];
   public function user(){
-    return $this->belongsTo('handy/Item', 'id_item');
+    return $this->belongsTo('handy\Item', 'id_item');
   }
 }

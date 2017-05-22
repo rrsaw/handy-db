@@ -24,9 +24,7 @@ Route::get('/confirm', function () {
 });
 Route::post('/confirm', 'RegistrationController@secondStep')->name('secondStep');
 
-Route::get('/explore', function () {
-  return view('explore');
-});
+Route::get('/explore', 'ExploreController@index');
 
 
 Auth::routes();

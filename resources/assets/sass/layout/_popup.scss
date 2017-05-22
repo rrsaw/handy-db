@@ -37,6 +37,8 @@
     border-radius: 200px;
     @include box_shadow($grey-d, 2);
     overflow: hidden;
+    width: 140px;
+    height: 140px;
     img{
       width: 100%;
     }

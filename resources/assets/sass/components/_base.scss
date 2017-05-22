@@ -1,3 +1,7 @@
+h1{
+  @include varelaFont(32px, $grey-d);
+}
+
 .error-block{
   margin-bottom: 10px;
   display: block;

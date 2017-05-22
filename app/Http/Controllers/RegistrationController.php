@@ -111,7 +111,7 @@ class RegistrationController extends Controller
                'id_profile_image' => $ProfileImage->id,
            ]);
 
-           return Redirect::to('/login');
+           return Redirect::to('/explore');
 
            }
       }

@@ -10,12 +10,12 @@ class Loan extends Model
     'start_date','end_date','loan_confermation','return_confermation','id_owner','id_reciver','id_item'
   ];
   public function owner(){
-    return $this->belongsTo('handy/User', 'id_owner');
+    return $this->belongsTo('handy\User', 'id_owner');
   }
   public function reciver(){
-    return $this->belongsTo('handy/User', 'id_reciver');
+    return $this->belongsTo('handy\User', 'id_reciver');
   }
   public function review(){
-    return $this->belongsTo('handy/Review', 'id_item');
+    return $this->belongsTo('handy\Review', 'id_item');
   }
 }

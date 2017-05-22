@@ -14,6 +14,6 @@ class ImagesTableSeeder extends Seeder
     public function run()
     {
       DB::table('images')->delete();
-      $image = factory(handy\Image::class, 20)->create();
+      $image = factory(handy\Image::class, 200)->create();
     }
 }

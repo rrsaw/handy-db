@@ -10,6 +10,6 @@ class Address extends Model
     'street', 'civic_number', 'city', 'coutry', 'latitude', 'longitude'
   ];
   public function user(){
-    return $this->hasOne('handy/User', 'id_address');
+    return $this->hasOne('handy\User', 'id_address');
   }
 }

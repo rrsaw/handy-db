@@ -27,24 +27,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function address(){
-      return $this->belongsTo('handy/Address', 'id_address');
+      return $this->belongsTo('handy\Address', 'id_address');
     }
     public function profileImage(){
-      return $this->belongsTo('handy/ProfileImage', 'id_profile_image');
+      return $this->belongsTo('handy\ProfileImage', 'id_profile_image');
     }
     public function ownerReview(){
-      return $this->hasOne('handy/Review', 'id_owner');
+      return $this->hasOne('handy\Review', 'id_owner');
     }
     public function reviwerReview(){
-      return $this->hasOne('handy/Review', 'id_reviewer');
+      return $this->hasOne('handy\Review', 'id_reviewer');
     }
     public function ownerLoans(){
-      return $this->hasOne('handy/Loan', 'id_owner');
+      return $this->hasOne('handy\Loan', 'id_owner');
     }
     public function reviwerLoans(){
-      return $this->hasOne('handy/Loan', 'id_reviewer');
+      return $this->hasOne('handy\Loan', 'id_reviewer');
     }
     public function item(){
-      return $this->hasMany('handy/Item', 'id_user');
+      return $this->hasMany('handy\Item', 'id_user');
     }
 }

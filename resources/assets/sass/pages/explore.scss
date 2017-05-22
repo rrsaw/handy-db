@@ -3,13 +3,15 @@
 .cards {
   margin-bottom: 20px;
 
-  img {
+  .image-item-card {
     margin-bottom: .75rem;
     @include box_shadow($grey-m, 3);
+    max-height: 300px;
+    overflow: hidden;
   }
 
   .item-price {
-    color: $blue-m;
+    @include dnipro(medium, 16px, $blue-m);
   }
   .item-desc {
     @include varelaFont(18px, $grey-d);
@@ -17,7 +19,7 @@
   }
 
   p {
-    color: $grey-m;
+    @include dnipro(regular, 15px, $grey-m);
   }
 
   .fa {
@@ -41,18 +43,33 @@
     margin-bottom: 12px;
   }
 }
-
-.filters {
-  color: $orange-l;
-  padding-right: 10px;
+.active-filters-explore{
+  margin: 10px 0;
+  .filters {
+    color: $orange-l;
+    padding-right: 10px;
+    display: inline-block;
+  }
+  .filters-result {
+    padding-right: 30px;
+    color: $grey-m;
+    display: inline-block;
+  }
 }
-.filters-result {
-  padding-right: 15px;
-  color: $grey-m
+
+.title-details-item{
+  margin-top: 10px;
 }
 
+.details-item{
+  display: block;
+  p, i{
+    display: inline-block;
+  }
+}
 #btn-side-container {
   position: fixed;
+  top:20px;
 
 }
 

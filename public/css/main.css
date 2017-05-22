@@ -6,18 +6,18 @@
 .title { font: normal 24px/1.5 "Varela Round", sans-serif; }
 
 .blueButton { width: 100%; padding: 10px 0; background-color: #22B8CF; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); }
-.blueButton:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.blueButton:hover { transition: all ease 0.2s; }
 
-.btn-circle { width: 40px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); margin-bottom: 20px; position: absolute; right: 0px; top: 0px; }
-.btn-circle:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
-.btn-circle:hover { width: 132px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); box-shadow: 0 14px 28px rgba(155, 155, 155, 0.25), 0 10px 10px rgba(155, 155, 155, 0.22); transition: all ease 0.2s; animation-direction: alternate; }
-.btn-circle:hover:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
-.btn-circle:focus { outline: none; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); transition: all ease 0.1s; }
+.btn-circle { width: 40px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(240, 140, 0, 0.16), 0 3px 6px rgba(240, 140, 0, 0.23); margin-bottom: 20px; position: absolute; right: 50%; top: 0px; margin-right: -30px; }
+.btn-circle:hover { transition: all ease 0.2s; }
+.btn-circle:hover { width: 132px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(240, 140, 0, 0.16), 0 3px 6px rgba(240, 140, 0, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
+.btn-circle:hover:hover { transition: all ease 0.2s; }
+.btn-circle:focus { outline: none; transition: all ease 0.1s; }
 
-.btn-circle-light { width: 40px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); position: absolute; right: 0px; top: 0px; margin-bottom: 20px; }
-.btn-circle-light:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
-.btn-circle-light:hover { width: 132px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
-.btn-circle-light:hover:hover { box-shadow: 0 14px 28px rgba(34, 184, 207, 0.25), 0 10px 10px rgba(34, 184, 207, 0.22); transition: all ease 0.2s; }
+.btn-circle-light { width: 40px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(250, 176, 5, 0.16), 0 3px 6px rgba(250, 176, 5, 0.23); position: absolute; right: 50%; top: 0px; margin-bottom: 20px; margin-right: -30px; }
+.btn-circle-light:hover { transition: all ease 0.2s; }
+.btn-circle-light:hover { width: 132px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(250, 176, 5, 0.16), 0 3px 6px rgba(250, 176, 5, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
+.btn-circle-light:hover:hover { transition: all ease 0.2s; }
 .btn-circle-light:focus { outline: none; }
 
 .checkbox > input[type="checkbox"] { display: none; }
@@ -26,6 +26,8 @@
 .checkbox__visual:before { content: ""; position: absolute; left: 0; width: 18px; height: 18px; border: 1px solid #9B9B9B; border-radius: 0.125em; transform-origin: 100% 100%; transition: transform .1s; }
 
 [type="checkbox"]:checked ~ .checkbox__visual:before { transform: rotate(40deg); height: 20px; width: 10px; top: -7px; left: -4px; border-left: none; border-top: none; border-right: 2px solid #F08C00; border-bottom: 2px solid #F08C00; }
+
+h1 { color: #4A4A4A; font: normal 32px "Varela Round", sans-serif; }
 
 .error-block { margin-bottom: 10px; display: block; }
 .error-block strong { color: #D0011B; text-transform: capitalize; }
@@ -36,7 +38,7 @@
 .popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
 .popup .popup-heading a.inactive { opacity: 0.5; }
 .popup .popup-heading a.inactive:hover { opacity: 1; }
-.popup .personal-image { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; }
+.popup .personal-image { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; width: 140px; height: 140px; }
 .popup .personal-image img { width: 100%; }
 .popup .personal-image .add-personal-image { display: none; }
 .popup .popup-body .input-container { margin-top: 5%; }
@@ -64,35 +66,44 @@
 .sidebar .nav-item + .nav-item { margin-left: 0; }
 
 .sidebar .nav-link { border-radius: 0; }
+.sidebar .nav-link span { vertical-align: text-bottom; }
 
-nav ul { margin-top: 60px; }
-nav i { margin-right: 32px; }
-nav li { font-size: 1.2rem; }
-nav .fa { font-size: 2rem; }
+nav ul { margin-top: 30px; }
+nav i { margin-right: 15%; }
+nav li { font-size: 1.6rem; }
+nav li .nav-link { padding: 15px 15%; }
+nav .fa { font-size: 3rem; }
+nav .fa.fa-archive { font-size: 2.3rem; margin-left: 10px; }
+nav .fa.fa-user { font-size: 2.8rem; margin-left: 4px; }
 nav .activate { color: #4A4A4A; }
 nav .deactivate { color: #E7E7E7; }
 
 li .activate { border-left: thick solid #FAB005; }
 
-#logo { width: 90px; height: auto; }
+#logo { margin: 0 auto; width: 85%; max-width: 100px; height: auto; }
 
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }
 
 .cards { margin-bottom: 20px; }
-.cards img { margin-bottom: .75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); }
-.cards .item-price { color: #22B8CF; }
+.cards .image-item-card { margin-bottom: .75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; }
+.cards .item-price { font: normal 16px "DIN Pro Medium", sans-serif; color: #22B8CF; }
 .cards .item-desc { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; color: #4A4A4A; }
-.cards p { color: #9B9B9B; }
+.cards p { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
 .cards .fa { font-size: 1.5em; padding-right: 20px; color: #22B8CF; }
 .cards .no-padding-left { padding-left: 0px; }
 .cards .no-padding-right { padding-right: 0px; }
 .cards .item-divider { background-color: #22B8CF; height: 4px; border-radius: 20px; margin-bottom: 12px; }
 
-.filters { color: #FAB005; padding-right: 10px; }
+.active-filters-explore { margin: 10px 0; }
+.active-filters-explore .filters { color: #FAB005; padding-right: 10px; display: inline-block; }
+.active-filters-explore .filters-result { padding-right: 30px; color: #9B9B9B; display: inline-block; }
 
-.filters-result { padding-right: 15px; color: #9B9B9B; }
+.title-details-item { margin-top: 10px; }
 
-#btn-side-container { position: fixed; }
+.details-item { display: block; }
+.details-item p, .details-item i { display: inline-block; }
+
+#btn-side-container { position: fixed; top: 20px; }
 
 .btn-side-container-extra { position: relative; padding-bottom: 60px; }
 
