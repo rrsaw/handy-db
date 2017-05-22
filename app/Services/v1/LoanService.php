@@ -3,6 +3,7 @@
 namespace handy\Services\v1;
 
 use handy\Loan;
+use handy\User;
 
 class LoanService {
 
@@ -21,6 +22,29 @@ class LoanService {
 
   public function getLoan($id) {
     return $this->filterLoans(Loan::where('id', $id)->get());
+  }
+
+  public function createLoan($req) {
+    $id = $req->input('id');
+
+    $loan = new Loan();
+    // $loan->id = $id;
+    $loan->id = $req->input('id');
+    $loan->start_date = $req->input('start_date');
+    $loan->id_owner = $req->input('id_owner');
+    $loan->start_date = $req->input('start_date');
+    $loan->id_reciver = $req->input('id_receiver');
+    $loan->id_item = $req->input('id_item');
+    $loan->loan_confermation = $req->input('loan_confirmation');
+    $loan->return_confermation = $req->input('return_confirmation');
+
+    $loan->save();
+
+    return $this->filterLoans([$loan]);
+
+    // return $loan;
+
+
   }
 
   protected function filterLoans($loans) {

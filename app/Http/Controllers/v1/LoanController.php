@@ -47,7 +47,13 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $loanId = $request->input('id');
+        try {
+         $loan = $this->loans->createLoan($request);
+         return response()->json($loan, 201);
+       } catch (Exception $e) {
+         return response()->json(['message' => $e->getMessage()], 500);
+       }
     }
 
     /**
