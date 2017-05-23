@@ -47,4 +47,10 @@ class User extends Authenticatable
     public function item(){
       return $this->hasMany('handy/Item', 'id_user');
     }
+    public function save(array $options = []) {
+      if (empty($this->api_token)) {
+        $this->api_token = str_random(60);
+      }
+      return parent::save($options);
+    }
 }

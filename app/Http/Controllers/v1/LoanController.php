@@ -1,8 +1,9 @@
 <?php
 
-
+//////////CACNCELLA DAL DB MA NON RIESCE A DARMI UNA RESPONSE
 
 namespace handy\Http\Controllers\v1;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -16,6 +17,8 @@ class LoanController extends Controller
     protected $loans;
     public function __construct(LoanService $service) {
       $this->loans = $service;
+
+      $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -50,7 +53,8 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        // $loanId = $request->input('id');
+        $this->loans->validate($request->all());
+
         try {
          $loan = $this->loans->createLoan($request);
          return response()->json($loan, 201);
@@ -91,6 +95,8 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $this->loans->validate($request->all());
+
       try {
        $loan = $this->loans->updateLoan($request, $id);
        return response()->json($loan, 200);
