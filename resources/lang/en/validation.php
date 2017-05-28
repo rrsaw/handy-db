@@ -86,6 +86,7 @@ return [
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
 
+    'loan_confirmation'    => 'The :attribute field can only be 0 or 1',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

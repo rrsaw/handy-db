@@ -1,10 +1,14 @@
 <?php
 
+//////////CACNCELLA DAL DB MA NON RIESCE A DARMI UNA RESPONSE
+
 namespace handy\Http\Controllers\v1;
 
-use Illuminate\Http\Request;
-use handy\Http\Controllers\Controller;
 
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+use handy\Http\Controllers\Controller;
 use handy\Services\v1\LoanService;
 
 class LoanController extends Controller
@@ -13,6 +17,8 @@ class LoanController extends Controller
     protected $loans;
     public function __construct(LoanService $service) {
       $this->loans = $service;
+
+      $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -47,7 +53,14 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->loans->validate($request->all());
+
+        try {
+         $loan = $this->loans->createLoan($request);
+         return response()->json($loan, 201);
+       } catch (Exception $e) {
+         return response()->json(['message' => $e->getMessage()], 500);
+       }
     }
 
     /**
@@ -82,7 +95,18 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->loans->validate($request->all());
+
+      try {
+       $loan = $this->loans->updateLoan($request, $id);
+       return response()->json($loan, 200);
+     }
+     catch (ModelNotFoundException $ex) {
+       throw $ex;
+     }
+     catch (Exception $e) {
+       return response()->json(['message' => $e->getMessage()], 500);
+     }
     }
 
     /**
@@ -93,6 +117,15 @@ class LoanController extends Controller
      */
     public function destroy($id)
     {
-        //
+      try {
+       $loan = $this->loans->deleteLoan($id);
+       return response()->make('', 204);
+     }
+     catch (ModelNotFoundException $ex) {
+       throw $ex;
+     }
+     catch (Exception $e) {
+       return response()->json(['message' => $e->getMessage()], 500);
+     }
     }
 }
