@@ -14,15 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::any('{all?}', 'ButtonsController@storeItem');
 
 Route::get('/registration', function () {
-  return view('auth.registration.first');
+    return view('auth.registration.first');
 });
 Route::post('/registration', 'RegistrationController@firstStep')->name('firstStep');
+
+
 Route::get('/confirm', function () {
-  return view('auth.registration.second');
+    return view('auth.registration.second');
 });
 Route::post('/confirm', 'RegistrationController@secondStep')->name('secondStep');
+
 
 Route::get('/explore', 'ExploreController@index');
 
