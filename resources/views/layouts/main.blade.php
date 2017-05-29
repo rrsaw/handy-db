@@ -18,8 +18,8 @@
           <li class="nav-item @yield('itemsMenu')">
             <a class="nav-link @yield('itemsMenu')" href="/items"><i class="fa fa-archive fa-fw" aria-hidden="true"></i><span class="hidden-sm">Items</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hidden-sm">Profile</span></a>
+          <li class="nav-item  @yield('userMenu')">
+            <a class="nav-link  @yield('userMenu')" href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hidden-sm">Profile</span></a>
           </li>
         </ul>
       </nav>
@@ -27,7 +27,7 @@
     <div class="searchbar">
       <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2">
         <form class="" action="index.html" method="post">
-          <input type="text" name="" value="" placeholder="Search">
+          <input type="text" name="search" value="" placeholder="Search">
         </form>
       </div>
     </div>
@@ -76,7 +76,7 @@
             <h3>New item</h3>
           </div>
           <div class="col-lg-8 col-md-8 no-padding-left">
-            <form role="form" method="POST" action="{{ route('firstStep') }}" autocomplete="off" enctype="multipart/form-data">
+            <form role="form" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
               <div class="name-input">
                   <input type="text" class="input" name="name" required>
                   <label class="label" for="name">Name</label>

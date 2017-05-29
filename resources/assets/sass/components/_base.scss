@@ -1,11 +1,20 @@
-h1{
+h1 {
   @include varelaFont(32px, $grey-d);
 }
 
-.error-block{
+main {
+  transition: 0.5s all ease;
+}
+
+.open-search {
+  margin-top: 80px;
+}
+
+.error-block {
   margin-bottom: 10px;
   display: block;
-  strong{
+
+  strong {
     color: $red;
     text-transform: capitalize;
   }

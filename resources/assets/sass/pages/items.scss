@@ -1,0 +1,30 @@
+.filters-items {
+  margin: 1% 0;
+
+  ul {
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 30px;
+
+      a {
+        @include dnipro(regular, 15px, $grey-m);
+
+        &.active {
+          color: $orange-l;
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: $orange-d;
+        }
+      }
+    }
+  }
+
+  &.select-user {
+    border-top: 1px solid #eee;
+    padding: 2% 0;
+  }
+}

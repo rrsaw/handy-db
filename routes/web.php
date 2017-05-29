@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::any('{all?}', 'ButtonsController@storeItem');
+// Route::any('{any}', 'ButtonsController@storeItem')->name('storeItem');
+//Route::controller('/', 'ButtonsController');
 
 Route::get('/registration', function () {
     return view('auth.registration.first');
@@ -29,6 +30,7 @@ Route::post('/confirm', 'RegistrationController@secondStep')->name('secondStep')
 
 
 Route::get('/explore', 'ExploreController@index');
+Route::get('/items', 'ItemsController@index');
 
 
 Auth::routes();

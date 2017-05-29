@@ -3,12 +3,6 @@
 namespace handy\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
-use Input;
-use Auth;
-use Redirect;
-use handy\Item;
-use handy\Image;
 
 class ButtonsController extends Controller
 {

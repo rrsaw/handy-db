@@ -1,0 +1,45 @@
+.modal {
+  @include gradient(#99e9f2, #1098ad);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+
+  .modal-body {
+    background-color: white;
+    border-radius: 30px;
+    padding: 2.5%;
+    position: relative;
+    margin-top: 10vh;
+
+    .modal-close {
+      background-color: $red;
+      color: $white;
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      @include box_shadow($grey-m, 1);
+      transition: 0.2s all ease;
+
+      &:hover {
+        transform: scale(1.1);
+        @include box_shadow($grey-m, 2);
+      }
+    }
+
+    .modal-title {
+      @include varelaFont(24px, $grey-d);
+    }
+
+    .blueButton:hover {
+      transform: scale(1.05);
+      @include box_shadow($blue-m, 3);
+    }
+  }
+}
