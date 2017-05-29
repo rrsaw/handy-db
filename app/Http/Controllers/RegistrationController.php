@@ -15,17 +15,18 @@ use handy\Address;
 
 class RegistrationController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('guest');
-  }
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
-  protected function firstStep(Request $request){
-    $rules = array(
+    protected function firstStep(Request $request)
+    {
+        $rules = array(
           'name' => 'required|string|max:255',
           'surname' => 'required|string|max:255',
           'email' => 'required|string|email|max:255|unique:users',
-          'phoneNumber' => 'required|min:11|numeric',
+          'phoneNumber' => 'required|min:8|numeric',
           'birthday'   => 'required|date',
           'image' => 'image:jpg,png,jpeg|max:5000'
        );
@@ -33,14 +34,13 @@ class RegistrationController extends Controller
        // possibile errore per Input::all() su app
        $validator = Validator::make(Input::all(), $rules);
 
-       if ($validator->fails()) {
-           return Redirect::to('/registration')->withInput()->withErrors($validator);
-       } else {
+        if ($validator->fails()) {
+            return Redirect::to('/registration')->withInput()->withErrors($validator);
+        } else {
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('images/personal-images'), $imageName);
 
-         $imageName = time().'.'.$request->image->getClientOriginalExtension();
-         $request->image->move(public_path('images/personal-images'), $imageName);
-
-           session([
+            session([
              'name' => $request->name,
              'surname' => $request->surname,
              'email' => $request->email,
@@ -52,13 +52,14 @@ class RegistrationController extends Controller
           //  $name = session('name');
           //  Log::info($name);
            return Redirect::to('/confirm');
-         }
+        }
     }
 
-    protected function secondStep(Request $request){
-      $address = $request->street." ".$request->civic." ".$request->city;
+    protected function secondStep(Request $request)
+    {
+        $address = $request->street." ".$request->civic." ".$request->city;
 
-      $rules = array(
+        $rules = array(
             'street' => 'required|string|max:255',
             'civic' => 'required|numeric|max:999|min:0',
             'city' => 'required|string|max:255',
@@ -66,28 +67,37 @@ class RegistrationController extends Controller
             'password' => 'required|string|min:6',
          );
 
-         $response = \GoogleMaps::load('geocoding')->setParam ([
-		          'address'    => $address,
-         	    'components' => [
-                     	'country'=> $request->country,
+        $response = \GoogleMaps::load('geocoding')->setParam([
+                  'address'    => $address,
+                 'components' => [
+                         'country'=> $request->country,
                       ]
                 ])
                 ->get();
 
          // possibile errore per Input::all() su app
          $validator = Validator::make(Input::all(), $rules);
-         $address = json_decode($response, true);
+        $address = json_decode($response, true);
 
-         if ($validator->fails()) {
-             return Redirect::to('/confirm')->withInput()->withErrors($validator);
-         } else if(count($address["results"]) == 0) {
-            return Redirect::to('/confirm')->withInput()->with("status","indirizzo sbagliato");
-         } else{
-           $latitude = $address["results"][0]["geometry"]["location"]["lat"];
-           $longitude = $address["results"][0]["geometry"]["location"]["lng"];
-           $country = $address["results"][0]["address_components"][6]["long_name"];
+        if ($validator->fails()) {
+            return Redirect::to('/confirm')->withInput()->withErrors($validator);
+        } elseif (count($address["results"]) == 0) {
+            return Redirect::to('/confirm')->withInput()->with("status", "indirizzo sbagliato");
+        } else {
+            $latitude = $address["results"][0]["geometry"]["location"]["lat"];
+            $longitude = $address["results"][0]["geometry"]["location"]["lng"];
+            $country = $address["results"][0]["address_components"][6]["long_name"];
 
-           $Address = Address::create([
+            // $address = new Address;
+            // $address->street =  $request->street;
+            // $address->civic_number =  $request->civic;
+            // $address->city =  $request->city;
+            // $address->country =  $country;
+            // $address->latitude =  $country;
+            // $address->longitude =  $country;
+            // $address->save();
+
+            $address = Address::create([
                  'street' => $request->street,
                  'civic_number' => $request->civic,
                  'city' => $request->city,
@@ -96,7 +106,7 @@ class RegistrationController extends Controller
                  'longitude' => $longitude,
             ]);
 
-            $ProfileImage = ProfileImage::create([
+            $profileImage = ProfileImage::create([
                   'name' => session('image'),
             ]);
 
@@ -107,13 +117,11 @@ class RegistrationController extends Controller
                'phone_number' => session('phoneNumber'),
                'birthday' => session('birthday'),
                'password' => bcrypt($request->password),
-               'id_address' => $Address->id,
-               'id_profile_image' => $ProfileImage->id,
+               'id_address' => $address->id,
+               'id_profile_image' => $profileImage->id,
            ]);
 
-           return Redirect::to('/explore');
-
-           }
-      }
-
+            return Redirect::to('/explore');
+        }
+    }
 }

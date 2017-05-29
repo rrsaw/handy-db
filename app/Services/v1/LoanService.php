@@ -24,7 +24,7 @@ class LoanService {
     'start_date' => 'required|date',
     'end_date' => 'required|date',
     'id_owner' => 'required',
-    'id_reciver' => 'required',
+    'id_receiver' => 'required',
     'id_item' => 'required',
     'loan_confirmation' => 'required|loan_confirmation',
     'return_confirmation' => 'required|loan_confirmation',
@@ -49,10 +49,10 @@ class LoanService {
     $loan->start_date = $req->input('start_date');
     $loan->id_owner = $req->input('id_owner');
     $loan->start_date = $req->input('start_date');
-    $loan->id_reciver = $req->input('id_reciver');
+    $loan->id_receiver = $req->input('id_receiver');
     $loan->id_item = $req->input('id_item');
-    $loan->loan_confermation = $req->input('loan_confirmation');
-    $loan->return_confermation = $req->input('return_confirmation');
+    $loan->loan_confirmation = $req->input('loan_confirmation');
+    $loan->return_confirmation = $req->input('return_confirmation');
 
     $loan->save();
 
@@ -66,10 +66,10 @@ class LoanService {
     $loan->start_date = $req->input('start_date');
     $loan->id_owner = $req->input('id_owner');
     $loan->start_date = $req->input('start_date');
-    $loan->id_reciver = $req->input('id_receiver');
+    $loan->id_receiver = $req->input('id_receiver');
     $loan->id_item = $req->input('id_item');
-    $loan->loan_confermation = $req->input('loan_confirmation');
-    $loan->return_confermation = $req->input('return_confirmation');
+    $loan->loan_confirmation = $req->input('loan_confirmation');
+    $loan->return_confirmation = $req->input('return_confirmation');
 
     $loan->save();
 
@@ -90,10 +90,10 @@ class LoanService {
               'end_date' => $loan->end_date,
               // 'href' => route('loans.show', ['id' => $loan->id])
               'id_owner' => $loan->id_owner,
-              'id_receiver' => $loan->id_reciver,
+              'id_receiver' => $loan->id_receiver,
               'id_item' => $loan->id_item,
-              'loan_confirmation' => $loan->loan_confermation,
-              'return_confirmation' => $loan->return_confermation,
+              'loan_confirmation' => $loan->loan_confirmation,
+              'return_confirmation' => $loan->return_confirmation,
 
           ];
 

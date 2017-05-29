@@ -13,14 +13,14 @@ class CreateLoansTable extends Migration
      */
     public function up()
     {
-      Schema::create('loans', function (Blueprint $table) {
-          $table->increments('id');
-          $table->date('start_date');
-          $table->date('end_date');
-          $table->boolean('loan_confermation');
-          $table->boolean('return_confermation');
-          $table->timestamps();
-      });
+        Schema::create('loans', function (Blueprint $table) {
+            $table->increments('id');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->boolean('loan_confirmation');
+            $table->boolean('return_confirmation');
+            $table->timestamps();
+        });
     }
 
     /**

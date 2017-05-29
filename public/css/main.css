@@ -8,17 +8,17 @@
 .blueButton { width: 100%; padding: 10px 0; background-color: #22B8CF; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(34, 184, 207, 0.16), 0 3px 6px rgba(34, 184, 207, 0.23); }
 .blueButton:hover { transition: all ease 0.2s; }
 
-.btn-circle { width: 40px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(240, 140, 0, 0.16), 0 3px 6px rgba(240, 140, 0, 0.23); margin-bottom: 20px; position: absolute; right: 50%; top: 0px; margin-right: -30px; }
+.btn-circle { width: 40px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(240, 140, 0, 0.16), 0 3px 6px rgba(240, 140, 0, 0.23); margin-bottom: 20px; position: absolute; right: 50%; top: 0; margin-right: -30px; }
 .btn-circle:hover { transition: all ease 0.2s; }
 .btn-circle:hover { width: 132px; padding: 10px 0; background-color: #F08C00; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(240, 140, 0, 0.16), 0 3px 6px rgba(240, 140, 0, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
 .btn-circle:hover:hover { transition: all ease 0.2s; }
-.btn-circle:focus { outline: none; transition: all ease 0.1s; }
+.btn-circle:focus { outline: none; transition: all ease 0.1s; color: #FFF; }
 
-.btn-circle-light { width: 40px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(250, 176, 5, 0.16), 0 3px 6px rgba(250, 176, 5, 0.23); position: absolute; right: 50%; top: 0px; margin-bottom: 20px; margin-right: -30px; }
+.btn-circle-light { width: 40px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(250, 176, 5, 0.16), 0 3px 6px rgba(250, 176, 5, 0.23); position: absolute; right: 50%; top: 0; margin-bottom: 20px; margin-right: -30px; }
 .btn-circle-light:hover { transition: all ease 0.2s; }
 .btn-circle-light:hover { width: 132px; padding: 10px 0; background-color: #FAB005; border: none; transition: all ease 0.2s; color: #FFF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; box-shadow: 0 3px 6px rgba(250, 176, 5, 0.16), 0 3px 6px rgba(250, 176, 5, 0.23); transition: all ease 0.2s; animation-direction: alternate; }
 .btn-circle-light:hover:hover { transition: all ease 0.2s; }
-.btn-circle-light:focus { outline: none; }
+.btn-circle-light:focus { outline: none; color: #FFF; }
 
 .checkbox > input[type="checkbox"] { display: none; }
 

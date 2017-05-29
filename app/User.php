@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'birthday', 'email', 'phone_number', 'password', 'id_address', 'id_profile_image'
+        'name', 'surname', 'birth_date', 'email', 'phone_number', 'password', 'id_address', 'id_profile_image'
     ];
 
     /**
@@ -26,31 +26,39 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function address(){
-      return $this->belongsTo('handy\Address', 'id_address');
+    public function address()
+    {
+        return $this->belongsTo('handy\Address', 'id_address');
     }
-    public function profileImage(){
-      return $this->belongsTo('handy\ProfileImage', 'id_profile_image');
+    public function profileImage()
+    {
+        return $this->belongsTo('handy\ProfileImage', 'id_profile_image');
     }
-    public function ownerReview(){
-      return $this->hasOne('handy\Review', 'id_owner');
+    public function ownerReview()
+    {
+        return $this->hasOne('handy\Review', 'id_owner');
     }
-    public function reviwerReview(){
-      return $this->hasOne('handy\Review', 'id_reviewer');
+    public function reviwerReview()
+    {
+        return $this->hasOne('handy\Review', 'id_reviewer');
     }
-    public function ownerLoans(){
-      return $this->hasOne('handy\Loan', 'id_owner');
+    public function ownerLoans()
+    {
+        return $this->hasOne('handy\Loan', 'id_owner');
     }
-    public function reviwerLoans(){
-      return $this->hasOne('handy\Loan', 'id_reviewer');
+    public function reviwerLoans()
+    {
+        return $this->hasOne('handy\Loan', 'id_reviewer');
     }
-    public function item(){
-      return $this->hasMany('handy\Item', 'id_user');
+    public function item()
+    {
+        return $this->hasMany('handy\Item', 'id_user');
     }
-    public function save(array $options = []) {
-      if (empty($this->api_token)) {
-        $this->api_token = str_random(60);
-      }
-      return parent::save($options);
+    public function save(array $options = [])
+    {
+        if (empty($this->api_token)) {
+            $this->api_token = str_random(60);
+        }
+        return parent::save($options);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ForeignLoansReciver extends Migration
+class ForeignLoansReceiver extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class ForeignLoansReciver extends Migration
     public function up()
     {
         Schema::table('loans', function (Blueprint $table) {
-          $table->integer('id_reciver')->unsigned();
-          $table->foreign('id_reciver')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('id_receiver')->unsigned();
+            $table->foreign('id_receiver')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -27,8 +27,8 @@ class ForeignLoansReciver extends Migration
     public function down()
     {
         Schema::table('loans', function (Blueprint $table) {
-          $table->dropForeign(['id_reciver']);
-          $table->dropColumn('id_reciver');
+            $table->dropForeign(['id_receiver']);
+            $table->dropColumn('id_receiver');
         });
     }
 }

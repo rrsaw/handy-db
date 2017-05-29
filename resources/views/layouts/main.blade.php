@@ -69,14 +69,16 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12 col-lg-offset-2 col-md-offset-2">
         <div class="modal-body">
-          <div class="modal-close">
-            <i class="fa fa-times"></i>
-          </div>
-          <div class="modal-title">
-            <h3>New item</h3>
-          </div>
-          <div class="col-lg-8 col-md-8 no-padding-left">
-            <form role="form" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+          <form role="form" method="POST" action="{{ route('storeItem')}}" autocomplete="off" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="modal-close">
+              <i class="fa fa-times"></i>
+            </div>
+            <div class="modal-title">
+              <h3>New item</h3>
+            </div>
+            <div class="col-lg-8 col-md-8 no-padding-left">
+
               <div class="name-input">
                   <input type="text" class="input" name="name" required>
                   <label class="label" for="name">Name</label>

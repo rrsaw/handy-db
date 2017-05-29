@@ -15,7 +15,7 @@
         <ul>
           <li><a class="@yield('publishedFilter')" href="/published">Published</a></li>
           <li><a class="@yield('currentFilter')" href="/current">Current loans</a></li>
-          <li><a class="@yield('confermationFilter')" href="/confermation">Confermation</a></li>
+          <li><a class="@yield('confirmationFilter')" href="/confirmation">Confirmation</a></li>
           <li><a class="@yield('historyFilter')" href="/history">History</a></li>
         </ul>
       </div>

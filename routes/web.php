@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::any('{any}', 'ButtonsController@storeItem')->name('storeItem');
+
+Route::post('/store-item', 'ButtonsController@storeItem')->name('storeItem');
 //Route::controller('/', 'ButtonsController');
 
 Route::get('/registration', function () {
@@ -31,7 +32,6 @@ Route::post('/confirm', 'RegistrationController@secondStep')->name('secondStep')
 
 Route::get('/explore', 'ExploreController@index');
 Route::get('/items', 'ItemsController@index');
-
 
 Auth::routes();
 
