@@ -1,0 +1,23 @@
+.searchbar {
+  position: relative;
+
+  input {
+    position: absolute;
+    top: -80px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 2% 0;
+    @include dnipro( 'medium', 22px, $grey-d);
+    transition: 0.5s all ease;
+
+    &::placeholder {
+      @include varelaFont(24px, $grey-l);
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}

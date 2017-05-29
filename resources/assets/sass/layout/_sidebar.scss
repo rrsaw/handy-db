@@ -5,13 +5,14 @@
 
 .sidebar {
   position: fixed;
-  top: 0px;
+  top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   padding: 20px;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
   border-right: 1px solid #eee;
 }
 
@@ -34,7 +35,8 @@
 
 .sidebar .nav-link {
   border-radius: 0;
-  span{
+
+  span {
     vertical-align: text-bottom;
   }
 }
@@ -43,22 +45,28 @@ nav {
   ul {
     margin-top: 30px;
   }
+
   i {
     margin-right: 15%;
   }
+
   li {
     font-size: 1.6rem;
-    .nav-link{
+
+    .nav-link {
       padding: 15px 15%;
     }
   }
+
   .fa {
     font-size: 3rem;
-    &.fa-archive{
+
+    &.fa-archive {
       font-size: 2.3rem;
       margin-left: 10px;
     }
-    &.fa-user{
+
+    &.fa-user {
       font-size: 2.8rem;
       margin-left: 4px;
     }
@@ -71,7 +79,6 @@ nav {
   .deactivate {
     color: $grey-l;
   }
-
 }
 
 li .activate {
