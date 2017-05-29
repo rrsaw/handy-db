@@ -183,7 +183,16 @@ return [
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+        //API 
         handy\Providers\v1\LoanServiceProvider::class,
+        handy\Providers\v1\AddressServiceProvider::class,
+        handy\Providers\v1\CategoryServiceProvider::class,
+        handy\Providers\v1\ImageServiceProvider::class,
+        handy\Providers\v1\ItemServiceProvider::class,
+        handy\Providers\v1\ProfileImageServiceProvider::class,
+        handy\Providers\v1\ReviewServiceProvider::class,
+        handy\Providers\v1\UserServiceProvider::class,
+
 
 
 
