@@ -31,7 +31,7 @@ Route::post('/confirm', 'RegistrationController@secondStep')->name('secondStep')
 
 
 Route::get('/explore', 'ExploreController@index');
-Route::get('/items', 'ItemsController@index');
+Route::resource('/items', 'ItemsController');
 
 Auth::routes();
 

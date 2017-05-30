@@ -26,7 +26,7 @@
 
           <div class="cards col-lg-4 col-md-4 col-sm-6">
             <div class="image-item-card">
-              <img src="{{ asset('img/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
+              <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="row">

@@ -20,7 +20,7 @@ class ExploreController extends Controller
      */
     public function index()
     {
-      $items = Item::all();
+        $items = Item::all();
       //Log::info($items->user);
 
       return view('explore', compact('items'));
@@ -89,6 +89,5 @@ class ExploreController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }
