@@ -1,8 +1,10 @@
 <?php
 
 namespace handy\Providers\v1;
+
 use handy\Services\v1;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AddressServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,9 @@ class AddressServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Validator::extend('address_confirmation', function ($attribute, $value, $parameters, $validator) {
+        //     return $value == 1 || $value == 0;
+        // });
     }
 
     /**
@@ -23,8 +27,8 @@ class AddressServiceProvider extends ServiceProvider
      */
     public function register()
     {
-      $this->app->bind(AddressService::class, function($app){
-        return new AddressService();
-      });
+        $this->app->bind(AddressService::class, function ($app) {
+            return new AddressService();
+        });
     }
 }

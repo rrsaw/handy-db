@@ -6,7 +6,6 @@ namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-
 use handy\Http\Controllers\Controller;
 use handy\Services\v1\LoanService;
 

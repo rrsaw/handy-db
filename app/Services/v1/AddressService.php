@@ -1,17 +1,22 @@
 <?php
 
 namespace handy\Services\v1;
+
 use Validator;
-
-
 use handy\Address;
 use handy\User;
 
-class AddressService {
-  public function getAddresses(){
-    return Address::all();
-  }
-}
+class AddressService
+{
+    public function getAddresses($parameters)
+    {
+        if (empty($parameters)) {
+            return $this->filterAddress(Address::all());
+        }
+        if (isset($parameters['include'])) {
+            $includeParms = explode(',', $parameters['include']);
+        }
+    }
 
 // class AddressService {
 //   public function getAddresses($parameters) {
@@ -25,86 +30,86 @@ class AddressService {
 //
 //   }
 
-//   protected $rules = [
-//     'id' => 'required',
-//     'start_date' => 'required|date',
-//     'end_date' => 'required|date',
-//     'id_owner' => 'required',
-//     'id_reciver' => 'required',
-//     'id_item' => 'required',
-//     'loan_confirmation' => 'required|loan_confirmation',
-//     'return_confirmation' => 'required|loan_confirmation',
-//   ];
-//
-//   public function validate($loan) {
-//     $validator = Validator::make($loan, $this->rules);
-//     $validator->validate();
-//
-//   }
-//
-//   public function getLoan($id) {
-//     return $this->filterLoans(Loan::where('id', $id)->get());
-//   }
-//
-//   public function createLoan($req) {
-//     $id = $req->input('id');
-//
-//     $loan = new Loan();
-//     // $loan->id = $id;
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_reciver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function updateLoan($req, $id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_receiver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function deleteLoan($id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//     $loan->delete();
-//   }
-//
-//   protected function filterLoans($loans) {
-//       $data = [];
-//       foreach ($loans as $loan) {
-//           $entry = [
-//               'id' => $loan->id,
-//               'start_date' => $loan->start_date,
-//               'end_date' => $loan->end_date,
-//               // 'href' => route('loans.show', ['id' => $loan->id])
-//               'id_owner' => $loan->id_owner,
-//               'id_receiver' => $loan->id_reciver,
-//               'id_item' => $loan->id_item,
-//               'loan_confirmation' => $loan->loan_confermation,
-//               'return_confirmation' => $loan->return_confermation,
-//
-//           ];
-//
-//           $data[] = $entry;
-//       }
-//       return $data;
-//   }
-// }
+  protected $rules = [
+    'id' => 'required',
+    'street' => 'required',
+    'civic_number' => 'required',
+    'city' => 'required',
+    'country' => 'required',
+    'latitude' => 'required',
+    'longitude' => 'required',
+  ];
+
+
+    public function validate($address)
+    {
+        $validator = Validator::make($address, $this->rules);
+        $validator->validate();
+    }
+
+    public function getAddress($id)
+    {
+        return $this->filterAddress(Address::where('id', $id)->get());
+    }
+
+    public function createAddress($req)
+    {
+        $id = $req->input('id');
+
+        $address = new Loan();
+        $address->id = $req->input('id');
+        $address->street = $req->input('street');
+        $address->civic_number = $req->input('civic_number');
+        $address->city = $req->input('city');
+        $address->country = $req->input('country');
+        $address->latitude = $req->input('latitude');
+        $address->longitude = $req->input('longitude');
+
+        $address->save();
+
+        return $this->filterLoans([$address]);
+    }
+
+    public function updateAddress($req, $id)
+    {
+        $loan = Loan::where('id', $id)->firstOrFail();
+
+        $address->id = $req->input('id');
+        $address->street = $req->input('street');
+        $address->civic_number = $req->input('civic_number');
+        $address->city = $req->input('city');
+        $address->country = $req->input('country');
+        $address->latitude = $req->input('latitude');
+        $address->longitude = $req->input('longitude');
+
+        $address->save();
+
+        return $this->filterAddress([$address]);
+    }
+
+    public function deleteAddress($id)
+    {
+        $address = Address::where('id', $id)->firstOrFail();
+        $address->delete();
+    }
+
+    protected function filterAddress($addresses)
+    {
+        $data = [];
+        foreach ($addresses as $address) {
+            $entry = [
+              'id' => $address->id,
+              'street' => $address->street,
+              'civic_number' => $address->civic_number,
+              // 'href' => route('loans.show', ['id' => $loan->id])
+              'city' => $address->city,
+              'country' => $address->country,
+              'latitude' => $address->latitude,
+              'longitude' => $address->longitude,
+          ];
+
+            $data[] = $entry;
+        }
+        return $data;
+    }
+}
