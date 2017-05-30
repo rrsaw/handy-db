@@ -3,18 +3,19 @@
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use handy\Http\Controllers\Controller;
-
 use handy\Services\v1\AddressService;
 
 class AddressController extends Controller
 {
-  protected $addresses;
-  public function __construct(AddressService $service) {
-    $this->addresses = $service;
+    protected $addresses;
+    public function __construct(AddressService $service)
+    {
+        $this->addresses = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +23,8 @@ class AddressController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->addresses->getAddresses();
+        $parameters = request()->input();
+        $data = $this->addresses->getAddresses($parameters);
       // $data = $this->addresses->getAddresses($parameters);
 
       return response()->json($data);
@@ -47,7 +48,14 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->addresses->validate($request->all());
+
+        try {
+            $address = $this->addresses->createAddress($request);
+            return response()->json($address, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +66,8 @@ class AddressController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->addresses->getAddress($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +90,16 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->addresses->validate($request->all());
+
+        try {
+            $address = $this->address->updateAddress($request, $id);
+            return response()->json($address, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +110,13 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $address = $this->address->deleteAddress($id);
+            return response()->json($address, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
