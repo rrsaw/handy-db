@@ -1,110 +1,88 @@
 <?php
 
 namespace handy\Services\v1;
+
 use Validator;
-
-
 use handy\Image;
+use handy\Item;
 use handy\User;
 
-class ImageService {
-  public function getImages(){
-    return Image::all();
-  }
+class ImageService
+{
+    public function getImages($parameters)
+    {
+        if (empty($parameters)) {
+            return $this->filterImages(Image::all());
+        }
+
+        if (isset($parameters['include'])) {
+            $includeParms = explode(',', $parameters['include']);
+        }
+    }
+
+    protected $rules = [
+    'id' => 'required',
+    'name' => 'name',
+    'id_item' => 'id_item',
+  ];
+
+    public function validate($image)
+    {
+        $validator = Validator::make($image, $this->rules);
+        $validator->validate();
+    }
+
+    public function getImage($id)
+    {
+        return $this->filterImages(Image::where('id', $id)->get());
+    }
+
+    public function createImage($req)
+    {
+        $id = $req->input('id');
+
+        $image = new Image();
+    // $image->id = $id;
+        $image->id = $req->input('id');
+        $image->name = $req->input('name');
+        $image->id_item = $req->input('id_item');
+
+        $image->save();
+
+        return $this->filterImages([$image]);
+    }
+
+    public function updateImage($req, $id)
+    {
+        $image = Image::where('id', $id)->firstOrFail();
+
+        $image->id = $req->input('id');
+        $image->name = $req->input('name');
+        $image->id_item = $req->input('id_item');
+
+        $image->save();
+
+        return $this->filterImages([$image]);
+    }
+
+    public function deleteImage($id)
+    {
+        $image = Image::where('id', $id)->firstOrFail();
+        $image->delete();
+    }
+
+    protected function filterImages($images)
+    {
+        $data = [];
+        foreach ($images as $image) {
+            $entry = [
+              'id' => $image->id,
+              'name' => $image->name,
+              'id_item' => $image->id_item,
+          ];
+
+            $data[] = $entry;
+        }
+        return $data;
+    }
 }
-
-// class AddressService {
-//   public function getAddresses($parameters) {
-//     if (empty($parameters)) {
-//         return $this->filterLoans(Loan::all());
-//     }
-//
-//     if (isset($parameters['include'])) {
-//         $includeParms = explode(',', $parameters['include']);
-//     }
-//
-//   }
-
-//   protected $rules = [
-//     'id' => 'required',
-//     'start_date' => 'required|date',
-//     'end_date' => 'required|date',
-//     'id_owner' => 'required',
-//     'id_reciver' => 'required',
-//     'id_item' => 'required',
-//     'loan_confirmation' => 'required|loan_confirmation',
-//     'return_confirmation' => 'required|loan_confirmation',
-//   ];
-//
-//   public function validate($loan) {
-//     $validator = Validator::make($loan, $this->rules);
-//     $validator->validate();
-//
-//   }
-//
-//   public function getLoan($id) {
-//     return $this->filterLoans(Loan::where('id', $id)->get());
-//   }
-//
-//   public function createLoan($req) {
-//     $id = $req->input('id');
-//
-//     $loan = new Loan();
-//     // $loan->id = $id;
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_reciver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function updateLoan($req, $id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_receiver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function deleteLoan($id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//     $loan->delete();
-//   }
-//
-//   protected function filterLoans($loans) {
-//       $data = [];
-//       foreach ($loans as $loan) {
-//           $entry = [
-//               'id' => $loan->id,
-//               'start_date' => $loan->start_date,
-//               'end_date' => $loan->end_date,
-//               // 'href' => route('loans.show', ['id' => $loan->id])
-//               'id_owner' => $loan->id_owner,
-//               'id_receiver' => $loan->id_reciver,
-//               'id_item' => $loan->id_item,
-//               'loan_confirmation' => $loan->loan_confermation,
-//               'return_confirmation' => $loan->return_confermation,
-//
-//           ];
-//
-//           $data[] = $entry;
-//       }
-//       return $data;
-//   }
-// }

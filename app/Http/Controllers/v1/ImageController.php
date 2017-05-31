@@ -1,20 +1,23 @@
 <?php
 
+
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use handy\Http\Controllers\Controller;
-
 use handy\Services\v1\ImageService;
 
 class ImageController extends Controller
 {
-  protected $Images;
-  public function __construct(ImageService $service) {
-    $this->Images = $service;
+    // laravel dependecy injection
+    protected $images;
+    public function __construct(ImageService $service)
+    {
+        $this->images = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +25,10 @@ class ImageController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->Images->getImages();
-      // $data = $this->addresses->getAddresses($parameters);
+        $parameters = request()->input();
+        $data = $this->images->getImages($parameters);
 
-      return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +49,14 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->images->validate($request->all());
+
+        try {
+            $image = $this->images->createImage($request);
+            return response()->json($image, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +67,8 @@ class ImageController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->images->getImage($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +91,16 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->images->validate($request->all());
+
+        try {
+            $image = $this->images->updateImage($request, $id);
+            return response()->json($image, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +111,13 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $image = $this->images->deleteImage($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
