@@ -38,7 +38,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('handy\Review', 'id_owner');
     }
-    public function reviwerReview()
+    public function reviewerReview()
     {
         return $this->hasOne('handy\Review', 'id_reviewer');
     }
@@ -46,7 +46,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('handy\Loan', 'id_owner');
     }
-    public function reviwerLoans()
+    public function reviewerLoans()
     {
         return $this->hasOne('handy\Loan', 'id_reviewer');
     }

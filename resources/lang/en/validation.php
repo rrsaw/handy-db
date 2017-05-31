@@ -87,6 +87,8 @@ return [
     'url'                  => 'The :attribute format is invalid.',
 
     'loan_confirmation'    => 'The :attribute field can only be 0 or 1',
+    'reviews_value'    => 'The :attribute field can only be between 1 and 5',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

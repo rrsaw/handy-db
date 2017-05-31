@@ -3,18 +3,19 @@
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use handy\Http\Controllers\Controller;
-
 use handy\Services\v1\ReviewService;
 
 class ReviewController extends Controller
 {
-  protected $items;
-  public function __construct(ReviewService $service) {
-    $this->reviews = $service;
+    protected $reviews;
+    public function __construct(ReviewService $service)
+    {
+        $this->reviews = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->reviews->getReviews();
-      // $data = $this->addresses->getAddresses($parameters);
-
-      return response()->json($data);
+        $parameters = request()->input();
+        $data = $this->reviews->getReviews($parameters);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +46,14 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->reviews->validate($request->all());
+
+        try {
+            $review = $this->reviews->createReview($request);
+            return response()->json($review, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +64,8 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->reviews->getReview($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +88,16 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->reviews->validate($request->all());
+
+        try {
+            $review = $this->reviews->updateReview($request, $id);
+            return response()->json($review, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +108,13 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $review = $this->reviews->deleteReview($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
