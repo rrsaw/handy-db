@@ -1,110 +1,123 @@
 <?php
 
 namespace handy\Services\v1;
+
 use Validator;
 
-//warning da guardare
 // use handy\User;
 use handy\User;
 
-class UserService {
-  public function getUsers(){
-    return User::all();
-  }
+class UserService
+{
+    public function getUsers($parameters)
+    {
+        if (empty($parameters)) {
+            return $this->filterUsers(User::all());
+        }
+
+        if (isset($parameters['include'])) {
+            $includeParms = explode(',', $parameters['include']);
+        }
+    }
+
+
+    protected $rules = [
+    'id' => 'required',
+    'name' => 'required',
+    'surname' => 'required',
+    'birth_date' => 'required|date',
+    'email' => 'required',
+    'phone_number' => 'required',
+    'password' => 'required',
+    'remember_token' => 'required',
+    'id_address' => 'required',
+    'id_profile_image' => 'required',
+    'api_token' => 'required',
+  ];
+
+    public function validate($user)
+    {
+        $validator = Validator::make($user, $this->rules);
+        $validator->validate();
+    }
+
+    public function getUser($id)
+    {
+        return $this->filterUsers(User::where('id', $id)->get());
+    }
+
+    public function createUser($req)
+    {
+        $id = $req->input('id');
+
+        $user = new User();
+    // $loan->id = $id;
+        $user->id = $req->input('id');
+        $user->name = $req->input('name');
+        $user->surname = $req->input('surname');
+        $user->birth_date = $req->input('birth_date');
+        $user->email = $req->input('email');
+        $user->phone_number = $req->input('phone_number');
+        $user->password = $req->input('password');
+        $user->remember_token = $req->input('remember_token');
+        $user->id_address = $req->input('id_address');
+        $user->id_profile_image = $req->input('id_profile_image');
+        $user->api_token = $req->input('api_token');
+
+        $user->save();
+
+        return $this->filterUsers([$user]);
+    }
+
+    public function updateUser($req, $id)
+    {
+        $user = User::where('id', $id)->firstOrFail();
+
+        $user->id = $req->input('id');
+        $user->name = $req->input('name');
+        $user->surname = $req->input('surname');
+        $user->birth_date = $req->input('birth_date');
+        $user->email = $req->input('email');
+        $user->phone_number = $req->input('phone_number');
+        $user->password = $req->input('password');
+        $user->remember_token = $req->input('remember_token');
+        $user->id_address = $req->input('id_address');
+        $user->id_profile_image = $req->input('id_profile_image');
+        $user->api_token = $req->input('api_token');
+
+        $user->save();
+
+        return $this->filterUsers([$user]);
+    }
+
+    public function deletUsers($id)
+    {
+        $users = User::where('id', $id)->firstOrFail();
+        $users->delete();
+    }
+
+    protected function filterUsers($users)
+    {
+        $data = [];
+        foreach ($users as $user) {
+            $entry = [
+              'id' => $user->id,
+              'name' => $user->name,
+              'surname' => $user->surname,
+              // 'href' => route('loans.show', ['id' => $loan->id])
+              'birth_date' => $user->birth_date,
+              'email' => $user->email,
+              'phone_number' => $user->phone_number,
+              'password' => $user->password,
+              'remember_token' => $user->remember_token,              'remember_token' => $user->remember_token,
+              'id_address' => $user->id_address,
+              'id_profile_image' => $user->id_profile_image,
+              'api_token' => $user->api_token,
+
+          ];
+
+            $data[] = $entry;
+        }
+        return $data;
+    }
 }
-
-// class AddressService {
-//   public function getAddresses($parameters) {
-//     if (empty($parameters)) {
-//         return $this->filterLoans(Loan::all());
-//     }
-//
-//     if (isset($parameters['include'])) {
-//         $includeParms = explode(',', $parameters['include']);
-//     }
-//
-//   }
-
-//   protected $rules = [
-//     'id' => 'required',
-//     'start_date' => 'required|date',
-//     'end_date' => 'required|date',
-//     'id_owner' => 'required',
-//     'id_reciver' => 'required',
-//     'id_item' => 'required',
-//     'loan_confirmation' => 'required|loan_confirmation',
-//     'return_confirmation' => 'required|loan_confirmation',
-//   ];
-//
-//   public function validate($loan) {
-//     $validator = Validator::make($loan, $this->rules);
-//     $validator->validate();
-//
-//   }
-//
-//   public function getLoan($id) {
-//     return $this->filterLoans(Loan::where('id', $id)->get());
-//   }
-//
-//   public function createLoan($req) {
-//     $id = $req->input('id');
-//
-//     $loan = new Loan();
-//     // $loan->id = $id;
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_reciver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function updateLoan($req, $id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//
-//     $loan->id = $req->input('id');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_owner = $req->input('id_owner');
-//     $loan->start_date = $req->input('start_date');
-//     $loan->id_reciver = $req->input('id_receiver');
-//     $loan->id_item = $req->input('id_item');
-//     $loan->loan_confermation = $req->input('loan_confirmation');
-//     $loan->return_confermation = $req->input('return_confirmation');
-//
-//     $loan->save();
-//
-//     return $this->filterLoans([$loan]);
-//   }
-//
-//   public function deleteLoan($id) {
-//     $loan = Loan::where('id', $id)->firstOrFail();
-//     $loan->delete();
-//   }
-//
-//   protected function filterLoans($loans) {
-//       $data = [];
-//       foreach ($loans as $loan) {
-//           $entry = [
-//               'id' => $loan->id,
-//               'start_date' => $loan->start_date,
-//               'end_date' => $loan->end_date,
-//               // 'href' => route('loans.show', ['id' => $loan->id])
-//               'id_owner' => $loan->id_owner,
-//               'id_receiver' => $loan->id_reciver,
-//               'id_item' => $loan->id_item,
-//               'loan_confirmation' => $loan->loan_confermation,
-//               'return_confirmation' => $loan->return_confermation,
-//
-//           ];
-//
-//           $data[] = $entry;
-//       }
-//       return $data;
-//   }
-// }

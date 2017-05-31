@@ -9,12 +9,13 @@ use handy\Services\v1\UserService;
 
 class UserController extends Controller
 {
-  protected $Items;
-  public function __construct(UserService $service) {
-    $this->users = $service;
+    protected $Items;
+    public function __construct(UserService $service)
+    {
+        $this->users = $service;
 
     // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,10 @@ class UserController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->users->getUsers();
-      // $data = $this->addresses->getAddresses($parameters);
+        $parameters = request()->input();
+        $data = $this->users->getUsers($parameters);
 
-      return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +47,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->users->validate($request->all());
+
+        try {
+            $user = $this->users->createUser($request);
+            return response()->json($user, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +65,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->users->getUser($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +89,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->users->validate($request->all());
+
+        try {
+            $user = $this->users->updateUser($request, $id);
+            return response()->json($user, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +109,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $user = $this->users->deleteUser($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
