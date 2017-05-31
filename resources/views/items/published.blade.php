@@ -12,7 +12,7 @@
 
       <div class="cards col-lg-4 col-md-4 col-sm-6">
         <div class="image-item-card">
-          <img src="{{ asset('img/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
+          <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
         </div>
         <div class="col-lg-12 col-md-12">
           <div class="row">
@@ -21,7 +21,15 @@
                 <p class="float-left item-desc">{{ $item->name }}</p>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
-                <p class="text-right item-price">{{ $item->price }} € Daily</p>
+                <div class="edit-cancel-published text-right">
+                  <i class="fa fa-pencil"></i>
+                  {{ Form::open(array('url' => 'items/'.$item->id, 'class' => 'pull-right')) }}
+                      {{ Form::hidden('_method', 'DELETE') }}
+                      <button type="submit">
+                        <i class="fa fa-pencil no-padding-right"></i>
+                      </button>
+                  {{ Form::close() }}
+                </div>
               </div>
             </div>
           </div>
@@ -32,8 +40,8 @@
           </div>
           <div class="row">
             <div class="details-item">
-              <i class="fa fa-map-marker fa-fw"></i>
-              <p>{{ $item->user->address->country }}km from you</p>
+              <i class="fa fa-eur"></i>
+              <p>{{ $item->price }}</p>
             </div>
           </div>
           <div class="row">

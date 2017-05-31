@@ -5,6 +5,8 @@ namespace handy\Http\Controllers;
 use Illuminate\Http\Request;
 use handy\Item;
 use Auth;
+use Session;
+use Redirect;
 
 class ItemsController extends Controller
 {
@@ -87,6 +89,10 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        $item->delete();
+
+        Session::flash('message', 'Successfully delete!');
+        return Redirect::back();
     }
 }
