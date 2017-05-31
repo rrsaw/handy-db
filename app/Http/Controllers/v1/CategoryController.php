@@ -9,12 +9,13 @@ use handy\Services\v1\CategoryService;
 
 class CategoryController extends Controller
 {
-  protected $Categories;
-  public function __construct(CategoryService $service) {
-    $this->Categories = $service;
+    protected $Categories;
+    public function __construct(CategoryService $service)
+    {
+        $this->categories = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->Categories->getCategories();
-      // $data = $this->addresses->getAddresses($parameters);
+        $parameters = request()->input();
+        $data = $this->categories->getCategories($parameters);
 
-      return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +47,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->categories->validate($request->all());
+        try {
+            $category = $this->categories->createCategory($request);
+            return response()->json($category, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +64,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->categories->getCategory($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +88,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->categories->validate($request->all());
+
+        try {
+            $category = $this->categories->updateCategory($request, $id);
+            return response()->json($category, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +108,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $category = $this->categories->deleteCategory($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
