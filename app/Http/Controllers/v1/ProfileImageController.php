@@ -3,18 +3,19 @@
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use handy\Http\Controllers\Controller;
-
 use handy\Services\v1\ProfileImageService;
 
 class ProfileImageController extends Controller
 {
-  protected $ProfileImages;
-  public function __construct(ProfileImageService $service) {
-    $this->ProfileImages = $service;
+    protected $profileImages;
+    public function __construct(ProfileImageService $service)
+    {
+        $this->profileImages = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,10 @@ class ProfileImageController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->ProfileImages->getProfileImages();
-      // $data = $this->addresses->getAddresses($parameters);
+        $parameters = request()->input();
+        $data = $this->profileImages->getProfileImages($parameters);
 
-      return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +47,14 @@ class ProfileImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->profileImages->validate($request->all());
+
+        try {
+            $profileImage = $this->profileImages->createProfileImage($request);
+            return response()->json($profileImage, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +65,8 @@ class ProfileImageController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->profileImages->getProfileImage($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +89,16 @@ class ProfileImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->profileImages->validate($request->all());
+
+        try {
+            $profileImage = $this->profileImages->updateProfileImage($request, $id);
+            return response()->json($profileImage, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +109,13 @@ class ProfileImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $profileimage = $this->profileImages->deleteProfileImage($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }

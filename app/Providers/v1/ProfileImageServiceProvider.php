@@ -2,7 +2,9 @@
 
 namespace handy\Providers\v1;
 
+use handy\Services\v1;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileImageServiceProvider extends ServiceProvider
 {
@@ -23,8 +25,8 @@ class ProfileImageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-      $this->app->bind(ProfileImageService::class, function($app){
-        return new ProfileImageService();
-      });
+        $this->app->bind(ProfileImageService::class, function ($app) {
+            return new ProfileImageService();
+        });
     }
 }
