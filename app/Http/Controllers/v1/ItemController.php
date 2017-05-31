@@ -3,18 +3,19 @@
 namespace handy\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use handy\Http\Controllers\Controller;
-
 use handy\Services\v1\ItemService;
 
 class ItemController extends Controller
 {
-  protected $Items;
-  public function __construct(ItemService $service) {
-    $this->Items = $service;
+    protected $items;
+    public function __construct(ItemService $service)
+    {
+        $this->items = $service;
 
-    // $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
-  }
+        $this->middleware('auth:api', ['only' => ['store', 'update', 'destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +23,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-      // $parameters = request()->input();
-      $data = $this->Items->getItems();
-      // $data = $this->addresses->getAddresses($parameters);
+        $parameters = request()->input();
+        $data = $this->items->getItems($parameters);
 
-      return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +47,14 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->items->validate($request->all());
+
+        try {
+            $item = $this->items->createItem($request);
+            return response()->json($item, 201);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,7 +65,8 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->items->getItem($id);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +89,16 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->items->validate($request->all());
+
+        try {
+            $item = $this->items->updateItem($request, $id);
+            return response()->json($item, 200);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -92,6 +109,13 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $item = $this->items->deleteItem($id);
+            return response()->make('', 204);
+        } catch (ModelNotFoundException $ex) {
+            throw $ex;
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }

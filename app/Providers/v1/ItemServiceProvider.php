@@ -2,7 +2,9 @@
 
 namespace handy\Providers\v1;
 
+use handy\Services\v1;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class ItemServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,9 @@ class ItemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('item_confirmation', function ($attribute, $value, $parameters, $validator) {
+            return $value == 1 || $value == 0;
+        });
     }
 
     /**
@@ -23,8 +27,8 @@ class ItemServiceProvider extends ServiceProvider
      */
     public function register()
     {
-      $this->app->bind(ItemService::class, function($app){
-        return new ItemService();
-      });
+        $this->app->bind(ItemService::class, function ($app) {
+            return new ItemService();
+        });
     }
 }

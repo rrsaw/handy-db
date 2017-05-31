@@ -47,7 +47,7 @@ class LoanService
 
         $loan = new Loan();
     // $loan->id = $id;
-    $loan->id = $req->input('id');
+        $loan->id = $req->input('id');
         $loan->start_date = $req->input('start_date');
         $loan->id_owner = $req->input('id_owner');
         $loan->start_date = $req->input('start_date');

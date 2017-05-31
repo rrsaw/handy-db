@@ -88,6 +88,8 @@ return [
 
     'loan_confirmation'    => 'The :attribute field can only be 0 or 1',
     'reviews_value'    => 'The :attribute field can only be between 1 and 5',
+    'item_confirmation'    => 'The :attribute field can only be 0 or 1',
+
 
     /*
     |--------------------------------------------------------------------------
