@@ -22,11 +22,11 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
                 <div class="edit-cancel-published text-right">
-                  <i class="fa fa-pencil"></i>
-                  {{ Form::open(array('url' => 'items/'.$item->id, 'class' => 'pull-right')) }}
+                  <i class="fa fa-pencil edit-item" data-attr="{{$item->id}}" data-image="{{$item->images['0']->id}}"></i>
+                  {{ Form::open(array('url' => 'items/'.$item->id, 'class' => 'delete-item pull-right')) }}
                       {{ Form::hidden('_method', 'DELETE') }}
                       <button type="submit">
-                        <i class="fa fa-pencil no-padding-right"></i>
+                        <i class="fa fa-times no-padding-right"></i>
                       </button>
                   {{ Form::close() }}
                 </div>

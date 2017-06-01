@@ -95,7 +95,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
                   <div class="price-add">
                     <h5>Price<h5>
-                    <input type="number" name="price" required>
+                    <input type="number" name="price" step="0.01" required>
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 no-padding-left">
@@ -132,9 +132,11 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
               <div class="images-add">
                 <h5>Images</h5>
-                <div class="default-image">
+                <div class="image-item">
                   <input type="file" name="image" name="image" required/>
                   <i class="fa fa-plus"></i>
+                </div>
+                <div class="view-image">
                 </div>
               </div>
             </div>

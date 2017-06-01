@@ -3,6 +3,7 @@
 namespace handy\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use handy\Item;
 use Auth;
 use Session;
@@ -90,6 +91,15 @@ class ItemsController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
+        //dd($item->images['0']->name);
+        $image_path = public_path("images/items/{$item->images['0']->name}");
+
+        if (File::exists($image_path)) {
+            File::delete($image_path);
+        } else {
+            echo('non funziona');
+        }
+
         $item->delete();
 
         Session::flash('message', 'Successfully delete!');

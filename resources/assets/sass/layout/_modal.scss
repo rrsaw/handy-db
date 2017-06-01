@@ -15,6 +15,14 @@
     position: relative;
     margin-top: 10vh;
 
+    .images-add {
+      .view-image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+
     .modal-close {
       background-color: $red;
       color: $white;
