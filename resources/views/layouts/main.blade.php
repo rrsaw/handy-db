@@ -133,7 +133,7 @@
               <div class="images-add">
                 <h5>Images</h5>
                 <div class="image-item">
-                  <input type="file" name="image" name="image" required/>
+                  <input type="file" name="image" name="image"/>
                   <i class="fa fa-plus"></i>
                 </div>
                 <div class="view-image">

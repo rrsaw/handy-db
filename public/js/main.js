@@ -57,6 +57,7 @@ $(".edit-item").click(function() {
   var id = $(this).attr("data-attr");
   var id_image = $(this).attr("data-image");
   var url = '/api/v1/items/' + id;
+  var hostname = window.location.host;
   var item = $.ajax({
     type: 'GET',
     dataType: 'json',
@@ -70,6 +71,7 @@ $(".edit-item").click(function() {
       $(".period-add").find('input[name="endDate"]').val(data[0].end_date);
       $("textarea[name='description']").val(data[0].description);
       $("input:radio[value=" + data[0].id_category + "]").prop('checked', true);
+      $(".modal-body").find("form").attr("action", "http://" + hostname + "/items/" + id).prepend('<input name="_method" type="hidden" value="PUT">');
     },
     complete: function() {
       $(".modal").fadeIn();
