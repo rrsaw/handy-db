@@ -1,10 +1,6 @@
-@extends('items.main')
+@extends('profile.profile')
 
-@section('publishedFilter','active')
-@section('mine','active')
-@section('other','hidden')
-
-@section('published')
+@section('items')
 
   @if(count($items))
 

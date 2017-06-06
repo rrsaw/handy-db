@@ -1,10 +1,8 @@
-
-
 .cards {
   margin-bottom: 20px;
 
   .image-item-card {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     @include box_shadow($grey-m, 3);
     max-height: 300px;
     overflow: hidden;
@@ -13,6 +11,7 @@
   .item-price {
     @include dnipro(medium, 16px, $blue-m);
   }
+
   .item-desc {
     @include varelaFont(18px, $grey-d);
     color: $grey-d;
@@ -29,27 +28,23 @@
   }
 
   .no-padding-left {
-    padding-left: 0px;
+    padding-left: 0;
   }
 
   .no-padding-right {
-    padding-right: 0px;
-  }
-
-  .item-divider {
-    background-color: $blue-m;
-    height: 4px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    padding-right: 0;
   }
 }
-.active-filters-explore{
+
+.active-filters-explore {
   margin: 10px 0;
+
   .filters {
     color: $orange-l;
     padding-right: 10px;
     display: inline-block;
   }
+
   .filters-result {
     padding-right: 30px;
     color: $grey-m;
@@ -57,23 +52,25 @@
   }
 }
 
-.title-details-item{
+.title-details-item {
   margin-top: 10px;
 }
 
-.details-item{
+.details-item {
   display: block;
-  p, i{
+
+  i,
+  p {
     display: inline-block;
   }
 }
+
 #btn-side-container {
   position: fixed;
-  top:20px;
-
+  top: 20px;
 }
 
-.btn-side-container-extra{
+.btn-side-container-extra {
   position: relative;
   padding-bottom: 60px;
 }

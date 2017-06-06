@@ -19,7 +19,7 @@
             <a class="nav-link @yield('itemsMenu')" href="/items"><i class="fa fa-archive fa-fw" aria-hidden="true"></i><span class="hidden-sm">Items</span></a>
           </li>
           <li class="nav-item  @yield('userMenu')">
-            <a class="nav-link  @yield('userMenu')" href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hidden-sm">Profile</span></a>
+            <a class="nav-link  @yield('userMenu')" href="/profile"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hidden-sm">Profile</span></a>
           </li>
         </ul>
       </nav>
@@ -35,6 +35,8 @@
     @yield('explorePage')
 
     @yield('itemsMain')
+
+    @yield('mineProfilePage')
 
     <div class="col-md-1 col-sm-1">
       <div class="" id="btn-side-container">

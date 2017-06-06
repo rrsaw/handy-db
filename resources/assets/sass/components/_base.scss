@@ -10,6 +10,21 @@ main {
   margin-top: 80px;
 }
 
+.no-padding-left {
+  padding-left: 0;
+}
+
+.no-padding-right {
+  padding-right: 0;
+}
+
+.item-divider {
+  background-color: $blue-m;
+  height: 4px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
 .error-block {
   margin-bottom: 10px;
   display: block;

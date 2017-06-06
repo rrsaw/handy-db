@@ -33,6 +33,12 @@ main { transition: 0.5s all ease; }
 
 .open-search { margin-top: 80px; }
 
+.no-padding-left { padding-left: 0; }
+
+.no-padding-right { padding-right: 0; }
+
+.item-divider { background-color: #22B8CF; height: 4px; border-radius: 20px; margin-bottom: 12px; }
+
 .error-block { margin-bottom: 10px; display: block; }
 .error-block strong { color: #D0011B; text-transform: capitalize; }
 
@@ -102,14 +108,13 @@ li .activate { border-left: thick solid #FAB005; }
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }
 
 .cards { margin-bottom: 20px; }
-.cards .image-item-card { margin-bottom: .75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; }
+.cards .image-item-card { margin-bottom: 0.75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; }
 .cards .item-price { font: normal 16px "DIN Pro Medium", sans-serif; color: #22B8CF; }
 .cards .item-desc { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; color: #4A4A4A; }
 .cards p { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
 .cards .fa { font-size: 1.5em; padding-right: 20px; color: #22B8CF; }
-.cards .no-padding-left { padding-left: 0px; }
-.cards .no-padding-right { padding-right: 0px; }
-.cards .item-divider { background-color: #22B8CF; height: 4px; border-radius: 20px; margin-bottom: 12px; }
+.cards .no-padding-left { padding-left: 0; }
+.cards .no-padding-right { padding-right: 0; }
 
 .active-filters-explore { margin: 10px 0; }
 .active-filters-explore .filters { color: #FAB005; padding-right: 10px; display: inline-block; }
@@ -118,7 +123,7 @@ li .activate { border-left: thick solid #FAB005; }
 .title-details-item { margin-top: 10px; }
 
 .details-item { display: block; }
-.details-item p, .details-item i { display: inline-block; }
+.details-item i, .details-item p { display: inline-block; }
 
 #btn-side-container { position: fixed; top: 20px; }
 
@@ -131,5 +136,21 @@ li .activate { border-left: thick solid #FAB005; }
 .filters-items ul li a.active { color: #FAB005; }
 .filters-items ul li a:hover { text-decoration: none; color: #F08C00; }
 .filters-items.select-user { border-top: 1px solid #eee; padding: 2% 0; }
+
+.image-detail { max-height: 40vh; overflow: hidden; text-align: center; }
+.image-detail img { width: 100%; display: inline-block; vertical-align: middle; }
+
+.price-detail { float: left; margin-top: 50px; }
+
+.rent-btn-detail { float: right; width: 60%; margin-top: 65px; }
+
+.owner-detail .left-part { width: 70%; display: inline-block; }
+.owner-detail .left-part .owner-image { width: 32%; display: inline-block; vertical-align: top; }
+.owner-detail .left-part .owner-image img { width: 100%; border-radius: 50px; }
+.owner-detail .left-part .owner-name-address { display: inline-block; margin-left: 10px; }
+.owner-detail .left-part .owner-name-address h5 { display: block; }
+
+.details-detail .owner-name-address h5 { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
+.details-detail .owner-name-address span { font: normal 15px "DIN Pro", sans-serif; color: #22B8CF; display: block; margin: 10px 0; text-align: right; }
 
 /*# sourceMappingURL=main.css.map */
