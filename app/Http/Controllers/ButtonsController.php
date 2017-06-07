@@ -36,16 +36,16 @@ class ButtonsController extends Controller
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
             $request->image->move(public_path('images/items'), $imageName);
 
-            $item = Item::create([
-              'name' => $request->name,
-              'description' => $request->description,
-              'start_date' => $request->startDate,
-              'end_date' => $request->endDate,
-              'price' => $request->price,
-              'status' => 0,
-              'id_category' => $id_category->id,
-              'id_user' => Auth::user()->id,
-            ]);
+            $item = new Item;
+            $item->name = $request->name;
+            $item->description = $request->description;
+            $item->start_date = $request->startDate;
+            $item->end_date = $request->endDate;
+            $item->price = $request->price;
+            $item->status = 0;
+            $item->id_category = $id_category->id;
+            $item->id_user = Auth::user()->id;
+            $item->save();
 
             $image = new Image;
             $image->name = $imageName;

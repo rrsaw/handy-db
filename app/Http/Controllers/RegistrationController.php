@@ -9,6 +9,7 @@ use Log;
 use Input;
 use Redirect;
 use GoogleMapsFacade;
+use Auth;
 use handy\User;
 use handy\ProfileImage;
 use handy\Address;
@@ -45,7 +46,7 @@ class RegistrationController extends Controller
              'surname' => $request->surname,
              'email' => $request->email,
              'phoneNumber' => $request->phoneNumber,
-             'birthday' => $request->birthday,
+             'birth_date' => $request->birthday,
              'image' => $imageName,
            ]);
 
@@ -88,39 +89,31 @@ class RegistrationController extends Controller
             $longitude = $address["results"][0]["geometry"]["location"]["lng"];
             $country = $address["results"][0]["address_components"][6]["long_name"];
 
-            // $address = new Address;
-            // $address->street =  $request->street;
-            // $address->civic_number =  $request->civic;
-            // $address->city =  $request->city;
-            // $address->country =  $country;
-            // $address->latitude =  $country;
-            // $address->longitude =  $country;
-            // $address->save();
+            $address = new Address;
+            $address->street =  $request->street;
+            $address->civic_number =  $request->civic;
+            $address->city =  $request->city;
+            $address->country =  $country;
+            $address->latitude =  $country;
+            $address->longitude =  $country;
+            $address->save();
 
-            $address = Address::create([
-                 'street' => $request->street,
-                 'civic_number' => $request->civic,
-                 'city' => $request->city,
-                 'country' => $country,
-                 'latitude' => $latitude,
-                 'longitude' => $longitude,
-            ]);
+            $profileImage = new ProfileImage;
+            $profileImage->name = session('image');
+            $profileImage->save();
 
-            $profileImage = ProfileImage::create([
-                  'name' => session('image'),
-            ]);
+            $user = new User;
+            $user->name = session('name');
+            $user->surname = session('surname');
+            $user->email = session('email');
+            $user->phone_number = session('phoneNumber');
+            $user->birth_date = session('birth_date');
+            $user->password = bcrypt($request->password);
+            $user->id_address = $address->id;
+            $user->id_profile_image = $profileImage->id;
+            $user->save();
 
-            User::create([
-               'name' => session('name'),
-               'surname' => session('surname'),
-               'email' => session('email'),
-               'phone_number' => session('phoneNumber'),
-               'birthday' => session('birthday'),
-               'password' => bcrypt($request->password),
-               'id_address' => $address->id,
-               'id_profile_image' => $profileImage->id,
-           ]);
-
+            Auth::loginUsingId($user->id);
             return Redirect::to('/explore');
         }
     }
