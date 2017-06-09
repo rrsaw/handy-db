@@ -10,7 +10,7 @@
   <div class="row">
     <div class="placeholder">
       <div class="col-sm-3 col-md-2">
-        <img src="{{ asset('images/personal-images/'.$user->profileImage->name) }}" alt="profile image" class="img-responsive profileImg">
+        <img src="{{ asset('images/personal-images/'.$user->profileImage->name) }}" alt="profile image" class="img-responsive profile-image">
       </div>
       <div class="col-sm-4 col-md-3">
         <h4 class="user">{{$user->name}} {{$user->surname}}</h4>
@@ -45,7 +45,7 @@
   </div>
   <div class="row">
     <div class="col-md-6 col-sm-9">
-      <ul class="tabProfile">
+      <ul class="tab-profile">
         <li>
           <a class="buttonTabProfile" href="/profile">Items</a>
         </li>

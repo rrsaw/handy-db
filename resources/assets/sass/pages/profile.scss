@@ -1,0 +1,32 @@
+.profile-image {
+  border-radius: 100%;
+}
+
+.tab-profile {
+  padding: 0;
+  margin: 6% 0;
+
+  li {
+    display: inline-block;
+    margin-right: 50px;
+
+    a {
+      @include varelaFont(16px, $grey-m);
+
+      &:hover {
+        text-decoration: none;
+        color: $blue-d;
+      }
+    }
+  }
+}
+
+.placeholder {
+  .user {
+    @include varelaFont(20px, $grey-d);
+  }
+
+  .place {
+    @include dnipro( 'regular', 16px, $grey-m);
+  }
+}
