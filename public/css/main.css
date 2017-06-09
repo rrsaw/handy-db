@@ -132,4 +132,97 @@ li .activate { border-left: thick solid #FAB005; }
 .filters-items ul li a:hover { text-decoration: none; color: #F08C00; }
 .filters-items.select-user { border-top: 1px solid #eee; padding: 2% 0; }
 
+#landing_body { background-color: #fafafa; }
+
+.navbar_container .logo_container { font-size: 16pt; font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+.navbar_container .navbar-brand { color: #FFF; font: normal 15pt "Varela Round", sans-serif; }
+.navbar_container .navbar-brand:hover { color: #22B8CF; font: normal 15pt "Varela Round", sans-serif; }
+.navbar_container .navbar-nav { font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+.navbar_container #logo { width: 42px; display: inline-block; margin-right: 20px; margin-top: 5px; position: absolute; }
+.navbar_container #header_titles { margin-left: 25px; }
+.navbar_container #logo_text { margin-left: 40px; }
+
+.blur { filter: blur(5px); }
+
+.navbar-right { margin-left: 25px; }
+
+.navbar_titles { margin-top: 20px; }
+
+.navbar-default { background-color: transparent; }
+
+.navbar-default .navbar-nav > li > a { color: #fff; }
+
+.navbar-default .navbar-brand { color: #fff; }
+
+#img_background { position: absolute; width: 100%; height: 750px; top: 0; object-fit: cover; transition: all ease 0.1s; }
+
+#top_title_container { margin-top: 160px; margin-bottom: 160px; }
+#top_title_container #title { font-size: 24pt; color: #fff; font: normal 35px "DIN Pro", sans-serif; color: #FFF; }
+
+.medium_box, .medium_box_2 { background-color: #fff; height: 511px; border-radius: 6px; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); margin-bottom: 30px; }
+.medium_box #enjoy_img, .medium_box_2 #enjoy_img { width: 385px; display: block; margin-left: auto; margin-right: auto; margin-top: 110px; }
+.medium_box #enjoy_img:focus, .medium_box_2 #enjoy_img:focus { outline: 0; }
+@media only screen and (max-width: 767px) { .medium_box #enjoy_img, .medium_box_2 #enjoy_img { padding-top: 80px; } }
+.medium_box #enjoy_text, .medium_box_2 #enjoy_text { color: #666; margin-top: 100px; font-size: 14pt; font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+
+.medium_box_2 { background-color: #3459FF; }
+.medium_box_2 #title_box { margin-top: 180px; }
+@media only screen and (max-width: 767px) { .medium_box_2 #title_box { margin-top: 30px; padding-top: 10px; } }
+.medium_box_2 #title { font: normal 25pt "DIN Pro Light", sans-serif; color: #FFF; }
+@media only screen and (max-width: 767px) { .medium_box_2 #title { text-align: center; } }
+.medium_box_2 a { font-size: 12pt; color: #fff; }
+.medium_box_2 :hover { text-decoration: none; }
+.medium_box_2 p { font: normal 15pt "DIN Pro", sans-serif; color: #99acff; }
+
+.big_box { background-color: #2096F3; border-radius: 6px; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); height: 690px; margin-bottom: 30px; }
+.big_box #title_browser { text-transform: uppercase; margin-top: 45px; outline: 0; font: normal 25pt "DIN Pro Bold", sans-serif; color: #FFF; }
+.big_box #desc_browser { font: normal 12pt "DIN Pro", sans-serif; color: #8fcaf9; }
+.big_box #browser_img { display: block; margin-left: auto; margin-right: auto; margin-top: 93px; height: 420px; box-shadow: 0 3px 6px rgba(16, 152, 173, 0.16), 0 3px 6px rgba(16, 152, 173, 0.23); object-fit: cover; }
+@media only screen and (max-width: 767px) { .big_box #browser_img { height: 230px; } }
+@media only screen and (max-width: 767px) { .big_box { height: 500px; } }
+
+.small_box, #sb_1, #sb_2 { border-radius: 6px; height: 20px; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); margin-bottom: 30px; }
+
+#sb_1 { height: 510px; background-color: #5553CE; outline: 0; }
+#sb_1 #search_box { margin-top: 93px; }
+#sb_1 #search_box #title_search { font: normal 25pt "DIN Pro", sans-serif; color: #FFF; }
+#sb_1 #search_box #desc_search { font: normal 12pt "DIN Pro", sans-serif; color: #9997e1; }
+#sb_1 #search_box #search_img { width: 370px; display: block; margin-left: auto; margin-right: auto; margin-top: 50px; }
+@media only screen and (min-width: 768px) and (max-width: 979px) { #sb_1 #search_box #search_img { margin-top: 166px; } }
+
+#sb_2 { height: 510px; background-color: #38C591; }
+#sb_2 #search_box { margin-top: 93px; }
+@media only screen and (max-width: 767px) { #sb_2 #search_box { margin-top: 30px; } }
+#sb_2 #search_box #title_search { font: normal 25pt "DIN Pro", sans-serif; color: #FFF; }
+#sb_2 #search_box #desc_search { font: normal 12pt "DIN Pro", sans-serif; color: #9be2c8; }
+#sb_2 #search_box #search_img { width: 180px; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; }
+
+@media only screen and (min-width: 768px) and (max-width: 979px) { .iphone_container { padding-top: 30px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 979px) { .sb_title_container { padding-top: 30px; } }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover { color: #2096F3; background-color: transparent; }
+
+#iphone_img { height: 380px; margin-top: 60px; }
+@media only screen and (min-width: 768px) and (max-width: 979px) { #iphone_img { margin-top: 30px; } }
+@media only screen and (max-width: 767px) { #iphone_img { display: block; margin-left: auto; margin-right: auto; margin-top: -30px; } }
+
+#share_img { margin-top: 100px; margin-bottom: 100px; width: 361px; height: 78px; }
+
+#footer_fluid { padding-left: 0; padding-right: 0; height: 332px; }
+
+#footer_one { background-color: #fff; height: 150px; padding: 0; outline: 0; font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+
+#footer_two { margin-top: 5px; background-color: #fff; height: 180px; padding: 0; font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+@media only screen and (max-width: 767px) { #footer_two { height: 400px; } }
+
+.footer_link p { display: inline-block; margin-left: 40px; margin-top: 60px; font-size: 12pt; color: #9B9B9B; }
+
+#footer_two a, #footer_two p { font-size: 12pt; color: #9B9B9B; display: inline-block; }
+#footer_two .title { margin-top: 50px; }
+
+@media only screen and (max-width: 767px) { .register_box { visibility: hidden; } }
+
+@media only screen and (max-width: 767px) { .sb_title_container { margin-top: 10px; } }
+
 /*# sourceMappingURL=main.css.map */

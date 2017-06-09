@@ -1,96 +1,211 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Handy</title>
 
-        <!-- Styles -->
-        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+</head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<body id="landing_body">
+  <nav class="navbar navbar-default navbar-static-top navbar_container">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+        <a href=""><img src="{{ asset('images/landing/logo.png')}}" alt="" id="logo"></a>
+        <a class="navbar-brand" href="#" id="logo_text">Handy</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#enjoy_img">About</a></li>
+          <li><a href="#title_browser">How it works</a></li>
+          <li><a href="#sb_1">Service</a></li>
+          <li><a href="#footer_one">Contacts</a></li>
+          <li><a href="{{ url('/login') }}">Login</a></li>
+          <li><a href="{{ url('/registration') }}">Register</a></li>
 
-            .full-height {
-                height: 100vh;
-            }
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+  <div>
+    <img src="{{ asset('images/landing/start.jpg')}}" id="img_background" class="img_background_anim">
+  </div>
+  <div class="container">
 
-            .position-ref {
-                position: relative;
-            }
+    <div class="col-md-6 col-md-offset-3 text-center" id="top_title_container">
+      <p id="title">Enjoy <b>sharing</b> and <b>meeting</b> people</p>
+    </div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/registration') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <div class="col-md-12">
+      <div class="medium_box ">
+        <div class="col-md-6 col-md-offset-3">
+          <img src="{{asset('images/landing/enjoy.png')}}" alt="" class="img-responsive" id="enjoy_img">
         </div>
-    </body>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 text-center">
+            <p id="enjoy_text">What is your attitude as a small town businessman when it comes to advertising or taking help of an advertising design agency to provide creative design solutions?</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="big_box">
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <div class="row">
+            <p id="title_browser">how does this work?</p>
+          </div>
+          <div class="row">
+            <p id="desc_browser">login now to start your sharing experience</p>
+          </div>
+          <div class="row">
+            <img src="{{asset('images/landing/browser.png')}}" alt="" id="browser_img" class="img-responsive search">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12 pull-left">
+      <div id="sb_1" class="sb_anim">
+        <div class="col-md-12 text-center" id="search_box">
+          <div class="row sb_title_container">
+            <p id="title_search">Download our app</p>
+          </div>
+          <div class="row">
+            <p id="desc_search">iOS and Android</p>
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="row">
+              <img src="{{asset('images/landing/search.png')}}" alt="" class="img-responsive" id="search_img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div id="sb_2" class="sb_anim">
+        <div class="col-md-12 text-center" id="search_box">
+          <div class="row sb_title_container">
+            <p id="title_search">Everywhere and always</p>
+          </div>
+          <div class="row">
+            <p id="desc_search">You can reach us anytime</p>
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="row">
+              <img src="{{asset('images/landing/watch.png')}}" alt="" class="img-responsive" id="search_img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="medium_box_2">
+        <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 col-sm-12" id="title_box">
+          <div class="row">
+            <div>
+              <p id="title">More than 2000 Items for you to borrow</p>
+            </div>
+          </div>
+          <div class="row register_box">
+            <div>
+              <a href="#">
+                <p>Click here to register</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2 iphone_container">
+          <img src="{{asset('images/landing/iphone.png')}}" alt="" id="iphone_img" class="img-responsive iphone">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <img src="{{asset('images/landing/share2.png')}}" alt="" id="share_img">
+    </div>
+
+
+  </div>
+
+  <div class="container-fluid" id="footer_fluid">
+    <div id="footer_one" class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-12  text-center footer_link text-center">
+        <div class="row">
+          <a href="#enjoy_img">
+            <p>About</p>
+          </a>
+          <a href="#title_browser">
+            <p>How it works</p>
+          </a>
+          <a href="#sb_1">
+            <p>Service</p>
+          </a>
+          <a href="#footer_two">
+            <p>Contacts</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="footer_two" class="row">
+      <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 text-center">
+        <div class="row title">
+          <p>MAIL</p>
+        </div>
+        <div class="row">
+          <p>info@handyshare.me</p>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 text-center">
+        <div class="row title">
+          <p>PHONES</p>
+        </div>
+        <div class="row">
+          <p>T. 166-124-3965 — F. 523-795-6115</p>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 text-center">
+        <div class="row title">
+          <p>SOCIAL</p>
+        </div>
+        <div class="row social_container">
+          <a href="#">Youtube</a>
+          <p> / </p><a href="#">Instagram</a>
+          <p> / </p><a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script src="{{asset('resources/assets/js/bootstrap.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/landing_script.js')}}">
+
+  </script>
+</body>
+
 </html>

@@ -1,61 +1,72 @@
-
-@mixin scale($startNum, $endNum){
-    -ms-transform: scale($startNum, $endNum);
-    -webkit-transform: scale($startNum, $endNum);
-    transform: scale($startNum, $endNum);
+@mixin scale($startNum, $endNum) {
+  -ms-transform: scale($startNum, $endNum);
+  -webkit-transform: scale($startNum, $endNum);
+  transform: scale($startNum, $endNum);
 }
-
-@mixin varelaFont($size, $color){
+@mixin varelaFont($size, $color) {
   color: $color;
   font: normal $size 'Varela Round', sans-serif;
 }
-
-@mixin dnipro($weight, $size, $color){
+@mixin dnipro($weight, $size, $color) {
   @if $weight == "light" {
-      font: normal $size 'DIN Pro Light', sans-serif;
-  } @else if $weight == "regular" {
-      font: normal $size 'DIN Pro', sans-serif;
-  } @else if $weight == "medium" {
-      font: normal $size 'DIN Pro Medium', sans-serif;
-  } @else if $weight == "bold" {
-      font: normal $size 'DIN Pro Bold', sans-serif;
+    font: normal $size 'DIN Pro Light', sans-serif;
+  }
+
+  @else if $weight == "regular" {
+    font: normal $size 'DIN Pro', sans-serif;
+  }
+
+  @else if $weight == "medium" {
+    font: normal $size 'DIN Pro Medium', sans-serif;
+  }
+
+  @else if $weight == "bold" {
+    font: normal $size 'DIN Pro Bold', sans-serif;
   }
   color: $color;
 }
-
 @mixin box_shadow ($color, $level) {
-  @if $level == 1 {
-      box-shadow: 0 1px 3px rgba($color,0.12), 0 1px 2px rgba($color,0.24);
-  } @else if $level == 2 {
-      box-shadow: 0 3px 6px rgba($color,0.16), 0 3px 6px rgba($color,0.23);
-  } @else if $level == 3 {
-      box-shadow: 0 10px 20px rgba($color,0.19), 0 6px 6px rgba($color,0.23);
-  } @else if $level == 4 {
-      box-shadow: 0 14px 28px rgba($color,0.25), 0 10px 10px rgba($color,0.22);
-  } @else if $level == 5 {
-      box-shadow: 0 19px 38px rgba($color,0.30), 0 15px 12px rgba($color,0.22);
+   @if $level == 1{
+    box-shadow: 0 1px 3px rgba($color,0.12), 0 1px 2px rgba($color,0.24);
+  }
+  @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba($color,0.16), 0 3px 6px rgba($color,0.23);
+  }
+  @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba($color,0.19), 0 6px 6px rgba($color,0.23);
+  }
+  @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba($color,0.25), 0 10px 10px rgba($color,0.22);
+  }
+  @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba($color,0.30), 0 15px 12px rgba($color,0.22);
   }
 }
-
 @mixin gradient ($firstColor, $secondColor) {
   background: $firstColor;
   background: -webkit-linear-gradient($firstColor 0%, $secondColor 100%);
   background: -o-linear-gradient($firstColor 0%, $secondColor 100%);
   background: linear-gradient($firstColor 0%, $secondColor 100%);
 }
-
 @mixin button($size, $color, $fontSize) {
   width: $size;
   padding: 10px 0;
   background-color: $color;
-  border:none;
+  border: none;
   transition: all ease 0.2s;
-  color:$white;
+  color: $white;
   font: normal $fontSize 'Varela Round', sans-serif;
   border-radius: 20px;
   text-transform: uppercase;
   @include box_shadow($color, 2);
-  &:hover{
+
+  &:hover {
     transition: all ease 0.2s;
+  }
+}
+// Media Queries
+@mixin respond-to($media) {
+   @media only screen and #{$media}{
+    @content;
   }
 }
