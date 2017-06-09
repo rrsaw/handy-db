@@ -1,20 +1,19 @@
 // Colors
-
 $blue-l: #99E9F2;
 $blue-m: #22B8CF;
 $blue-d: #1098AD;
-
 $orange-l: #FAB005;
 $orange-d: #F08C00;
-
 $green: #7ED321;
 $red: #D0011B;
 $white: #FFF;
-
 $grey-l: #E7E7E7;
 $grey-m: #9B9B9B;
-$grey-d: #4A4A4A;
-
-
-// Typography
-$h1-font: normal 24px/1.5 'Varela Round', sans-serif;
+$grey-d: #4A4A4A; // Typography
+$h1-font: normal 24px/1.5 'Varela Round', sans-serif; //Media Queries
+$phone: '(max-width: 480px)';
+$tablet-portrait: '(max-width: 767px)';
+$tablet-landscape: '(min-width: 768px) and (max-width: 979px)';
+$large-desktop: '(min-width: 1200px)';
+$non-retina: 'screen and (-webkit-max-device-pixel-ratio: 1)';
+$retina: '(min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)';
