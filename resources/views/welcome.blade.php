@@ -9,6 +9,8 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
 </head>
 
 <body id="landing_body">
@@ -31,7 +33,7 @@
           <li><a href="#title_browser">How it works</a></li>
           <li><a href="#sb_1">Service</a></li>
           <li><a href="#footer_one">Contacts</a></li>
-          <li><a href="{{ url('/login') }}">Login</a></li>
+          <li><a href="{{ url('/login') }}" id="login">Login</a></li>
           <li><a href="{{ url('/registration') }}">Register</a></li>
 
         </ul>
@@ -200,9 +202,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-  <script src="{{asset('resources/assets/js/bootstrap.js')}}"></script>
+  <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/landing_script.js')}}">
 
   </script>

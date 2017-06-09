@@ -153,9 +153,12 @@ li .activate { border-left: thick solid #FAB005; }
 .navbar_container .navbar-brand { color: #FFF; font: normal 15pt "Varela Round", sans-serif; }
 .navbar_container .navbar-brand:hover { color: #22B8CF; font: normal 15pt "Varela Round", sans-serif; }
 .navbar_container .navbar-nav { font: normal 15pt "DIN Pro", sans-serif; color: #4A4A4A; }
+@media only screen and (min-width: 1200px) { .navbar_container #login { margin-left: 480px; } }
 .navbar_container #logo { width: 42px; display: inline-block; margin-right: 20px; margin-top: 5px; position: absolute; }
 .navbar_container #header_titles { margin-left: 25px; }
 .navbar_container #logo_text { margin-left: 40px; }
+
+.navbar-default .navbar-toggle .icon-bar { background-color: #fff; }
 
 .blur { filter: blur(5px); }
 
@@ -204,6 +207,7 @@ li .activate { border-left: thick solid #FAB005; }
 #sb_1 #search_box #desc_search { font: normal 12pt "DIN Pro", sans-serif; color: #9997e1; }
 #sb_1 #search_box #search_img { width: 370px; display: block; margin-left: auto; margin-right: auto; margin-top: 50px; }
 @media only screen and (min-width: 768px) and (max-width: 979px) { #sb_1 #search_box #search_img { margin-top: 166px; } }
+@media only screen and (max-width: 480px) { #sb_1 #search_box #search_img { margin-top: 201px; } }
 
 #sb_2 { height: 510px; background-color: #38C591; }
 #sb_2 #search_box { margin-top: 93px; }
@@ -221,8 +225,10 @@ li .activate { border-left: thick solid #FAB005; }
 #iphone_img { height: 380px; margin-top: 60px; }
 @media only screen and (min-width: 768px) and (max-width: 979px) { #iphone_img { margin-top: 30px; } }
 @media only screen and (max-width: 767px) { #iphone_img { display: block; margin-left: auto; margin-right: auto; margin-top: -30px; } }
+@media only screen and (max-width: 480px) { #iphone_img { margin-top: -47px; } }
 
 #share_img { margin-top: 100px; margin-bottom: 100px; width: 361px; height: 78px; }
+@media only screen and (max-width: 480px) { #share_img { width: 311px; height: 68px; } }
 
 #footer_fluid { padding-left: 0; padding-right: 0; height: 332px; }
 
@@ -232,6 +238,7 @@ li .activate { border-left: thick solid #FAB005; }
 @media only screen and (max-width: 767px) { #footer_two { height: 400px; } }
 
 .footer_link p { display: inline-block; margin-left: 40px; margin-top: 60px; font-size: 12pt; color: #9B9B9B; }
+@media only screen and (max-width: 480px) { .footer_link p { margin-left: 14px; } }
 
 #footer_two a, #footer_two p { font-size: 12pt; color: #9B9B9B; display: inline-block; }
 #footer_two .title { margin-top: 50px; }
@@ -239,6 +246,7 @@ li .activate { border-left: thick solid #FAB005; }
 @media only screen and (max-width: 767px) { .register_box { visibility: hidden; } }
 
 @media only screen and (max-width: 767px) { .sb_title_container { margin-top: 10px; } }
+@media only screen and (max-width: 480px) { .sb_title_container #title_search { margin-top: 30px; } }
 
 .image-detail { max-height: 40vh; overflow: hidden; text-align: center; }
 .image-detail img { width: 100%; display: inline-block; vertical-align: middle; }

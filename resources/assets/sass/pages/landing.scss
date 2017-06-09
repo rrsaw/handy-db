@@ -20,6 +20,12 @@
     @include dnipro(regular, 15pt, $grey-d);
   }
 
+  #login {
+    @include respond-to($large-desktop) {
+      margin-left: 480px;
+    }
+  }
+
   #logo {
     width: 42px;
     display: inline-block;
@@ -35,6 +41,10 @@
   #logo_text {
     margin-left: 40px;
   }
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 .blur {
@@ -212,6 +222,9 @@
       @include respond-to($tablet-landscape) {
         margin-top: 166px;
       }
+      @include respond-to($phone) {
+        margin-top: 201px;
+      }
     }
   }
 }
@@ -275,6 +288,9 @@
     margin-right: auto;
     margin-top: -30px;
   }
+  @include respond-to($phone) {
+    margin-top: -47px;
+  }
 }
 
 #share_img {
@@ -282,6 +298,10 @@
   margin-bottom: 100px;
   width: 361px;
   height: 78px;
+  @include respond-to($phone) {
+    width: 311px;
+    height: 68px;
+  }
 }
 
 #footer_fluid {
@@ -316,6 +336,9 @@
     margin-top: 60px;
     font-size: 12pt;
     color: $grey-m;
+    @include respond-to($phone) {
+      margin-left: 14px;
+    }
   }
 }
 
@@ -341,5 +364,11 @@
 .sb_title_container {
   @include respond-to($tablet-portrait) {
     margin-top: 10px;
+  }
+
+  #title_search {
+    @include respond-to($phone) {
+      margin-top: 30px;
+    }
   }
 }

@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'box_shadow'.
-        on line 8 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss, in `box_shadow'
-        from line 8 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss
+        on line 6 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss, in `box_shadow'
+        from line 6 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss
 
-3: .cards {
-4:   margin-bottom: 20px;
-5: 
-6:   .image-item-card {
-7:     margin-bottom: .75rem;
-8:     @include box_shadow($grey-m, 3);
-9:     max-height: 300px;
-10:     overflow: hidden;
-11:   }
-12: 
-13:   .item-price {
+1: .cards {
+2:   margin-bottom: 20px;
+3: 
+4:   .image-item-card {
+5:     margin-bottom: 0.75rem;
+6:     @include box_shadow($grey-m, 3);
+7:     max-height: 300px;
+8:     overflow: hidden;
+9:   }
+10: 
+11:   .item-price {
 
 Backtrace:
-/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss:8:in `box_shadow'
-/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss:8
+/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss:6:in `box_shadow'
+/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss:6
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/stack.rb:98:in `block in with_mixin'
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
@@ -77,4 +77,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'box_shadow'.\A         on line 8 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss, in `box_shadow'\A         from line 8 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss\A \A 3: .cards {\A 4:   margin-bottom: 20px;\A 5: \A 6:   .image-item-card {\A 7:     margin-bottom: .75rem;\A 8:     @include box_shadow($grey-m, 3);\A 9:     max-height: 300px;\A 10:     overflow: hidden;\A 11:   }\A 12: \A 13:   .item-price {"; }
+  content: "Error: Undefined mixin 'box_shadow'.\A         on line 6 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss, in `box_shadow'\A         from line 6 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/explore.scss\A \A 1: .cards {\A 2:   margin-bottom: 20px;\A 3: \A 4:   .image-item-card {\A 5:     margin-bottom: 0.75rem;\A 6:     @include box_shadow($grey-m, 3);\A 7:     max-height: 300px;\A 8:     overflow: hidden;\A 9:   }\A 10: \A 11:   .item-price {"; }
