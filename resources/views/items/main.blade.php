@@ -13,7 +13,7 @@
     <div class="row">
       <div class="filters-items">
         <ul>
-          <li><a class="@yield('publishedFilter')" href="/published">Published</a></li>
+          <li><a class="@yield('publishedFilter')" href="/items">Published</a></li>
           <li><a class="@yield('currentFilter')" href="/current">Current loans</a></li>
           <li><a class="@yield('confirmationFilter')" href="/confirmation">Confirmation</a></li>
           <li><a class="@yield('historyFilter')" href="/history">History</a></li>
@@ -23,8 +23,8 @@
     <div class="row">
       <div class="filters-items select-user">
         <ul>
-          <li><a class="@yield('mine')" href="">Mine</a></li>
-          <li><a class="@yield('other')" href="">Other</a></li>
+          <li><a class="@yield('mine')" href="@yield('mineUrl')">Mine</a></li>
+          <li><a class="@yield('other')" href="@yield('otherUrl')">Other</a></li>
         </ul>
       </div>
     </div>
@@ -33,6 +33,9 @@
   <section class="row">
 
     @yield('published')
+    @yield('current')
+    @yield('confirmation')
+    @yield('history')
 
   </section>
 </main>

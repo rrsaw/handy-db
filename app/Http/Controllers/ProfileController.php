@@ -19,8 +19,8 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $id = $user->id;
-        $borrow = count(Loan::where('id_owner', $id)->get());
-        $lend = count(Loan::where('id_receiver', $id)->get());
+        $borrow = count(Loan::where(['id_owner' => $id, 'loan_confirmation' => '1'])->get());
+        $lend = count(Loan::where(['id_receiver' => $id, 'loan_confirmation' => '1'])->get());
         $review = count(Review::where('id_reviewer', $id)->get());
         $items = Item::where('id_user', $id)->get();
 
@@ -31,8 +31,8 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $id = $user->id;
-        $borrow = count(Loan::where('id_owner', $id)->get());
-        $lend = count(Loan::where('id_receiver', $id)->get());
+        $borrow = count(Loan::where(['id_owner' => $id, 'loan_confirmation' => '1'])->get());
+        $lend = count(Loan::where(['id_receiver' => $id, 'loan_confirmation' => '1'])->get());
         $review = count(Review::where('id_reviewer', $id)->get());
         $items = Item::where('id_user', $id)->get();
         // $password = Crypt::decrypt($user->password);

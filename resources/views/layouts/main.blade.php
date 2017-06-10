@@ -79,7 +79,7 @@
             <div class="modal-title">
               <h3>New item</h3>
             </div>
-            <div class="col-lg-8 col-md-8 no-padding-left">
+            <div class="col-lg-8 col-md-8 no-padding-left inject-div">
 
               <div class="name-input">
                   <input type="text" class="input" name="name" required>

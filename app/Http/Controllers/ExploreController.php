@@ -20,7 +20,7 @@ class ExploreController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::orderBy('id', 'desc')->get();
       //Log::info($items->user);
 
       return view('explore', compact('items'));

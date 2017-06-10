@@ -21,4 +21,8 @@ class Item extends Model
     {
         return $this->hasMany('handy\Image', 'id_item');
     }
+    public function loan()
+    {
+        return $this->hasMany('handy\Loan', 'id_item');
+    }
 }

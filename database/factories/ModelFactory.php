@@ -82,7 +82,7 @@ $factory->define(handy\Loan::class, function (Faker\Generator $faker) {
 
 $factory->define(handy\ProfileImage::class, function (Faker\Generator $faker) {
     return [
-      'name' => "defaultImage.jpg",
+      'name' => "defaultImage.png",
     ];
 });
 

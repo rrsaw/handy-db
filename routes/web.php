@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::post('/store-item', 'ButtonsController@storeItem')->name('storeItem');
-//Route::controller('/', 'ButtonsController');
+Route::post('/request-loan', 'LoanController@requestLoan')->name('requestLoan');
+
 
 Route::get('/registration', function () {
     return view('auth.registration.first');
@@ -35,6 +36,15 @@ Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/info', 'ProfileController@info');
 
 Route::resource('/items', 'ItemsController');
+
+/* Loans section */
+Route::get('/confirmation', 'LoanController@indexConfirmation');
+Route::get('/confirmation/other', 'LoanController@indexConfirmation');
+Route::post('/confirmation/{id}', 'LoanController@activeLoan');
+Route::delete('/confirmation/{id}', 'LoanController@deleteLoan');
+Route::get('/current', 'LoanController@indexCurrent');
+Route::get('/current/other', 'LoanController@indexCurrent');
+Route::get('/history', 'LoanController@indexHistory');
 
 Auth::routes();
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use handy\Item;
 use handy\Image;
 use handy\Category;
+use handy\Loan;
 use Auth;
 use Session;
 use Validator;
@@ -24,11 +25,9 @@ class ItemsController extends Controller
     {
         $id = Auth::user()->id;
         $items = Item::where('id_user', $id)->get();
+        // dd($items);
 
-        //Log::info($items);
-
-      return view('items.published', compact('items'));
-        //return view(print_r($items));
+        return view('items.published', compact('items'));
     }
 
     /**
@@ -143,12 +142,14 @@ class ItemsController extends Controller
     {
         $item = Item::find($id);
         //dd($item->images['0']->name);
-        $image_path = public_path("images/items/{$item->images['0']->name}");
+        if ($item->images['0']->name != "objects.png") {
+            $image_path = public_path("images/items/{$item->images['0']->name}");
 
-        if (File::exists($image_path)) {
-            File::delete($image_path);
-        } else {
-            echo('non funziona');
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            } else {
+                echo('non funziona');
+            }
         }
 
         $item->delete();

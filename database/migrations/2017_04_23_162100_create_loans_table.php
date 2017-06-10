@@ -19,6 +19,7 @@ class CreateLoansTable extends Migration
             $table->date('end_date');
             $table->boolean('loan_confirmation');
             $table->boolean('return_confirmation');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

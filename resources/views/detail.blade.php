@@ -31,7 +31,11 @@
               <h2>€ {{$item->price}}</h2>
             </div>
             <div class="rent-btn-detail">
-              <button type="submit" class="blueButton">Rent</button>
+              {{-- <form role="form" method="POST" action="{{ route('requestLoan')}}">
+                {{ csrf_field() }}
+                <input type="hidden" name="item" value="{{$item->id}}"> --}}
+                <button type="submit" class="blueButton rentButton" data-attr="{{$item->id}}">Rent</button>
+              {{-- </form> --}}
             </div>
           </div>
           <div class="row">
@@ -53,7 +57,7 @@
           </div>
           <div class="row">
             <div class="details-detail">
-              <h4>Owner</h4>
+              <h4>Details</h4>
               <div class="item-divider"></div>
               <div class="col-md-6 col-sm-6 no-padding-left">
                 <div class="owner-name-address">
@@ -63,7 +67,7 @@
               </div>
               <div class="col-md-6 col-sm-6 no-padding-left">
                 <div class="owner-name-address">
-                  <span>Period</span>
+                  <span>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</span>
                   <span>Distance</span>
                 </div>
               </div>

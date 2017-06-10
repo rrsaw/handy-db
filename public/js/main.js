@@ -1,3 +1,6 @@
+/* variables */
+var hostname = window.location.host;
+
 $(".personal-image a").click(function() {
   $('.add-personal-image').trigger("click");
 });
@@ -16,6 +19,19 @@ $(".visibility-password").click(function() {
 
 $(".btn-add-item").click(function() {
   $(".modal").fadeIn();
+  if ($(".name-input").find("input").val() != null) {
+    $(".modal-title>h3").text("Add item");
+    $(".name-input").find("input").val("");
+    $(".price-add").find("input").val("");
+    $(".period-add").find('input[name="startDate"]').val("");
+    $(".period-add").find('input[name="endDate"]').val("");
+    $("textarea[name='description']").val("");
+    $("input:radio").prop('checked', false);
+    $(".view-image").find("img").remove();
+    $(".modal-body").find("input[name='_method']").remove();
+    $(".modal-body").find("form").attr("action", "http://" + hostname + "/store-item");
+  }
+
 });
 
 $(".modal-close").click(function() {
@@ -40,14 +56,14 @@ $(".delete-item").click(function() {
 
 function getImage(id_image) {
   var nameImage;
-  var hostname = window.location.host;
+
   $.ajax({
     type: 'GET',
     dataType: 'json',
     url: '/api/v1/images/' + id_image,
     success: function(data) {
       if ($('.view-image').is(':empty')) {
-        $('.view-image').append('<div class="view-image"><img src="http://' + hostname + '/images/items/' + data[0].name + '"></div>');
+        $('.view-image').append('<img src="http://' + hostname + '/images/items/' + data[0].name + '">');
       }
     }
   });
@@ -57,7 +73,6 @@ $(".edit-item").click(function() {
   var id = $(this).attr("data-attr");
   var id_image = $(this).attr("data-image");
   var url = '/api/v1/items/' + id;
-  var hostname = window.location.host;
   var item = $.ajax({
     type: 'GET',
     dataType: 'json',
@@ -72,6 +87,27 @@ $(".edit-item").click(function() {
       $("textarea[name='description']").val(data[0].description);
       $("input:radio[value=" + data[0].id_category + "]").prop('checked', true);
       $(".modal-body").find("form").attr("action", "http://" + hostname + "/items/" + id).prepend('<input name="_method" type="hidden" value="PUT">');
+    },
+    complete: function() {
+      $(".modal").fadeIn();
+
+    }
+  });
+
+});
+
+$(".rentButton").click(function() {
+  var id = $(this).attr("data-attr");
+  var csrfToken = $('meta[name="csrf-token"]').attr('content');
+  var item = $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: '/api/v1/items/' + id,
+    success: function(data) {
+      $startDate = data[0].start_date;
+      $endDate = data[0].end_date;
+      $("body").html('<div class="modal"><div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4"><div class="modal-body request-loan"><form role="form" method="POST" action="/request-loan"><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="item" value="' + id + '"><div class="period-add"><h5>Period<h5><input type="date" name="startDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $startDate + '" required><span>to</span><input type="date" name="endDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $endDate + '" required><button class="blueButton" type="submit">Send</button><button class="blueButton button-modal-close" type="button">Close</button></div></form></div></div></div>');
+      $(".images-add").hide();
     },
     complete: function() {
       $(".modal").fadeIn();

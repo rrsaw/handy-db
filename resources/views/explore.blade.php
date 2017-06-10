@@ -26,13 +26,17 @@
 
           <div class="cards col-lg-4 col-md-4 col-sm-6">
             <div class="image-item-card">
-              <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
+              <a href="{{ url('items/'.$item->id) }}">
+                <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive">
+              </a>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="row">
                 <div class="title-details-item">
                   <div class="col-lg-6 col-md-6 col-sm-6 no-padding-left">
-                    <p class="float-left item-desc">{{ $item->name }}</p>
+                    <a href="{{ url('items/'.$item->id) }}">
+                      <p class="float-left item-desc">{{ $item->name }}</p>
+                    </a>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
                     <p class="text-right item-price">{{ $item->price }} € Daily</p>
