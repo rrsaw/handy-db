@@ -21,6 +21,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function login(Request $request)
+     {
+         $user = $this->users->logUser($request);
+         return response()->json($user, 200);
+     }
+
+
+
+
     public function index()
     {
         $parameters = request()->input();
