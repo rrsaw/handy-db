@@ -60,6 +60,12 @@
                   <p>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</p>
                 </div>
               </div>
+              <div class="row">
+                <div class="details-item">
+                  <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive img-circle profile_image_explore">
+                  <p>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</p>
+                </div>
+              </div>
             </div>
           </div>
         @endforeach
