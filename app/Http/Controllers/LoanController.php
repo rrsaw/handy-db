@@ -5,6 +5,7 @@ namespace handy\Http\Controllers;
 use Illuminate\Http\Request;
 use handy\Item;
 use handy\Loan;
+use handy\Review;
 use Auth;
 use Session;
 use Redirect;
@@ -67,6 +68,7 @@ class LoanController extends Controller
         }
         $loans = Loan::where($restrictions)->get();
 
+
         return view('items.confirmation', compact('loans', 'url'));
     }
 
@@ -74,16 +76,25 @@ class LoanController extends Controller
     {
         $id = Auth::user()->id;
         $url = $request->path();
+        $arrayChecks = [];
         if ($url == "history") {
             $restrictions = ['id_owner' => $id, 'loan_confirmation' => '1', 'return_confirmation' => '1' ];
         } elseif ($url == "history/other") {
             $restrictions = ['id_receiver' => $id, 'loan_confirmation' => '1', 'return_confirmation' => '1' ];
         }
-        // $checkArray = ['id_reviewer' => $id, 'id_' => '1', 'return_confirmation' => '1' ];
-        // $check = Review::where
+
         $loans = Loan::where($restrictions)->get();
 
-        return view('items.history', compact('loans', 'url'));
+        foreach ($loans as $loan) {
+            $reviewChecks = Review::where('id_loan', $loan->id)->get();
+            if ($reviewChecks[0] != null) {
+                array_push($arrayChecks, $reviewChecks[0]->loan->id);
+            } else {
+                unset($arrayChecks);
+            }
+        }
+
+        return view('items.history', compact('loans', 'url', 'arrayChecks'));
     }
 
     public function activeLoan(Request $request)

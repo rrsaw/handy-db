@@ -36,7 +36,15 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
                   <div class="edit-cancel-published text-right">
                     @if ($url == "history/other")
-                      <i class="fa fa-comment-o no-padding-right" data-attr="{{$loan->id}}"></i>
+                      @if ($arrayChecks == null)
+                        <i class="fa fa-comment-o no-padding-right" data-attr="{{$loan->id}}"></i>
+                      @else
+                        @foreach ($arrayChecks as $arrayCheck)
+                          @if ($arrayCheck == $loan->id)
+                            <i class="fa fa-check no-padding-right"></i>
+                          @endif
+                        @endforeach
+                      @endif
                     @endif
                   </div>
                 </div>
@@ -51,7 +59,11 @@
               <div class="row">
                 <div class="details-item">
                   <i class="fa fa-map-marker"></i>
+                  @if ($url == "history")
                   <p>{{ $loan->receiver->address->city }}</p>
+                @elseif ($url == "history/other")
+                  <p>{{ $loan->owner->address->city }}</p>
+                  @endif
                 </div>
               </div>
               <div class="row">

@@ -64,7 +64,11 @@
               <div class="row">
                 <div class="details-item">
                   <i class="fa fa-map-marker"></i>
+                  @if ($url == "confirmation")
                   <p>{{ $loan->receiver->address->city }}</p>
+                  @elseif ($url == "confirmation/other")
+                  <p>{{ $loan->owner->address->city }}</p>
+                  @endif
                 </div>
               </div>
               <div class="row">

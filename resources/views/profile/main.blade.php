@@ -16,11 +16,11 @@
         <h4 class="user">{{$user->name}} {{$user->surname}}</h4>
         <p class="place"><i class="fa fa-map-marker fa-1x" aria-hidden="true"></i>&nbsp;{{$user->address->city}}</p>
         <section class="rating">
-          <input type="radio" id="star5" name="rating" value="5" @if ($avgReviews == 5) checked @endif/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-          <input type="radio" id="star4" name="rating" value="4" @if ($avgReviews == 4) checked @endif/><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-          <input type="radio" id="star3" name="rating" value="3" @if ($avgReviews == 3) checked @endif/><label class = "full" for="star3" title="Meh - 3 stars"></label>
-          <input type="radio" id="star2" name="rating" value="2" @if ($avgReviews == 2) checked @endif/><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-          <input type="radio" id="star1" name="rating" value="1" @if ($avgReviews == 1) checked @endif/><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+          <input type="radio" id="star5" name="rating" value="5" disabled @if ($avgReviews == 5) checked @endif/><label class = "block" for="star5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="star4" name="rating" value="4" disabled @if ($avgReviews == 4) checked @endif/><label class = "block" for="star4" title="Pretty good - 4 stars"></label>
+          <input type="radio" id="star3" name="rating" value="3" disabled @if ($avgReviews == 3) checked @endif/><label class = "block" for="star3" title="Meh - 3 stars"></label>
+          <input type="radio" id="star2" name="rating" value="2" disabled @if ($avgReviews == 2) checked @endif/><label class = "block" for="star2" title="Kinda bad - 2 stars"></label>
+          <input type="radio" id="star1" name="rating" value="1" disabled @if ($avgReviews == 1) checked @endif/><label class = "block" for="star1" title="Sucks big time - 1 star"></label>
         </section>
       </div>
       <div class="col-md-1 col-md-offset-3 col-sm-2">
@@ -47,19 +47,34 @@
     <div class="col-md-6 col-sm-9">
       <ul class="tab-profile">
         <li>
-          <a class="buttonTabProfile @yield('itemsProfile')" href="/profile">Items</a>
+          @if (Auth::user()->id == $user->id)
+            <a class="buttonTabProfile @yield('itemsProfile')" href="/profile">Items</a>
+          @else
+            <a class="buttonTabProfile @yield('itemsProfile')" href="/profile/{{$user->id}}">Items</a>
+          @endif
         </li>
         <li>
-          <a class="buttonTabProfile @yield('reviewsProfile')" href="/profile/reviews">Reviews</a>
+          @if (Auth::user()->id == $user->id)
+            <a class="buttonTabProfile @yield('reviewsProfile')" href="/profile/reviews">Reviews</a>
+          @else
+            <a class="buttonTabProfile @yield('reviewsProfile')" href="/profile/{{$user->id}}/reviews">Reviews</a>
+          @endif
         </li>
-        <li>
-          <a class="buttonTabProfile @yield('infoProfile')" href="/profile/info">Info</a>
-        </li>
+          <li>
+            @if (Auth::user()->id == $user->id)
+              <a class="buttonTabProfile @yield('infoProfile')" href="/profile/info">Info</a>
+              {{-- {{$firstCheck}} --}}
+            @elseif (Auth::user()->id != $user->id && ($firstCheck != null || $secondCheck != null))
+              <a class="buttonTabProfile @yield('infoProfile')" href="/profile/{{$user->id}}/info">Info</a>
+            @endif
+          </li>
       </ul>
     </div>
   </div>
 
-  @yield('profileContent')
+  @yield('reviews')
+  @yield('info')
+  @yield('items')
 
 
 </main>

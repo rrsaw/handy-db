@@ -46,3 +46,6 @@ Route::post('/create-review', 'ReviewController@create');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/profile/info', 'ProfileController@index');
 Route::get('/profile/reviews', 'ProfileController@index');
+Route::get('/profile/{id}', 'ProfileController@show');
+Route::get('/profile/{id}/reviews', 'ProfileController@show');
+Route::get('/profile/{id}/info', 'ProfileController@show');

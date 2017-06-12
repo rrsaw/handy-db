@@ -80,18 +80,19 @@ $factory->define(handy\ProfileImage::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(handy\Review::class, function (Faker\Generator $faker) {
-    $id_loan_random = Loan::all()->pluck('id')->toArray();
-    $id_user_random = User::all()->pluck('id')->toArray();
-    $id_item_random = Item::all()->pluck('id')->toArray();
+    $type = Type::all()->random()->id;
+    // $loan = Loan::where('id', $id_loan_random)->get();
+    // $id_user_random = User::all()->pluck('id')->toArray();
+    // $id_item_random = Item::all()->pluck('id')->toArray();
 
     return [
         'description' => $faker->text($maxNbChars = 200),
         'value' => $faker->numberBetween($min = 5, $max = 0),
         'date' => $faker->date,
-        'id_loan' => $faker->randomElement($id_loan_random),
-        'id_item' => $faker->randomElement($id_item_random),
-        'id_owner' => $faker->randomElement($id_user_random),
-        'id_reviewer' => $faker->randomElement($id_user_random),
+        'id_loan' => $loan->id,
+        'id_item' => $loan->item->id,
+        'id_owner' => $loan->owner->id,
+        'id_reviewer' => $loan->receiver->id,
     ];
 });
 

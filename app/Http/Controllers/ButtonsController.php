@@ -19,7 +19,7 @@ class ButtonsController extends Controller
         Auth::logout();
         return Redirect::to('/login');
     }
-    
+
     public function storeItem(Request $request)
     {
         $rules = array(

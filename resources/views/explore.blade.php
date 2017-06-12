@@ -62,7 +62,7 @@
               </div>
               <div class="row">
                 <div class="details-item">
-                  <a href="#"><img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{ $item->user->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
+                  <a href="{{ url('profile/'.$item->user->id) }}"><img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{ $item->user->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
                   <p>{{$item->user->name}} {{$item->user->surname}}</p></a>
                 </div>
               </div>

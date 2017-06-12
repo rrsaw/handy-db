@@ -26,8 +26,8 @@
 }
 
 .rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
+.rating:not(:checked) > .full:hover,
+.rating:not(:checked) > .full:hover ~ label {
   color: #FFD700;
 }
 
