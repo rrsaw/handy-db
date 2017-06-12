@@ -56,11 +56,11 @@
   }
 
   #date_input {
-    width: 140px;
+    width: 160px;
   }
 
   #date_input2 {
-    width: 140px;
+    width: 160px;
   }
 
   #price_input {
@@ -68,34 +68,42 @@
   }
 
   #inputfile {
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-    height: 160px;
-    width: 190px;
-    cursor: pointer;
+    padding: 5px;
+    color: $grey-m;
+    vertical-align: middle;
   }
 
-  #inputfile + .fa-plus {
-    font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: #e1e1e1;
+  #inputfile::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  #inputfile::before {
+    content: 'Browse';
+    color: $orange-l;
     display: inline-block;
+    background: #fff;
+    margin: -3px 0 -3px -3px;
+    padding: -15px 20px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
     cursor: pointer;
-    width: 190px;
-    height: 160px;
+    text-align: center;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
   }
 
-  #inputfile + .fa-plus:hover,
-  #inputfile:focus + .fa-plus {
-    background-color: red;
+  #inputfile:hover::before {
+    border-color: black;
   }
 
-  #inputfile:focus + .fa-plus {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
+  #inputfile:active {
+    outline: 0;
+  }
+
+  #inputfile:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
 
   .categoryone {
