@@ -62,8 +62,8 @@
               </div>
               <div class="row">
                 <div class="details-item">
-                  <img src="{{ asset('images/items/'.$item->images['0']->name) }}" alt="{{ $item->images['0']->name}}" class="img-responsive img-circle profile_image_explore">
-                  <p>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</p>
+                  <a href="#"><img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{ $item->user->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
+                  <p>{{$item->user->name}} {{$item->user->surname}}</p></a>
                 </div>
               </div>
             </div>
