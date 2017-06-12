@@ -116,3 +116,24 @@ $(".rentButton").click(function() {
   });
 
 });
+
+$(".fa-comment-o").click(function() {
+  var id = $(this).attr("data-attr");
+  var csrfToken = $('meta[name="csrf-token"]').attr('content');
+  var stars = '<section class="rating"><input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label><input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label><input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label><input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label><input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label></section>';
+  var item = $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: '/api/v1/loans/' + id,
+    success: function(data) {
+      $startDate = data[0].start_date[0];
+      $endDate = data[0].end_date.date;
+      $("body").html('<div class="modal"><div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4"><div class="modal-body modal-review"><form role="form" method="POST" action="/create-review"><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="loan" value="' + id + '"><div class="modal-title"><h3>How was your experience?</h3></div><p>Write a review to explain your experience:</p><span>Rate:</span>' + stars + '<textarea name="review"></textarea><button class="blueButton" type="submit">Send</button><button class="blueButton button-modal-close" type="button">Close</button></form></div></div></div>');
+    },
+    complete: function() {
+      $(".modal").fadeIn();
+
+    }
+  });
+
+});

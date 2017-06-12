@@ -14,6 +14,12 @@ use handy\Category;
 
 class ButtonsController extends Controller
 {
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/login');
+    }
+    
     public function storeItem(Request $request)
     {
         $rules = array(

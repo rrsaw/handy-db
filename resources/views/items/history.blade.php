@@ -2,12 +2,18 @@
 
 @section('historyFilter','active')
 
-@section('mine','active')
-@section('other','hidden')
+@if ($url == "history")
+  @section('mine','active')
+  @section('other','deactive')
+@elseif ($url == "history/other")
+  @section('mine','deactive')
+  @section('other','active')
+@endif
 
-@section('mineUrl','/confirmation')
+@section('mineUrl','/history')
+@section('otherUrl','/history/other')
 
-@section('confirmation')
+@section('history')
 
   @if(count($loans))
 
@@ -29,18 +35,9 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
                   <div class="edit-cancel-published text-right">
-                      {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'delete-item pull-right')) }}
-                          {{ Form::hidden('_method', 'DELETE') }}
-                          <button type="submit">
-                            <i class="fa fa-times no-padding-right"></i>
-                          </button>
-                      {{ Form::close() }}
-                      {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'pull-right')) }}
-                          {{ Form::hidden('_method', 'POST') }}
-                          <button type="submit">
-                            <i class="fa fa-check no-padding-right"></i>
-                          </button>
-                      {{ Form::close() }}
+                    @if ($url == "history/other")
+                      <i class="fa fa-comment-o no-padding-right" data-attr="{{$loan->id}}"></i>
+                    @endif
                   </div>
                 </div>
               </div>

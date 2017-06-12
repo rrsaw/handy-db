@@ -13,6 +13,7 @@
     a {
       @include varelaFont(16px, $grey-m);
 
+      &.active,
       &:hover {
         text-decoration: none;
         color: $blue-d;

@@ -27,4 +27,8 @@ class Loan extends Model
     {
         return $this->belongsTo('handy\Item', 'id_item');
     }
+    public function review()
+    {
+        return $this->hasOne('handy\Review', 'id_loan');
+    }
 }

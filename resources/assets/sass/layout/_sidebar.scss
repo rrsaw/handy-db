@@ -91,3 +91,50 @@ li .activate {
   max-width: 100px;
   height: auto;
 }
+
+.logout {
+  position: absolute;
+  bottom: 4vh;
+  left: 15%;
+
+  .personal-image {
+    width: 3vw;
+    border-radius: 100%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: 0.2s all ease;
+    @include box_shadow($grey-d, 2);
+
+    img {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+
+    h7 {
+      @include dnipro( 'medium', 14px, $grey-d);
+    }
+
+    button {
+      border: none;
+      background: none;
+      padding: 0;
+      transition: 0.2s all ease;
+      @include dnipro( 'regular', 14px, $grey-m);
+
+      &:hover {
+        color: $orange-l;
+      }
+    }
+  }
+}

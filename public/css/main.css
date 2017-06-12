@@ -92,6 +92,15 @@ li .activate { border-left: thick solid #FAB005; }
 
 #logo { margin: 0 auto; width: 85%; max-width: 100px; height: auto; }
 
+.logout { position: absolute; bottom: 4vh; left: 15%; }
+.logout .personal-image { width: 3vw; border-radius: 100%; overflow: hidden; display: inline-block; vertical-align: middle; cursor: pointer; transition: 0.2s all ease; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); }
+.logout .personal-image img { width: 100%; }
+.logout .personal-image:hover { transform: scale(1.1); }
+.logout .info { display: inline-block; vertical-align: middle; margin-left: 10px; }
+.logout .info h7 { font: normal 14px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.logout .info button { border: none; background: none; padding: 0; transition: 0.2s all ease; font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+.logout .info button:hover { color: #FAB005; }
+
 .modal { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; display: none; }
 .modal .modal-body { background-color: white; border-radius: 30px; padding: 2.5%; position: relative; margin-top: 10vh; }
 .modal .modal-body .images-add .view-image img { width: 100%; }
@@ -269,7 +278,7 @@ li .activate { border-left: thick solid #FAB005; }
 .tab-profile { padding: 0; margin: 6% 0; }
 .tab-profile li { display: inline-block; margin-right: 50px; }
 .tab-profile li a { color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; }
-.tab-profile li a:hover { text-decoration: none; color: #1098AD; }
+.tab-profile li a.active, .tab-profile li a:hover { text-decoration: none; color: #1098AD; }
 
 .placeholder .user { color: #4A4A4A; font: normal 20px "Varela Round", sans-serif; }
 .placeholder .place { font: normal 16px "DIN Pro", sans-serif; color: #9B9B9B; }

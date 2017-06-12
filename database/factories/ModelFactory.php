@@ -33,13 +33,6 @@ $factory->define(handy\Address::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(handy\Category::class, function (Faker\Generator $faker) {
-    return [
-      'name' => $faker->firstNameMale,
-      'icon' => $faker->url,
-    ];
-});
-
 $factory->define(handy\Image::class, function (Faker\Generator $faker) {
     $id_item_random = Item::all()->pluck('id')->toArray();
 
@@ -87,6 +80,7 @@ $factory->define(handy\ProfileImage::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(handy\Review::class, function (Faker\Generator $faker) {
+    $id_loan_random = Loan::all()->pluck('id')->toArray();
     $id_user_random = User::all()->pluck('id')->toArray();
     $id_item_random = Item::all()->pluck('id')->toArray();
 
@@ -94,6 +88,7 @@ $factory->define(handy\Review::class, function (Faker\Generator $faker) {
         'description' => $faker->text($maxNbChars = 200),
         'value' => $faker->numberBetween($min = 5, $max = 0),
         'date' => $faker->date,
+        'id_loan' => $faker->randomElement($id_loan_random),
         'id_item' => $faker->randomElement($id_item_random),
         'id_owner' => $faker->randomElement($id_user_random),
         'id_reviewer' => $faker->randomElement($id_user_random),
@@ -111,7 +106,7 @@ $factory->define(handy\User::class, function (Faker\Generator $faker) {
         'birth_date' => $faker->date,
         'email' => $faker->unique()->safeEmail,
         'phone_number' => $faker->phoneNumber,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('password'),
         'remember_token' => str_random(10),
         'id_address' => $faker->randomElement($id_address_random),
         'id_profile_image' => $faker->randomElement($id_profile_image_random),

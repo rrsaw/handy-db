@@ -43,7 +43,7 @@ class LoanController extends Controller
         }
 
         $loans = Loan::where($restrictions)->get();
-        
+
         foreach ($loans as $loan) {
             if ($loan->end_date->isPast()) {
                 $loan->return_confirmation = "1";
@@ -73,10 +73,17 @@ class LoanController extends Controller
     public function indexHistory(Request $request)
     {
         $id = Auth::user()->id;
-        $restrictions = ['id_owner' => $id, 'loan_confirmation' => '1', 'return_confirmation' => '1' ];
+        $url = $request->path();
+        if ($url == "history") {
+            $restrictions = ['id_owner' => $id, 'loan_confirmation' => '1', 'return_confirmation' => '1' ];
+        } elseif ($url == "history/other") {
+            $restrictions = ['id_receiver' => $id, 'loan_confirmation' => '1', 'return_confirmation' => '1' ];
+        }
+        // $checkArray = ['id_reviewer' => $id, 'id_' => '1', 'return_confirmation' => '1' ];
+        // $check = Review::where
         $loans = Loan::where($restrictions)->get();
 
-        return view('items.history', compact('loans'));
+        return view('items.history', compact('loans', 'url'));
     }
 
     public function activeLoan(Request $request)

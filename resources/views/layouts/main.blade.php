@@ -22,6 +22,21 @@
             <a class="nav-link  @yield('userMenu')" href="/profile"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hidden-sm">Profile</span></a>
           </li>
         </ul>
+        <div class="logout">
+          <div class="personal-image">
+            <a href="/profile">
+                <img src="{{ asset('images/personal-images/'.Auth::user()->profileImage->name) }}" alt="{{Auth::user()->profileImage->name}}">
+            </a>
+          </div>
+          <div class="info">
+            <h7>{{Auth::user()->name}} {{Auth::user()->surname}}</h7>
+            <form action="{{ route('logout')}}" method="get">
+              <button type="submit">
+                Log out
+              </button>
+            </form>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="searchbar">
@@ -34,9 +49,11 @@
 
     @yield('explorePage')
 
+    @yield('detailItem')
+
     @yield('itemsMain')
 
-    @yield('mineProfilePage')
+    @yield('profile')
 
     <div class="col-md-1 col-sm-1">
       <div class="" id="btn-side-container">

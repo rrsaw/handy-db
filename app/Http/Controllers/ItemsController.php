@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 use handy\Item;
 use handy\Image;
 use handy\Category;
-use handy\Loan;
+use handy\Review;
 use Auth;
 use Session;
 use Validator;
@@ -60,8 +60,9 @@ class ItemsController extends Controller
     public function show($id)
     {
         $item = Item::find($id);
+        $reviews = Review::where('id_item', $item->id)->orderBy('id', 'desc')->get();
 
-        return view('detail', compact('item'));
+        return view('detail', compact('item', 'reviews'));
     }
 
     /**
@@ -128,7 +129,7 @@ class ItemsController extends Controller
 
 
             Session::flash('message', 'Successfully creating!');
-            return Redirect::to('/items');
+            return Redirect::back();
         }
     }
 

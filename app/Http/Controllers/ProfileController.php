@@ -15,29 +15,18 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $url = $request->path();
         $user = Auth::user();
         $id = $user->id;
         $borrow = count(Loan::where(['id_owner' => $id, 'loan_confirmation' => '1'])->get());
         $lend = count(Loan::where(['id_receiver' => $id, 'loan_confirmation' => '1'])->get());
-        $review = count(Review::where('id_reviewer', $id)->get());
+        $reviews = Review::where('id_owner', $id)->get();
+        $avgReviews = round($reviews->avg('value'));
         $items = Item::where('id_user', $id)->get();
 
-        return view('profile.items', compact('items', 'user', 'borrow', 'lend', 'review'));
-    }
-
-    public function info()
-    {
-        $user = Auth::user();
-        $id = $user->id;
-        $borrow = count(Loan::where(['id_owner' => $id, 'loan_confirmation' => '1'])->get());
-        $lend = count(Loan::where(['id_receiver' => $id, 'loan_confirmation' => '1'])->get());
-        $review = count(Review::where('id_reviewer', $id)->get());
-        $items = Item::where('id_user', $id)->get();
-        // $password = Crypt::decrypt($user->password);
-
-        return view('profile.info', compact('items', 'user', 'borrow', 'lend', 'review'));
+        return view('profile.content', compact('items', 'user', 'borrow', 'lend', 'reviews', 'url', 'avgReviews'));
     }
 
     /**
