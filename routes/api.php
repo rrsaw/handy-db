@@ -27,3 +27,5 @@ Route::resource('/v1/profileimages', v1\ProfileImageController::class);
 Route::resource('/v1/users', v1\UserController::class);
 Route::resource('/v1/reviews', v1\ReviewController::class);
 Route::resource('/v1/passwordresets', v1\PasswordResetController::class);
+
+Route::post('/v1/login', 'v1\UserController@login');

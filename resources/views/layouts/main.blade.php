@@ -99,43 +99,43 @@
             <div class="col-lg-8 col-md-8 no-padding-left inject-div">
 
               <div class="name-input">
-                  <input type="text" class="input" name="name" required>
+                  <input type="text" class="input" name="name" id="name_input" required>
                   <label class="label" for="name">Name</label>
               </div>
               <div class="col-lg-12 col-md-12 no-padding-left">
                 <div class="col-lg-8 col-md-8 col-sm-8 no-padding-left">
                   <div class="period-add">
                     <h5>Period<h5>
-                    <input type="date" name="startDate" min="1900-01-01" required>
+                    <input type="date" name="startDate" min="1900-01-01" id="date_input" required>
                     <span>to</span>
-                    <input type="date" name="endDate" min="1900-01-01" required>
+                    <input type="date" name="endDate" min="1900-01-01" id="date_input2" required>
                   </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
                   <div class="price-add">
                     <h5>Price<h5>
-                    <input type="number" name="price" step="0.01" required>
+                    <input type="number" name="price" step="1.00" id="price_input" required>
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 no-padding-left">
                   <div class="categories-add">
                     <h5>Categories</h5>
-                    <div class="option">
+                    <div class="option radio-inline categoryone">
                       <input type="radio" name="category" value="1"/><span>Category 1</span>
                     </div>
-                    <div class="option">
+                    <div class="option radio-inline">
                       <input type="radio" name="category" value="2"/><span>Category 2</span>
                     </div>
-                    <div class="option">
+                    <div class="option radio-inline">
                       <input type="radio" name="category" value="3"/><span>Category 3</span>
                     </div>
-                    <div class="option">
+                    <div class="option radio-inline">
                       <input type="radio" name="category" value="4"/><span>Category 4</span>
                     </div>
-                    <div class="option">
+                    <div class="option radio-inline">
                       <input type="radio" name="category" value="5"/><span>Category 5</span>
                     </div>
-                    <div class="option">
+                    <div class="option radio-inline">
                       <input type="radio" name="category" value="6"/><span>Category 6</span>
                     </div>
                   </div>
@@ -143,7 +143,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 no-padding-left">
                   <div class="description-add">
                     <h5>Description</h5>
-                    <textarea name="description"></textarea>
+                    <textarea name="description" id="description"></textarea>
                   </div>
                 </div>
               </div>
@@ -152,7 +152,7 @@
               <div class="images-add">
                 <h5>Images</h5>
                 <div class="image-item">
-                  <input type="file" name="image" name="image"/>
+                  <input type="file" name="image" name="image" id="inputfile"/>
                   <i class="fa fa-plus"></i>
                 </div>
                 <div class="view-image">

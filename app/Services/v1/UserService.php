@@ -2,10 +2,12 @@
 
 namespace handy\Services\v1;
 
+use Illuminate\Support\Facades\Hash;
+use handy\User;
+
 use Validator;
 
 // use handy\User;
-use handy\User;
 
 class UserService
 {
@@ -17,6 +19,29 @@ class UserService
 
         if (isset($parameters['include'])) {
             $includeParms = explode(',', $parameters['include']);
+        }
+    }
+
+    public function logUser($request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            $hashedPassword = $user->password;
+
+            if (Hash::check($password, $hashedPassword)) {
+                return ([
+                'id' => $user->id,
+                'api_token' => $user->api_token,
+              ]);
+            } else {
+                return (['Wrong mail or password, try again!']);
+            }
+        } else {
+            return (['Wrong mail or password, try again!!']);
         }
     }
 
@@ -34,6 +59,8 @@ class UserService
     'id_profile_image' => 'required',
     'api_token' => 'required',
   ];
+
+
 
     public function validate($user)
     {

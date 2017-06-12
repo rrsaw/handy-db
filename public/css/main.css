@@ -108,6 +108,30 @@ li .activate { border-left: thick solid #FAB005; }
 .modal .modal-body .modal-close:hover { transform: scale(1.1); box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); }
 .modal .modal-body .modal-title { color: #4A4A4A; font: normal 24px "Varela Round", sans-serif; }
 .modal .modal-body .blueButton:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(34, 184, 207, 0.19), 0 6px 6px rgba(34, 184, 207, 0.23); }
+.modal #name_input { width: 300px; }
+.modal #date_input { width: 140px; }
+.modal #date_input2 { width: 140px; }
+.modal #price_input { width: 60px; }
+.modal #inputfile { opacity: 0; overflow: hidden; position: absolute; z-index: 1; height: 160px; width: 190px; cursor: pointer; }
+.modal #inputfile + .fa-plus { font-size: 1.25em; font-weight: 700; color: white; background-color: #e1e1e1; display: inline-block; cursor: pointer; width: 190px; height: 160px; }
+.modal #inputfile + .fa-plus:hover, .modal #inputfile:focus + .fa-plus { background-color: red; }
+.modal #inputfile:focus + .fa-plus { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
+.modal .categoryone { margin-left: 10px; }
+.modal .categories-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
+.modal .period-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
+.modal .description-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
+.modal .price-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
+.modal .images-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
+.modal #description { width: 400px; }
+.modal .input-container { margin-top: 5%; }
+.modal input[type="date"], .modal input[type="email"], .modal input[type="number"], .modal input[type="password"], .modal input[type="text"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: 0.2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.modal input[type="date"]:focus, .modal input[type="date"]:valid, .modal input[type="email"]:focus, .modal input[type="email"]:valid, .modal input[type="number"]:focus, .modal input[type="number"]:valid, .modal input[type="password"]:focus, .modal input[type="password"]:valid, .modal input[type="text"]:focus, .modal input[type="text"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
+.modal input[type="date"]:focus + .label, .modal input[type="date"]:valid + .label, .modal input[type="email"]:focus + .label, .modal input[type="email"]:valid + .label, .modal input[type="number"]:focus + .label, .modal input[type="number"]:valid + .label, .modal input[type="password"]:focus + .label, .modal input[type="password"]:valid + .label, .modal input[type="text"]:focus + .label, .modal input[type="text"]:valid + .label { color: #22B8CF; font-size: 10px; top: -15px; pointer-events: none; }
+.modal .visibility-password { position: absolute; right: 20px; top: 0; }
+.modal .visibility-password i { font-size: 18px; cursor: pointer; color: #9B9B9B; }
+.modal .visibility-password i:hover { color: #4A4A4A; }
+.modal .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: 0.2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
+.modal .label.dateLabel { top: -20px; }
 
 .searchbar { position: relative; }
 .searchbar input { position: absolute; top: -80px; width: 90%; border: none; border-bottom: 1px solid #eee; padding: 2% 0; font: normal 22px "DIN Pro Medium", sans-serif; color: #4A4A4A; transition: 0.5s all ease; }
@@ -147,6 +171,10 @@ li .activate { border-left: thick solid #FAB005; }
 #btn-side-container { position: fixed; top: 20px; }
 
 .btn-side-container-extra { position: relative; padding-bottom: 60px; }
+
+.modal #name_input2 { width: 200px; }
+
+.profile_image_explore { width: 29px; display: inline-block; margin-right: 0; }
 
 .filters-items { margin: 1% 0; }
 .filters-items ul { padding-left: 0; }

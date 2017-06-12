@@ -60,6 +60,12 @@
                   <p>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</p>
                 </div>
               </div>
+              <div class="row">
+                <div class="details-item">
+                  <a href="#"><img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{ $item->user->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
+                  <p>{{$item->user->name}} {{$item->user->surname}}</p></a>
+                </div>
+              </div>
             </div>
           </div>
         @endforeach
