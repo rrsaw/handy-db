@@ -32,7 +32,6 @@
                   @foreach($reviews as $review)
                     <div class="reviewsProfile">
                       <div class="profileImage">
-                        <img style="width:100%" src="{{ asset('images/personal-images/'.$review->reviewer->profileImage->name) }}" alt="{{$review->reviewer->profileImage->name}}">
                       </div>
                       <p class="commenter">{{$review->reviewer->name}} {{$review->reviewer->surname}}</p>
                       <p class="comment">{{$review->description}}</p>

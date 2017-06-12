@@ -42,9 +42,9 @@ main { transition: 0.5s all ease; }
 .error-block { margin-bottom: 10px; display: block; }
 .error-block strong { color: #D0011B; text-transform: capitalize; }
 
-.popup { background-color: #fff; border-radius: 25px; margin-top: 15vh; width: 100%; display: inline-block; padding: 10% 0 7% 0; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
+.popup { background-color: #fff; border-radius: 25px; margin-top: 15vh; width: 100%; display: inline-block; padding: 10% 0 7%; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
 .popup .popup-heading { margin-bottom: 8%; }
-.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: .1s all ease; padding-bottom: 0px; text-decoration: none; }
+.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: 0.1s all ease; padding-bottom: 0; text-decoration: none; }
 .popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
 .popup .popup-heading a.inactive { opacity: 0.5; }
 .popup .popup-heading a.inactive:hover { opacity: 1; }
@@ -52,18 +52,24 @@ main { transition: 0.5s all ease; }
 .popup .personal-image img { width: 100%; }
 .popup .personal-image .add-personal-image { display: none; }
 .popup .popup-body .input-container { margin-top: 5%; }
-.popup .popup-body input[type="text"], .popup .popup-body input[type="email"], .popup .popup-body input[type="password"], .popup .popup-body input[type="number"], .popup .popup-body input[type="date"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: .2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
-.popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid, .popup .popup-body input[type="number"]:focus, .popup .popup-body input[type="number"]:valid, .popup .popup-body input[type="date"]:focus, .popup .popup-body input[type="date"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
-.popup .popup-body input[type="text"]:valid + .label, .popup .popup-body input[type="text"]:focus + .label, .popup .popup-body input[type="email"]:valid + .label, .popup .popup-body input[type="email"]:focus + .label, .popup .popup-body input[type="password"]:valid + .label, .popup .popup-body input[type="password"]:focus + .label, .popup .popup-body input[type="number"]:valid + .label, .popup .popup-body input[type="number"]:focus + .label, .popup .popup-body input[type="date"]:valid + .label, .popup .popup-body input[type="date"]:focus + .label { color: #22B8CF; font-size: 10px; top: -25px; pointer-events: none; }
-.popup .popup-body .visibility-password { position: absolute; right: 20px; top: 0px; }
+.popup .popup-body input[type="date"], .popup .popup-body input[type="email"], .popup .popup-body input[type="number"], .popup .popup-body input[type="password"], .popup .popup-body input[type="text"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: 0.2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.popup .popup-body input[type="date"]:focus, .popup .popup-body input[type="date"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="number"]:focus, .popup .popup-body input[type="number"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid, .popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
+.popup .popup-body input[type="date"]:focus + .label, .popup .popup-body input[type="date"]:valid + .label, .popup .popup-body input[type="email"]:focus + .label, .popup .popup-body input[type="email"]:valid + .label, .popup .popup-body input[type="number"]:focus + .label, .popup .popup-body input[type="number"]:valid + .label, .popup .popup-body input[type="password"]:focus + .label, .popup .popup-body input[type="password"]:valid + .label, .popup .popup-body input[type="text"]:focus + .label, .popup .popup-body input[type="text"]:valid + .label { color: #22B8CF; font-size: 10px; top: -25px; pointer-events: none; }
+.popup .popup-body .visibility-password { position: absolute; right: 20px; top: 0; }
 .popup .popup-body .visibility-password i { font-size: 18px; cursor: pointer; color: #9B9B9B; }
 .popup .popup-body .visibility-password i:hover { color: #4A4A4A; }
-.popup .popup-body .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: .2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
+.popup .popup-body .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: 0.2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
 .popup .popup-body .label.dateLabel { top: -20px; }
 .popup .popup-body .rememberMe { margin-top: 9%; }
 .popup .popup-body .rememberMe label { font: normal 14px "DIN Pro Medium", sans-serif; color: #9B9B9B; }
 .popup .popup-body .forgotPassword a { font: normal 12px "DIN Pro Bold", sans-serif; color: #4A4A4A; }
 .popup .popup-body .blueButton { margin-top: 7%; }
+
+.request-loan { height: 250px; }
+
+.rent_button { margin-bottom: 20px; }
+
+.button_outline { width: 100%; padding: 8px 0; background-color: transparent; transition: all ease 0.2s; color: #1098AD; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; border-style: solid; border-width: 2px; border-color: #22B8CF; }
 
 .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 10; padding: 20px; overflow-x: hidden; overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */ border-right: 1px solid #eee; }
 
@@ -109,13 +115,15 @@ li .activate { border-left: thick solid #FAB005; }
 .modal .modal-body .modal-title { color: #4A4A4A; font: normal 24px "Varela Round", sans-serif; }
 .modal .modal-body .blueButton:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(34, 184, 207, 0.19), 0 6px 6px rgba(34, 184, 207, 0.23); }
 .modal #name_input { width: 300px; }
-.modal #date_input { width: 140px; }
-.modal #date_input2 { width: 140px; }
+.modal #date_input { width: 160px; }
+.modal #date_input2 { width: 160px; }
 .modal #price_input { width: 60px; }
-.modal #inputfile { opacity: 0; overflow: hidden; position: absolute; z-index: 1; height: 160px; width: 190px; cursor: pointer; }
-.modal #inputfile + .fa-plus { font-size: 1.25em; font-weight: 700; color: white; background-color: #e1e1e1; display: inline-block; cursor: pointer; width: 190px; height: 160px; }
-.modal #inputfile + .fa-plus:hover, .modal #inputfile:focus + .fa-plus { background-color: red; }
-.modal #inputfile:focus + .fa-plus { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
+.modal #inputfile { padding: 5px; color: #9B9B9B; vertical-align: middle; }
+.modal #inputfile::-webkit-file-upload-button { visibility: hidden; }
+.modal #inputfile::before { content: 'Browse'; color: #FAB005; display: inline-block; background: #fff; margin: -3px 0 -3px -3px; padding: -15px 20px; outline: none; white-space: nowrap; -webkit-user-select: none; cursor: pointer; text-align: center; text-shadow: 1px 1px #fff; font-weight: 700; font-size: 10pt; }
+.modal #inputfile:hover::before { border-color: black; }
+.modal #inputfile:active { outline: 0; }
+.modal #inputfile:active::before { background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); }
 .modal .categoryone { margin-left: 10px; }
 .modal .categories-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
 .modal .period-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
@@ -175,6 +183,8 @@ li .activate { border-left: thick solid #FAB005; }
 .modal #name_input2 { width: 200px; }
 
 .profile_image_explore { width: 29px; display: inline-block; margin-right: 0; }
+
+.times_button { border: none; background-color: white; }
 
 .filters-items { margin: 1% 0; }
 .filters-items ul { padding-left: 0; }
@@ -310,5 +320,15 @@ li .activate { border-left: thick solid #FAB005; }
 
 .placeholder .user { color: #4A4A4A; font: normal 20px "Varela Round", sans-serif; }
 .placeholder .place { font: normal 16px "DIN Pro", sans-serif; color: #9B9B9B; }
+
+.reviewsProfile { padding-bottom: 35px; }
+
+#profile_image_review { width: 75%; margin-left: 20px; }
+
+.commenter { font: normal 14px "DIN Pro", sans-serif; color: #4A4A4A; }
+
+.comment { font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+
+.date { text-transform: uppercase; font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
 
 /*# sourceMappingURL=main.css.map */

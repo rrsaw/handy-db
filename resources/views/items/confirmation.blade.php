@@ -37,13 +37,13 @@
                     @if ($url == "confirmation")
                       {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'delete-item pull-right')) }}
                           {{ Form::hidden('_method', 'DELETE') }}
-                          <button type="submit">
+                          <button type="submit" class="times_button">
                             <i class="fa fa-times no-padding-right"></i>
                           </button>
                       {{ Form::close() }}
                       {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'pull-right')) }}
                           {{ Form::hidden('_method', 'POST') }}
-                          <button type="submit">
+                          <button type="submit" class="times_button">
                             <i class="fa fa-check no-padding-right"></i>
                           </button>
                       {{ Form::close() }}
