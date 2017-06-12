@@ -117,26 +117,38 @@
                     <input type="number" name="price" step="1.00" id="price_input" required>
                   </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 no-padding-left">
+                <div class="col-lg-8  col-md-12 col-sm-12 no-padding-left">
                   <div class="categories-add">
                     <h5>Categories</h5>
                     <div class="option radio-inline categoryone">
-                      <input type="radio" name="category" value="1"/><span>Category 1</span>
+                      <label>
+                        <input type="radio" name="category" value="1"/><span>Category 1</span>
+                      </label>
                     </div>
                     <div class="option radio-inline">
+                      <label>
                       <input type="radio" name="category" value="2"/><span>Category 2</span>
+                    </label>
                     </div>
                     <div class="option radio-inline">
+                      <label>
                       <input type="radio" name="category" value="3"/><span>Category 3</span>
+                    </label>
                     </div>
                     <div class="option radio-inline">
+                      <label>
                       <input type="radio" name="category" value="4"/><span>Category 4</span>
+                    </label>
                     </div>
                     <div class="option radio-inline">
+                      <label>
                       <input type="radio" name="category" value="5"/><span>Category 5</span>
+                    </label>
                     </div>
                     <div class="option radio-inline">
+                      <label>
                       <input type="radio" name="category" value="6"/><span>Category 6</span>
+                    </label>
                     </div>
                   </div>
                 </div>
@@ -150,10 +162,9 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
               <div class="images-add">
-                <h5>Images</h5>
+                <h5>Image</h5>
                 <div class="image-item">
                   <input type="file" name="image" name="image" id="inputfile"/>
-                  <i class="fa fa-plus"></i>
                 </div>
                 <div class="view-image">
                 </div>

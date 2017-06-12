@@ -31,3 +31,25 @@
     @include dnipro( 'regular', 16px, $grey-m);
   }
 }
+
+.reviewsProfile {
+  padding-bottom: 35px;
+}
+
+#profile_image_review {
+  width: 75%;
+  margin-left: 20px;
+}
+
+.commenter {
+  @include dnipro( 'regular', 14px, $grey-d);
+}
+
+.comment {
+  @include dnipro( 'regular', 14px, $grey-m);
+}
+
+.date {
+  text-transform: uppercase;
+  @include dnipro( 'regular', 14px, $grey-m);
+}

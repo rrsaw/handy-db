@@ -1,35 +1,39 @@
-.popup{
+.popup {
   background-color: #fff;
   border-radius: 25px;
   margin-top: 15vh;
   width: 100%;
   display: inline-block;
-  padding: 10% 0 7% 0;
+  padding: 10% 0 7%;
   @include box_shadow($grey-d, 4);
 
-  .popup-heading{
+  .popup-heading {
     margin-bottom: 8%;
 
-    a{
+    a {
       margin: 0 10%;
       text-transform: uppercase;
       @include varelaFont(16px, $grey-m);
-      transition: .1s all ease;
-      padding-bottom: 0px;
+      transition: 0.1s all ease;
+      padding-bottom: 0;
       text-decoration: none;
-      &.active{
+
+      &.active {
         border-bottom: 2px solid $orange-d;
         padding-bottom: 7px;
       }
-      &.inactive{
+
+      &.inactive {
         opacity: 0.5;
-        &:hover{
+
+        &:hover {
           opacity: 1;
         }
       }
     }
   }
-  .personal-image{
+
+  .personal-image {
     position: absolute;
     top: -200px;
     text-align: center;
@@ -39,81 +43,118 @@
     overflow: hidden;
     width: 140px;
     height: 140px;
-    img{
+
+    img {
       width: 100%;
     }
-    .add-personal-image{
+
+    .add-personal-image {
       display: none;
     }
   }
-  .popup-body{
-    .input-container{
+
+  .popup-body {
+    .input-container {
       margin-top: 5%;
     }
-    input[type="text"],
+
+    input[type="date"],
     input[type="email"],
-    input[type="password"],
     input[type="number"],
-    input[type="date"]
-    {
+    input[type="password"],
+    input[type="text"] {
       border: none;
       border-bottom: 1px solid $grey-l;
       margin-bottom: 6%;
       width: 100%;
-      transition: .2s ease-in-out;
-      @include dnipro('medium', 17px, $grey-d);
-      &:focus, &:valid{
-        outline:none;
+      transition: 0.2s ease-in-out;
+      @include dnipro( 'medium', 17px, $grey-d);
+
+      &:focus,
+      &:valid {
+        outline: none;
         background-color: white;
         border-bottom: 1px solid $blue-m;
       }
-      &:valid + .label,
-      &:focus + .label {
+
+      &:focus + .label,
+      &:valid + .label {
         color: $blue-m;
         font-size: 10px;
         top: -25px;
         pointer-events: none;
       }
     }
-    .visibility-password{
+
+    .visibility-password {
       position: absolute;
       right: 20px;
-      top: 0px;
-      i{
+      top: 0;
+
+      i {
         font-size: 18px;
         cursor: pointer;
         color: $grey-m;
-        &:hover{
+
+        &:hover {
           color: $grey-d;
         }
       }
     }
+
     .label {
       top: -3px;
       left: 5px;
       display: flex;
       position: absolute;
       cursor: text;
-      transition: .2s ease-in-out;
-      @include dnipro('regular', 14px, $grey-l);
+      transition: 0.2s ease-in-out;
+      @include dnipro( 'regular', 14px, $grey-l);
       height: 3rem;
-      &.dateLabel{
+
+      &.dateLabel {
         top: -20px;
       }
     }
-    .rememberMe{
+
+    .rememberMe {
       margin-top: 9%;
-      label{
-        @include dnipro('medium', 14px, $grey-m);
+
+      label {
+        @include dnipro( 'medium', 14px, $grey-m);
       }
     }
-    .forgotPassword{
-      a{
-        @include dnipro('bold', 12px, $grey-d);
+
+    .forgotPassword {
+      a {
+        @include dnipro( 'bold', 12px, $grey-d);
       }
     }
-    .blueButton{
+
+    .blueButton {
       margin-top: 7%;
     }
   }
+}
+
+.request-loan {
+  height: 250px;
+}
+
+.rent_button {
+  margin-bottom: 20px;
+}
+
+.button_outline {
+  width: 100%;
+  padding: 8px 0;
+  background-color: transparent;
+  transition: all ease 0.2s;
+  color: $blue-d;
+  font: normal 16px "Varela Round", sans-serif;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $blue-m;
 }
