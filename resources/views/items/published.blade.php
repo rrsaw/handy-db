@@ -29,7 +29,8 @@
                     <i class="fa fa-pencil edit-item" data-attr="{{$item->id}}" data-image="{{$item->images['0']->id}}"></i>
                     {{ Form::open(array('url' => 'items/'.$item->id, 'class' => 'delete-item pull-right')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
-                        <button type="submit" class="times_button">
+                        <button type="submit" class="times_button"
+                        >
                           <i class="fa fa-times no-padding-right" ></i>
                         </button>
                     {{ Form::close() }}
