@@ -24,19 +24,19 @@
         </section>
       </div>
       <div class="col-md-1 col-md-offset-3 col-sm-2">
-        <div class="text-center">
+        <div class="statistics-profile text-center">
           <h5>{{$borrow}}</h5>
           <span>Borrowed</span>
         </div>
       </div>
       <div class="col-md-1 col-sm-1">
-        <div class="text-center">
+        <div class="statistics-profile text-center">
           <h5>{{$lend}}</h5>
           <span>Landed</span>
         </div>
       </div>
       <div class="col-md-1 col-sm-1">
-        <div class="text-center">
+        <div class="statistics-profile text-center">
           <h5>{{count($reviews)}}</h5>
           <span>Reviews</span>
         </div>

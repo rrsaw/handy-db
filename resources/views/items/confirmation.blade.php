@@ -35,7 +35,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 no-padding-right">
                   <div class="edit-cancel-published text-right">
                     @if ($url == "confirmation")
-                      {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'delete-item pull-right')) }}
+                      {{ Form::open(array('url' => 'confirmation/'.$loan->id, 'class' => 'refuse-loan pull-right')) }}
                           {{ Form::hidden('_method', 'DELETE') }}
                           <button type="submit" class="times_button">
                             <i class="fa fa-times no-padding-right"></i>
@@ -85,6 +85,20 @@
                 <p>{{ $loan->item->price }}</p>
               </div>
             </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 no-padding-left">
+              <div class="row">
+                <div class="details-item user-item">
+                  @if ($url == "confirmation")
+                    <a href="{{ url('profile/'.$loan->receiver->id) }}"><img src="{{ asset('images/personal-images/'.$loan->receiver->profileImage->name) }}" alt="{{ $loan->receiver->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
+                    <p>{{$loan->receiver->name}} {{$loan->receiver->surname}}</p></a>
+                  @elseif ($url == "confirmation/other")
+                    <a href="{{ url('profile/'.$loan->owner->id) }}"><img src="{{ asset('images/personal-images/'.$loan->owner->profileImage->name) }}" alt="{{ $loan->owner->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
+                    <p>{{$loan->owner->name}} {{$loan->owner->surname}}</p></a>
+                  @endif
+
+                </div>
+              </div>
             </div>
           </div>
 

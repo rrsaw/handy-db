@@ -17,7 +17,14 @@
             <h1>{{$item->name}}</h1>
             <h3>{{$item->category->name}}</h3>
             <div class="total-reviews-detail">
-
+              <section class="rating">
+                <input type="radio" id="star5" name="rating" value="5" disabled @if ($avgRating == 5) checked @endif/><label class = "block" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" disabled @if ($avgRating == 4) checked @endif/><label class = "block" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" disabled @if ($avgRating == 3) checked @endif/><label class = "block" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" disabled @if ($avgRating == 2) checked @endif/><label class = "block" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" disabled @if ($avgRating == 1) checked @endif/><label class = "block" for="star1" title="Sucks big time - 1 star"></label>
+              </section>
+              <span> {{count($reviews)}} reviews </span>
             </div>
           </div>
           <div class="description-detail">
@@ -25,7 +32,9 @@
           </div>
           <div class="reviews-detail">
             <h4>Reviews</h4>
-            <div class="item-divider"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 no-padding-left">
+              <div class="item-divider"></div>
+            </div>
 
               @if(count($reviews))
 
@@ -33,7 +42,11 @@
                     <div class="reviewsProfile">
                       <div class="profileImage">
                       </div>
-                      <p class="commenter">{{$review->reviewer->name}} {{$review->reviewer->surname}}</p>
+                      <p class="commenter">
+                        <a href="{{ url('profile/'.$review->reviewer->id) }}">
+                          {{$review->reviewer->name}} {{$review->reviewer->surname}}
+                        </a>
+                      </p>
                       <p class="comment">{{$review->description}}</p>
                       <section class="rating">
                         <input type="radio" id="star5" name="rating{{$review->id}}" value="5" disabled @if ($review->value == 5) checked  @endif/><label class = "block" for="star5" title="Awesome - 5 stars"></label>
@@ -78,14 +91,17 @@
           <div class="row">
             <div class="owner-detail">
               <h4>Owner</h4>
-              <div class="item-divider"></div>
+              <div class="col-lg-6 col-md-6 col-sm-6 no-padding-left">
+                <div class="item-divider"></div>
+              </div>
               <div class="left-part">
                 <div class="owner-image">
-                  <img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="">
+                  <a href="{{ url('profile/'.$item->user->id) }}">
+                  <img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{$item->user->profileImage->name}}">
+                  </a>
                 </div>
                 <div class="owner-name-address">
-                  <h5>{{$item->user->name}}</h5>
-                  <h5>{{$item->user->surname}}</h5>
+                  <h5>{{$item->user->name}} {{$item->user->surname}}</h5>
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                   <span>{{$item->user->address->city}}</span>
                 </div>
@@ -95,17 +111,23 @@
           <div class="row">
             <div class="details-detail">
               <h4>Details</h4>
-              <div class="item-divider"></div>
-              <div class="col-md-6 col-sm-6 no-padding-left">
-                <div class="owner-name-address">
-                  <h5>Period</h5>
-                  <h5>Distance</h5>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="item-divider"></div>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-6 no-padding-left">
-                <div class="owner-name-address">
-                  <span>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</span>
-                  <span>Distance</span>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="owner-name-address">
+                    <h5>Period</h5>
+                    <h5>City</h5>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 no-padding-left">
+                  <div class="owner-name-address">
+                    <span>{{ date('d M', strtotime($item->start_date)) }} - {{ date('d M', strtotime($item->end_date)) }}</span>
+                    <span>{{$item->user->address->city}}</span>
+                  </div>
                 </div>
               </div>
             </div>

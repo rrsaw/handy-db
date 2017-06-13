@@ -20,6 +20,9 @@
 .btn-circle-light:hover:hover { transition: all ease 0.2s; }
 .btn-circle-light:focus { outline: none; color: #FFF; }
 
+.button-outline { width: 100%; padding: 8px 0; background-color: transparent; transition: all ease 0.2s; color: #22B8CF; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; border-style: solid; border-width: 2px; border-color: #22B8CF; }
+.button-outline:hover { transform: scale(1.05); }
+
 .checkbox > input[type="checkbox"] { display: none; }
 
 .checkbox__visual { vertical-align: middle; padding-left: 2em; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
@@ -30,6 +33,11 @@
 h1 { color: #4A4A4A; font: normal 32px "Varela Round", sans-serif; }
 
 main { transition: 0.5s all ease; }
+
+a:hover, textarea:hover { text-decoration: none; }
+a:active, a:focus, textarea:active, textarea:focus { outline: none; }
+
+button:active, button:active:focus, button:focus { outline: none !important; }
 
 .open-search { margin-top: 80px; }
 
@@ -42,15 +50,20 @@ main { transition: 0.5s all ease; }
 .error-block { margin-bottom: 10px; display: block; }
 .error-block strong { color: #D0011B; text-transform: capitalize; }
 
+.checkedCategory { background-color: #F08C00; box-shadow: 0 10px 20px rgba(250, 176, 5, 0.19), 0 6px 6px rgba(250, 176, 5, 0.23); border-color: #F08C00 !important; transform: scale(1.1); }
+.checkedCategory span { color: #FFF !important; }
+
 .popup { background-color: #fff; border-radius: 25px; margin-top: 15vh; width: 100%; display: inline-block; padding: 10% 0 7%; box-shadow: 0 14px 28px rgba(74, 74, 74, 0.25), 0 10px 10px rgba(74, 74, 74, 0.22); }
 .popup .popup-heading { margin-bottom: 8%; }
-.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: 0.1s all ease; padding-bottom: 0; text-decoration: none; }
+.popup .popup-heading a { margin: 0 10%; text-transform: uppercase; color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; transition: 0.1s all ease; padding-bottom: 0; }
 .popup .popup-heading a.active { border-bottom: 2px solid #F08C00; padding-bottom: 7px; }
 .popup .popup-heading a.inactive { opacity: 0.5; }
 .popup .popup-heading a.inactive:hover { opacity: 1; }
 .popup .personal-image { position: absolute; top: -200px; text-align: center; background-color: white; border-radius: 200px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); overflow: hidden; width: 140px; height: 140px; }
-.popup .personal-image img { width: 100%; }
-.popup .personal-image .add-personal-image { display: none; }
+.popup .personal-image img { max-width: 100%; height: auto; }
+.popup .personal-image .input-personal-image { display: none; }
+.popup .personal-image .personal-image-add { height: 100%; background-color: #E7E7E7; }
+.popup .personal-image .personal-image-add i { margin-top: 40%; font-size: 30px; color: #9B9B9B; }
 .popup .popup-body .input-container { margin-top: 5%; }
 .popup .popup-body input[type="date"], .popup .popup-body input[type="email"], .popup .popup-body input[type="number"], .popup .popup-body input[type="password"], .popup .popup-body input[type="text"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: 0.2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
 .popup .popup-body input[type="date"]:focus, .popup .popup-body input[type="date"]:valid, .popup .popup-body input[type="email"]:focus, .popup .popup-body input[type="email"]:valid, .popup .popup-body input[type="number"]:focus, .popup .popup-body input[type="number"]:valid, .popup .popup-body input[type="password"]:focus, .popup .popup-body input[type="password"]:valid, .popup .popup-body input[type="text"]:focus, .popup .popup-body input[type="text"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
@@ -69,8 +82,6 @@ main { transition: 0.5s all ease; }
 
 .rent_button { margin-bottom: 20px; }
 
-.button_outline { width: 100%; padding: 8px 0; background-color: transparent; transition: all ease 0.2s; color: #1098AD; font: normal 16px "Varela Round", sans-serif; border-radius: 20px; text-transform: uppercase; border-style: solid; border-width: 2px; border-color: #22B8CF; }
-
 .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 10; padding: 20px; overflow-x: hidden; overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */ border-right: 1px solid #eee; }
 
 .sidebar { padding-left: 0; padding-right: 0; }
@@ -81,65 +92,77 @@ main { transition: 0.5s all ease; }
 
 .sidebar .nav-item + .nav-item { margin-left: 0; }
 
-.sidebar .nav-link { border-radius: 0; }
+.sidebar .nav-link { border-radius: 0; transition: 0.3s all ease; }
 .sidebar .nav-link span { vertical-align: text-bottom; }
 
 nav ul { margin-top: 30px; }
 nav i { margin-right: 15%; }
 nav li { font-size: 1.6rem; }
 nav li .nav-link { padding: 15px 15%; }
+nav li .nav-link:hover { background: none; }
 nav .fa { font-size: 3rem; }
 nav .fa.fa-archive { font-size: 2.3rem; margin-left: 10px; }
 nav .fa.fa-user { font-size: 2.8rem; margin-left: 4px; }
 nav .activate { color: #4A4A4A; }
 nav .deactivate { color: #E7E7E7; }
+nav .deactivate:hover { background-color: transparent; color: #c1c1c1; }
 
 li .activate { border-left: thick solid #FAB005; }
 
 #logo { margin: 0 auto; width: 85%; max-width: 100px; height: auto; }
 
 .logout { position: absolute; bottom: 4vh; left: 15%; }
-.logout .personal-image { width: 3vw; border-radius: 100%; overflow: hidden; display: inline-block; vertical-align: middle; cursor: pointer; transition: 0.2s all ease; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); }
+.logout .personal-image { width: 3vw; border-radius: 100%; overflow: hidden; display: inline-block; vertical-align: middle; cursor: pointer; transition: 0.2s all ease; min-width: 50px; box-shadow: 0 3px 6px rgba(74, 74, 74, 0.16), 0 3px 6px rgba(74, 74, 74, 0.23); }
 .logout .personal-image img { width: 100%; }
 .logout .personal-image:hover { transform: scale(1.1); }
-.logout .info { display: inline-block; vertical-align: middle; margin-left: 10px; }
+.logout .info { display: inline-block; vertical-align: middle; }
 .logout .info h7 { font: normal 14px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
 .logout .info button { border: none; background: none; padding: 0; transition: 0.2s all ease; font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
 .logout .info button:hover { color: #FAB005; }
 
-.modal { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; display: none; }
-.modal .modal-body { background-color: white; border-radius: 30px; padding: 2.5%; position: relative; margin-top: 10vh; }
-.modal .modal-body .images-add .view-image img { width: 100%; }
-.modal .modal-body .modal-close { background-color: #D0011B; color: #FFF; position: absolute; right: -10px; top: -10px; padding: 10px 14px; border-radius: 20px; cursor: pointer; box-shadow: 0 1px 3px rgba(155, 155, 155, 0.12), 0 1px 2px rgba(155, 155, 155, 0.24); transition: 0.2s all ease; }
-.modal .modal-body .modal-close:hover { transform: scale(1.1); box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); }
-.modal .modal-body .modal-title { color: #4A4A4A; font: normal 24px "Varela Round", sans-serif; }
-.modal .modal-body .blueButton:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(34, 184, 207, 0.19), 0 6px 6px rgba(34, 184, 207, 0.23); }
-.modal #name_input { width: 300px; }
-.modal #date_input { width: 160px; }
-.modal #date_input2 { width: 160px; }
-.modal #price_input { width: 60px; }
-.modal #inputfile { padding: 5px; color: #9B9B9B; vertical-align: middle; }
-.modal #inputfile::-webkit-file-upload-button { visibility: hidden; }
-.modal #inputfile::before { content: 'Browse'; color: #FAB005; display: inline-block; background: #fff; margin: -3px 0 -3px -3px; padding: -15px 20px; outline: none; white-space: nowrap; -webkit-user-select: none; cursor: pointer; text-align: center; text-shadow: 1px 1px #fff; font-weight: 700; font-size: 10pt; }
-.modal #inputfile:hover::before { border-color: black; }
-.modal #inputfile:active { outline: 0; }
-.modal #inputfile:active::before { background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); }
-.modal .categoryone { margin-left: 10px; }
-.modal .categories-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
-.modal .period-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
-.modal .description-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
-.modal .price-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
-.modal .images-add h5 { color: #4A4A4A; font: normal 10pt "Varela Round", sans-serif; }
-.modal #description { width: 400px; }
-.modal .input-container { margin-top: 5%; }
-.modal input[type="date"], .modal input[type="email"], .modal input[type="number"], .modal input[type="password"], .modal input[type="text"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: 0.2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
-.modal input[type="date"]:focus, .modal input[type="date"]:valid, .modal input[type="email"]:focus, .modal input[type="email"]:valid, .modal input[type="number"]:focus, .modal input[type="number"]:valid, .modal input[type="password"]:focus, .modal input[type="password"]:valid, .modal input[type="text"]:focus, .modal input[type="text"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
-.modal input[type="date"]:focus + .label, .modal input[type="date"]:valid + .label, .modal input[type="email"]:focus + .label, .modal input[type="email"]:valid + .label, .modal input[type="number"]:focus + .label, .modal input[type="number"]:valid + .label, .modal input[type="password"]:focus + .label, .modal input[type="password"]:valid + .label, .modal input[type="text"]:focus + .label, .modal input[type="text"]:valid + .label { color: #22B8CF; font-size: 10px; top: -15px; pointer-events: none; }
-.modal .visibility-password { position: absolute; right: 20px; top: 0; }
-.modal .visibility-password i { font-size: 18px; cursor: pointer; color: #9B9B9B; }
-.modal .visibility-password i:hover { color: #4A4A4A; }
-.modal .label { top: -3px; left: 5px; display: flex; position: absolute; cursor: text; transition: 0.2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
-.modal .label.dateLabel { top: -20px; }
+.modal, .modalRent, .modalReview { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; display: none; }
+.modal .modal-body, .modalRent .modal-body, .modalReview .modal-body { background-color: white; border-radius: 30px; padding: 2.5%; position: relative; margin-top: 10vh; }
+.modal .modal-body .images-add .image-item, .modalRent .modal-body .images-add .image-item, .modalReview .modal-body .images-add .image-item { height: 200px; background-color: #E7E7E7; position: relative; cursor: pointer; transition: 0.2s all ease; }
+.modal .modal-body .images-add .image-item:hover, .modalRent .modal-body .images-add .image-item:hover, .modalReview .modal-body .images-add .image-item:hover { transform: scale(1.05); }
+.modal .modal-body .images-add .image-item i, .modalRent .modal-body .images-add .image-item i, .modalReview .modal-body .images-add .image-item i { font-size: 34px; color: #9B9B9B; position: absolute; top: 45%; left: 45%; }
+.modal .modal-body .images-add .image-item input, .modalRent .modal-body .images-add .image-item input, .modalReview .modal-body .images-add .image-item input { display: none; }
+.modal .modal-body .images-add .view-image img, .modalRent .modal-body .images-add .view-image img, .modalReview .modal-body .images-add .view-image img { width: 100%; }
+.modal .modal-body .inject-div, .modalRent .modal-body .inject-div, .modalReview .modal-body .inject-div { border-right: 1px solid #E7E7E7; margin-bottom: 30px; }
+.modal .modal-body .modal-close, .modalRent .modal-body .modal-close, .modalReview .modal-body .modal-close { background-color: #D0011B; color: #FFF; position: absolute; right: -10px; top: -10px; padding: 10px 14px; border-radius: 20px; cursor: pointer; box-shadow: 0 1px 3px rgba(155, 155, 155, 0.12), 0 1px 2px rgba(155, 155, 155, 0.24); transition: 0.2s all ease; }
+.modal .modal-body .modal-close:hover, .modalRent .modal-body .modal-close:hover, .modalReview .modal-body .modal-close:hover { transform: scale(1.1); box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); }
+.modal .modal-body .modal-title, .modalRent .modal-body .modal-title, .modalReview .modal-body .modal-title { color: #4A4A4A; font: normal 24px "Varela Round", sans-serif; margin-bottom: 20px; }
+.modal .modal-body .blueButton:hover, .modalRent .modal-body .blueButton:hover, .modalReview .modal-body .blueButton:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(34, 184, 207, 0.19), 0 6px 6px rgba(34, 184, 207, 0.23); }
+.modal #name_input, .modalRent #name_input, .modalReview #name_input { width: 300px; }
+.modal #date_input, .modalRent #date_input, .modalReview #date_input { width: 160px; }
+.modal #date_input2, .modalRent #date_input2, .modalReview #date_input2 { width: 160px; }
+.modal #price_input, .modalRent #price_input, .modalReview #price_input { width: 60px; }
+.modal #inputfile, .modalRent #inputfile, .modalReview #inputfile { padding: 5px; color: #9B9B9B; vertical-align: middle; }
+.modal #inputfile::-webkit-file-upload-button, .modalRent #inputfile::-webkit-file-upload-button, .modalReview #inputfile::-webkit-file-upload-button { visibility: hidden; }
+.modal #inputfile::before, .modalRent #inputfile::before, .modalReview #inputfile::before { content: 'Browse'; color: #FAB005; display: inline-block; background: #fff; margin: -3px 0 -3px -3px; padding: -15px 20px; outline: none; white-space: nowrap; -webkit-user-select: none; cursor: pointer; text-align: center; text-shadow: 1px 1px #fff; font-weight: 700; font-size: 10pt; }
+.modal #inputfile:hover::before, .modalRent #inputfile:hover::before, .modalReview #inputfile:hover::before { border-color: black; }
+.modal #inputfile:active, .modalRent #inputfile:active, .modalReview #inputfile:active { outline: 0; }
+.modal #inputfile:active::before, .modalRent #inputfile:active::before, .modalReview #inputfile:active::before { background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); }
+.modal .categories-add h5, .modal .description-add h5, .modal .images-add h5, .modal .period-add h5, .modal .price-add h5, .modalRent .categories-add h5, .modalRent .description-add h5, .modalRent .images-add h5, .modalRent .period-add h5, .modalRent .price-add h5, .modalReview .categories-add h5, .modalReview .description-add h5, .modalReview .images-add h5, .modalReview .period-add h5, .modalReview .price-add h5 { color: #9B9B9B; font: normal 13px "Varela Round", sans-serif; }
+.modal .categories-add .option, .modalRent .categories-add .option, .modalReview .categories-add .option { margin: 6px 15px 6px 0; display: inline-block; margin-right: 15px; }
+.modal .categories-add .option label, .modalRent .categories-add .option label, .modalReview .categories-add .option label { padding: 12px 22px; border: 1px solid #9B9B9B; border-radius: 20px; transition: 0.3s all ease; cursor: pointer; }
+.modal .categories-add .option label:hover, .modalRent .categories-add .option label:hover, .modalReview .categories-add .option label:hover { transform: scale(1.1); }
+.modal .categories-add .option label input, .modalRent .categories-add .option label input, .modalReview .categories-add .option label input { display: none; }
+.modal .categories-add .option label span, .modalRent .categories-add .option label span, .modalReview .categories-add .option label span { font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+.modal #description, .modalRent #description, .modalReview #description { width: 95%; border-color: #9B9B9B; min-height: 50px; font: normal 14px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.modal .input-container, .modalRent .input-container, .modalReview .input-container { margin-top: 5%; }
+.modal input[type="date"], .modal input[type="email"], .modal input[type="number"], .modal input[type="password"], .modal input[type="text"], .modalRent input[type="date"], .modalRent input[type="email"], .modalRent input[type="number"], .modalRent input[type="password"], .modalRent input[type="text"], .modalReview input[type="date"], .modalReview input[type="email"], .modalReview input[type="number"], .modalReview input[type="password"], .modalReview input[type="text"] { border: none; border-bottom: 1px solid #E7E7E7; margin-bottom: 6%; width: 100%; transition: 0.2s ease-in-out; font: normal 17px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.modal input[type="date"]:focus, .modal input[type="date"]:valid, .modal input[type="email"]:focus, .modal input[type="email"]:valid, .modal input[type="number"]:focus, .modal input[type="number"]:valid, .modal input[type="password"]:focus, .modal input[type="password"]:valid, .modal input[type="text"]:focus, .modal input[type="text"]:valid, .modalRent input[type="date"]:focus, .modalRent input[type="date"]:valid, .modalRent input[type="email"]:focus, .modalRent input[type="email"]:valid, .modalRent input[type="number"]:focus, .modalRent input[type="number"]:valid, .modalRent input[type="password"]:focus, .modalRent input[type="password"]:valid, .modalRent input[type="text"]:focus, .modalRent input[type="text"]:valid, .modalReview input[type="date"]:focus, .modalReview input[type="date"]:valid, .modalReview input[type="email"]:focus, .modalReview input[type="email"]:valid, .modalReview input[type="number"]:focus, .modalReview input[type="number"]:valid, .modalReview input[type="password"]:focus, .modalReview input[type="password"]:valid, .modalReview input[type="text"]:focus, .modalReview input[type="text"]:valid { outline: none; background-color: white; border-bottom: 1px solid #22B8CF; }
+.modal input[type="date"]:focus + .label, .modal input[type="date"]:valid + .label, .modal input[type="email"]:focus + .label, .modal input[type="email"]:valid + .label, .modal input[type="number"]:focus + .label, .modal input[type="number"]:valid + .label, .modal input[type="password"]:focus + .label, .modal input[type="password"]:valid + .label, .modal input[type="text"]:focus + .label, .modal input[type="text"]:valid + .label, .modalRent input[type="date"]:focus + .label, .modalRent input[type="date"]:valid + .label, .modalRent input[type="email"]:focus + .label, .modalRent input[type="email"]:valid + .label, .modalRent input[type="number"]:focus + .label, .modalRent input[type="number"]:valid + .label, .modalRent input[type="password"]:focus + .label, .modalRent input[type="password"]:valid + .label, .modalRent input[type="text"]:focus + .label, .modalRent input[type="text"]:valid + .label, .modalReview input[type="date"]:focus + .label, .modalReview input[type="date"]:valid + .label, .modalReview input[type="email"]:focus + .label, .modalReview input[type="email"]:valid + .label, .modalReview input[type="number"]:focus + .label, .modalReview input[type="number"]:valid + .label, .modalReview input[type="password"]:focus + .label, .modalReview input[type="password"]:valid + .label, .modalReview input[type="text"]:focus + .label, .modalReview input[type="text"]:valid + .label { color: #22B8CF; font-size: 10px; top: -15px; pointer-events: none; }
+.modal .label, .modalRent .label, .modalReview .label { top: -3px; left: -10px; display: flex; position: absolute; cursor: text; transition: 0.2s ease-in-out; font: normal 14px "DIN Pro", sans-serif; color: #E7E7E7; height: 3rem; }
+.modal .label.dateLabel, .modalRent .label.dateLabel, .modalReview .label.dateLabel { top: 0; }
+
+.modal-review p { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
+.modal-review span { font: normal 18px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.modal-review .rating-loan { margin: 30px 0; }
+.modal-review .rating-loan .rating { float: right; }
+.modal-review .rating-loan .rating label:before { font-size: 22px; }
+.modal-review textarea { width: 100%; border-color: #9B9B9B; min-height: 70px; font: normal 14px "DIN Pro Medium", sans-serif; color: #4A4A4A; margin-bottom: 20px; }
+.modal-review button { width: 45%; margin: 10px; }
 
 .searchbar { position: relative; }
 .searchbar input { position: absolute; top: -80px; width: 90%; border: none; border-bottom: 1px solid #eee; padding: 2% 0; font: normal 22px "DIN Pro Medium", sans-serif; color: #4A4A4A; transition: 0.5s all ease; }
@@ -159,11 +182,13 @@ li .activate { border-left: thick solid #FAB005; }
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }
 
 .cards { margin-bottom: 20px; }
-.cards .image-item-card { margin-bottom: 0.75rem; box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; }
+.cards .image-item-card { margin-bottom: 0.75rem; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; transition: 0.2s all ease; }
+.cards .image-item-card:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); }
 .cards .item-price { font: normal 16px "DIN Pro Medium", sans-serif; color: #22B8CF; }
-.cards .item-desc { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; color: #4A4A4A; }
+.cards .item-desc { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; transition: 0.2s all ease; }
+.cards .item-desc:hover { color: #9B9B9B; }
 .cards p { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
-.cards .fa { font-size: 1.5em; padding-right: 20px; color: #22B8CF; }
+.cards .fa { font-size: 1.5em; color: #22B8CF; }
 .cards .no-padding-left { padding-left: 0; }
 .cards .no-padding-right { padding-right: 0; }
 
@@ -174,6 +199,11 @@ li .activate { border-left: thick solid #FAB005; }
 .title-details-item { margin-top: 10px; }
 
 .details-item { display: block; }
+.details-item .fa-eur { margin: 0 7px; }
+.details-item.user-item a img, .details-item.user-item a p { transition: 0.2s all ease; }
+.details-item.user-item a:hover { color: none; }
+.details-item.user-item a:hover img { transform: scale(1.1); }
+.details-item.user-item a:hover p { color: #4A4A4A; }
 .details-item i, .details-item p { display: inline-block; }
 
 #btn-side-container { position: fixed; top: 20px; }
@@ -184,14 +214,19 @@ li .activate { border-left: thick solid #FAB005; }
 
 .profile_image_explore { width: 29px; display: inline-block; margin-right: 0; }
 
-.times_button { border: none; background-color: white; }
+.times_button { border: none; background: none; }
+
+.edit-cancel-published i:not(.fa-hourglass-half) { cursor: pointer; transition: 0.2s all ease; margin-left: 10px; }
+.edit-cancel-published i:not(.fa-hourglass-half).fa-times { color: #D0011B; font-size: 21px; }
+.edit-cancel-published i:not(.fa-hourglass-half).fa-check { color: #7ED321; font-size: 23px; }
+.edit-cancel-published i:not(.fa-hourglass-half):hover { transform: scale(1.3); }
 
 .filters-items { margin: 1% 0; }
 .filters-items ul { padding-left: 0; }
 .filters-items ul li { display: inline-block; margin-right: 30px; }
 .filters-items ul li a { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
 .filters-items ul li a.active { color: #FAB005; }
-.filters-items ul li a:hover { text-decoration: none; color: #F08C00; }
+.filters-items ul li a:hover { color: #F08C00; }
 .filters-items.select-user { border-top: 1px solid #eee; padding: 2% 0; }
 
 #landing_body { background-color: #fafafa; }
@@ -236,7 +271,6 @@ li .activate { border-left: thick solid #FAB005; }
 .medium_box_2 #title { font: normal 25pt "DIN Pro Light", sans-serif; color: #FFF; }
 @media only screen and (max-width: 767px) { .medium_box_2 #title { text-align: center; } }
 .medium_box_2 a { font-size: 12pt; color: #fff; }
-.medium_box_2 :hover { text-decoration: none; }
 .medium_box_2 p { font: normal 15pt "DIN Pro", sans-serif; color: #99acff; }
 
 .big_box { background-color: #2096F3; border-radius: 6px; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); height: 690px; margin-bottom: 30px; }
@@ -298,34 +332,65 @@ li .activate { border-left: thick solid #FAB005; }
 .image-detail { max-height: 40vh; overflow: hidden; text-align: center; }
 .image-detail img { width: 100%; display: inline-block; vertical-align: middle; }
 
+.title-detail { margin-top: 60px; }
+.title-detail h1 { color: #4A4A4A; }
+.title-detail h3 { color: #9B9B9B; font: normal 18px "Varela Round", sans-serif; text-transform: capitalize; margin: 10px 0; }
+
+.total-reviews-detail { margin-top: 20px; }
+.total-reviews-detail .rating { float: none; display: inline-block; }
+.total-reviews-detail span { display: block; font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+
+.details-detail h4, .owner-detail h4, .reviews-detail h4 { color: #4A4A4A; font: normal 18px "Varela Round", sans-serif; }
+
+.commenter a { color: #4A4A4A; transition: 0.2s all ease; }
+.commenter a:hover { color: #9B9B9B; }
+
+.description-detail { margin: 40px 0; font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+
 .price-detail { float: left; margin-top: 50px; }
+.price-detail h2 { font: normal 25px "DIN Pro Medium", sans-serif; color: #22B8CF; }
 
 .rent-btn-detail { float: right; width: 60%; margin-top: 65px; }
 
-.owner-detail .left-part { width: 70%; display: inline-block; }
-.owner-detail .left-part .owner-image { width: 32%; display: inline-block; vertical-align: top; }
+.owner-detail { margin: 20px 0; }
+.owner-detail .left-part { width: 100%; display: inline-block; }
+.owner-detail .left-part .owner-image { width: 20%; min-width: 70px; display: inline-block; vertical-align: top; transition: 0.2s all ease; }
 .owner-detail .left-part .owner-image img { width: 100%; border-radius: 50px; }
+.owner-detail .left-part .owner-image:hover { transform: scale(1.1); }
 .owner-detail .left-part .owner-name-address { display: inline-block; margin-left: 10px; }
-.owner-detail .left-part .owner-name-address h5 { display: block; }
+.owner-detail .left-part .owner-name-address h5 { display: block; font: normal 16px "DIN Pro Medium", sans-serif; color: #9B9B9B; }
+.owner-detail .left-part .owner-name-address span { font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+.owner-detail .left-part .owner-name-address i { color: #9B9B9B; }
 
 .details-detail .owner-name-address h5 { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
 .details-detail .owner-name-address span { font: normal 15px "DIN Pro", sans-serif; color: #22B8CF; display: block; margin: 10px 0; text-align: right; }
 
 .profile-image { border-radius: 100%; }
+.profile-image a img { transition: 0.2s all ease; }
+.profile-image a img:hover { transform: scale(1.05); }
 
 .tab-profile { padding: 0; margin: 6% 0; }
 .tab-profile li { display: inline-block; margin-right: 50px; }
 .tab-profile li a { color: #9B9B9B; font: normal 16px "Varela Round", sans-serif; }
-.tab-profile li a.active, .tab-profile li a:hover { text-decoration: none; color: #1098AD; }
+.tab-profile li a.active, .tab-profile li a:hover { color: #1098AD; }
 
 .placeholder .user { color: #4A4A4A; font: normal 20px "Varela Round", sans-serif; }
 .placeholder .place { font: normal 16px "DIN Pro", sans-serif; color: #9B9B9B; }
+.placeholder .statistics-profile h5 { color: #4A4A4A; font: normal 20px "Varela Round", sans-serif; }
+.placeholder .statistics-profile span { color: #9B9B9B; font: normal 14px "Varela Round", sans-serif; }
 
-.reviewsProfile { padding-bottom: 35px; }
+.reviewsProfile { padding: 25px 0; border-bottom: 1px solid #eee; }
+
+.info-profile .left-part h6 { font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
+.info-profile .right-part h6 { font: normal 14px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
+.info-profile h6 { margin-top: 15px; }
 
 #profile_image_review { width: 75%; margin-left: 20px; }
 
-.commenter { font: normal 14px "DIN Pro", sans-serif; color: #4A4A4A; }
+.profile_review a { color: #4A4A4A; font: normal 16px "Varela Round", sans-serif; transition: 0.2s all ease; }
+.profile_review a:hover { color: #9B9B9B; }
+
+.commenter { font: normal 15px "DIN Pro Medium", sans-serif; color: #4A4A4A; }
 
 .comment { font: normal 14px "DIN Pro", sans-serif; color: #9B9B9B; }
 

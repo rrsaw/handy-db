@@ -6,9 +6,9 @@
 
     <div class="row">
       <div class="col-md-5 col-sm-9">
-        <div class="reviewsProfile">
-          <div class="col-md-6 col-sm-6">
-            <div class="text-left">
+        <div class="info-profile">
+          <div class="col-md-6 col-sm-6 no-padding-left">
+            <div class="text-left left-part">
               <h6>Name</h6>
               <h6>Surname</h6>
               <h6>E-mail</h6>
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="col-md-6 col-sm-3">
-            <div class="text-right ">
+            <div class="text-right right-part">
               <h6>{{$user->name}}</h6>
               <h6>{{$user->surname}}</h6>
               <h6>{{$user->email}}</h6>

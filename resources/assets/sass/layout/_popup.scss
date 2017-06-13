@@ -16,7 +16,6 @@
       @include varelaFont(16px, $grey-m);
       transition: 0.1s all ease;
       padding-bottom: 0;
-      text-decoration: none;
 
       &.active {
         border-bottom: 2px solid $orange-d;
@@ -45,11 +44,23 @@
     height: 140px;
 
     img {
-      width: 100%;
+      max-width: 100%;
+      height: auto;
     }
 
-    .add-personal-image {
+    .input-personal-image {
       display: none;
+    }
+
+    .personal-image-add {
+      height: 100%;
+      background-color: $grey-l;
+
+      i {
+        margin-top: 40%;
+        font-size: 30px;
+        color: $grey-m;
+      }
     }
   }
 
@@ -143,18 +154,4 @@
 
 .rent_button {
   margin-bottom: 20px;
-}
-
-.button_outline {
-  width: 100%;
-  padding: 8px 0;
-  background-color: transparent;
-  transition: all ease 0.2s;
-  color: $blue-d;
-  font: normal 16px "Varela Round", sans-serif;
-  border-radius: 20px;
-  text-transform: uppercase;
-  border-style: solid;
-  border-width: 2px;
-  border-color: $blue-m;
 }
