@@ -6,6 +6,26 @@ main {
   transition: 0.5s all ease;
 }
 
+a,
+textarea {
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  &:active,
+  &:active:focus,
+  &:focus {
+    outline: none !important;
+  }
+}
+
 .open-search {
   margin-top: 80px;
 }
@@ -32,5 +52,16 @@ main {
   strong {
     color: $red;
     text-transform: capitalize;
+  }
+}
+
+.checkedCategory {
+  background-color: $orange-d;
+  @include box_shadow($orange-l, 3);
+  border-color: $orange-d !important;
+  transform: scale(1.1);
+
+  span {
+    color: $white !important;
   }
 }

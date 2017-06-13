@@ -145,10 +145,6 @@
     color: #fff;
   }
 
-  :hover {
-    text-decoration: none;
-  }
-
   p {
     @include dnipro(regular, 15pt, #99acff);
   }

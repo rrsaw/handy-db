@@ -3,9 +3,15 @@
 
   .image-item-card {
     margin-bottom: 0.75rem;
-    @include box_shadow($grey-m, 3);
+    @include box_shadow($grey-m, 2);
     max-height: 300px;
     overflow: hidden;
+    transition: 0.2s all ease;
+
+    &:hover {
+      transform: scale(1.03);
+      @include box_shadow($grey-m, 3);
+    }
   }
 
   .item-price {
@@ -14,7 +20,11 @@
 
   .item-desc {
     @include varelaFont(18px, $grey-d);
-    color: $grey-d;
+    transition: 0.2s all ease;
+
+    &:hover {
+      color: $grey-m;
+    }
   }
 
   p {
@@ -23,7 +33,6 @@
 
   .fa {
     font-size: 1.5em;
-    padding-right: 20px;
     color: $blue-m;
   }
 
@@ -59,6 +68,31 @@
 .details-item {
   display: block;
 
+  .fa-eur {
+    margin: 0 7px;
+  }
+
+  &.user-item {
+    a {
+      img,
+      p {
+        transition: 0.2s all ease;
+      }
+    }
+
+    a:hover {
+      color: none;
+
+      img {
+        transform: scale(1.1);
+      }
+
+      p {
+        color: $grey-d;
+      }
+    }
+  }
+
   i,
   p {
     display: inline-block;
@@ -89,5 +123,27 @@
 
 .times_button {
   border: none;
-  background-color: white;
+  background: none;
+}
+
+.edit-cancel-published {
+  i:not(.fa-hourglass-half) {
+    cursor: pointer;
+    transition: 0.2s all ease;
+    margin-left: 10px;
+
+    &.fa-times {
+      color: $red;
+      font-size: 21px;
+    }
+
+    &.fa-check {
+      color: $green;
+      font-size: 23px;
+    }
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
 }

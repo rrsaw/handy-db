@@ -61,8 +61,9 @@ class ItemsController extends Controller
     {
         $item = Item::find($id);
         $reviews = Review::where('id_item', $item->id)->orderBy('id', 'desc')->get();
+        $avgRating = round($reviews->avg('value'));
 
-        return view('detail', compact('item', 'reviews'));
+        return view('detail', compact('item', 'reviews', 'avgRating'));
     }
 
     /**

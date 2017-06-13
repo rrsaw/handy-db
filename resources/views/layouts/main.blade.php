@@ -9,7 +9,9 @@
       <!-- NAV BAR -->
       <nav class="sidebar col-lg-2 col-md-2 col-sm-1">
         <div class="img-responsive text-center" id="logo">
-          <img src="{{ asset('img/logo.png') }}" alt="handy logo" id="logo">
+          <a href="/">
+            <img src="{{ asset('img/logo.png') }}" alt="handy logo" id="logo">
+          </a>
         </div>
         <ul class="nav nav-pills flex-column">
           <li class="nav-item @yield('exploreMenu')">
@@ -29,7 +31,7 @@
             </a>
           </div>
           <div class="info">
-            <h7>{{Auth::user()->name}} {{Auth::user()->surname}}</h7>
+            <h7 class="hidden-sm">{{Auth::user()->name}} {{Auth::user()->surname}}</h7>
             <form action="{{ route('logout')}}" method="get">
               <button type="submit">
                 Log out
@@ -41,9 +43,9 @@
     </div>
     <div class="searchbar">
       <div class="col-md-10 col-sm-10 col-md-offset-2 col-sm-offset-2">
-        <form class="" action="index.html" method="post">
+        {{-- <form class="" action="" method="post"> --}}
           <input type="text" name="search" value="" placeholder="Search">
-        </form>
+        {{-- </form> --}}
       </div>
     </div>
 
@@ -61,13 +63,6 @@
           <button type="button" name="button" class="btn-circle btn-add-item">
             <form class="" action="index.html" method="post">
               <i class="fa fa-plus" aria-hidden="true"></i>
-            </form>
-          </button>
-        </div>
-        <div class="row btn-side-container-extra">
-          <button type="button" name="button" class="btn-circle-light btn-filter">
-            <form class="" action="index.html" method="post">
-              <i class="fa fa-filter" aria-hidden="true"></i>
             </form>
           </button>
         </div>
@@ -114,41 +109,41 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
                   <div class="price-add">
                     <h5>Price<h5>
-                    <input type="number" name="price" step="1.00" id="price_input" required>
+                    <input type="number" name="price" step="0.10" id="price_input" required>
                   </div>
                 </div>
-                <div class="col-lg-8  col-md-12 col-sm-12 no-padding-left">
+                <div class="col-lg-12  col-md-12 col-sm-12 no-padding-left">
                   <div class="categories-add">
                     <h5>Categories</h5>
-                    <div class="option radio-inline categoryone">
+                    <div class="option">
                       <label>
                         <input type="radio" name="category" value="1"/><span>Category 1</span>
                       </label>
                     </div>
-                    <div class="option radio-inline">
+                    <div class="option">
                       <label>
-                      <input type="radio" name="category" value="2"/><span>Category 2</span>
-                    </label>
+                        <input type="radio" name="category" value="2"/><span>Category 2</span>
+                      </label>
                     </div>
-                    <div class="option radio-inline">
+                    <div class="option">
                       <label>
-                      <input type="radio" name="category" value="3"/><span>Category 3</span>
-                    </label>
+                        <input type="radio" name="category" value="3"/><span>Category 3</span>
+                      </label>
                     </div>
-                    <div class="option radio-inline">
+                    <div class="option">
                       <label>
-                      <input type="radio" name="category" value="4"/><span>Category 4</span>
-                    </label>
+                        <input type="radio" name="category" value="4"/><span>Category 4</span>
+                      </label>
                     </div>
-                    <div class="option radio-inline">
+                    <div class="option">
                       <label>
-                      <input type="radio" name="category" value="5"/><span>Category 5</span>
-                    </label>
+                        <input type="radio" name="category" value="5"/><span>Category 5</span>
+                      </label>
                     </div>
-                    <div class="option radio-inline">
+                    <div class="option">
                       <label>
-                      <input type="radio" name="category" value="6"/><span>Category 6</span>
-                    </label>
+                        <input type="radio" name="category" value="6"/><span>Category 6</span>
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -165,6 +160,7 @@
                 <h5>Image</h5>
                 <div class="image-item">
                   <input type="file" name="image" name="image" id="inputfile"/>
+                  <i class="fa fa-plus"></i>
                 </div>
                 <div class="view-image">
                 </div>

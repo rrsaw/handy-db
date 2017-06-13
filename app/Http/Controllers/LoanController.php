@@ -87,10 +87,12 @@ class LoanController extends Controller
 
         foreach ($loans as $loan) {
             $reviewChecks = Review::where('id_loan', $loan->id)->get();
-            if ($reviewChecks[0] != null) {
-                array_push($arrayChecks, $reviewChecks[0]->loan->id);
-            } else {
-                unset($arrayChecks);
+            foreach ($reviewChecks as $reviewCheck) {
+                if ($reviewCheck != null) {
+                    array_push($arrayChecks, $reviewCheck->loan->id);
+                } else {
+                    unset($arrayChecks);
+                }
             }
         }
 

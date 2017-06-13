@@ -35,6 +35,7 @@
 
 .sidebar .nav-link {
   border-radius: 0;
+  transition: 0.3s all ease;
 
   span {
     vertical-align: text-bottom;
@@ -55,6 +56,10 @@ nav {
 
     .nav-link {
       padding: 15px 15%;
+
+      &:hover {
+        background: none;
+      }
     }
   }
 
@@ -78,6 +83,11 @@ nav {
 
   .deactivate {
     color: $grey-l;
+
+    &:hover {
+      background-color: transparent;
+      color: darken($grey-l, 15);
+    }
   }
 }
 
@@ -105,6 +115,7 @@ li .activate {
     vertical-align: middle;
     cursor: pointer;
     transition: 0.2s all ease;
+    min-width: 50px;
     @include box_shadow($grey-d, 2);
 
     img {
@@ -119,7 +130,6 @@ li .activate {
   .info {
     display: inline-block;
     vertical-align: middle;
-    margin-left: 10px;
 
     h7 {
       @include dnipro( 'medium', 14px, $grey-d);

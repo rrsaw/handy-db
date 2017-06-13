@@ -8,6 +8,9 @@
       <!-- col-sm-9 offset-sm-3 col-md-9 offset-md-3 pt-3 -->
       <main class="col-md-9 col-sm-10 col-md-offset-2 col-sm-offset-1">
         <h1>Explore</h1>
+
+        {{--
+        Filters
         <div class="col-lg-12 col-md-12">
           <div class="row">
             <div class="active-filters-explore">
@@ -19,7 +22,7 @@
               <p class="filters-result">5 € to 15 €</p>
             </div>
           </div>
-        </div>
+        </div> --}}
         <section class="row">
 
           @foreach($items as $item)
@@ -51,7 +54,7 @@
               <div class="row">
                 <div class="details-item">
                   <i class="fa fa-map-marker fa-fw"></i>
-                  <p>{{ $item->user->address->country }}km from you</p>
+                  <p>{{ $item->user->address->country }}</p>
                 </div>
               </div>
               <div class="row">
@@ -61,7 +64,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="details-item">
+                <div class="details-item user-item">
                   <a href="{{ url('profile/'.$item->user->id) }}"><img src="{{ asset('images/personal-images/'.$item->user->profileImage->name) }}" alt="{{ $item->user->profileImage->name}}" class="img-responsive img-circle profile_image_explore">
                   <p>{{$item->user->name}} {{$item->user->surname}}</p></a>
                 </div>

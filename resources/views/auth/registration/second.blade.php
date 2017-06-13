@@ -19,9 +19,7 @@
                           <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
                             <div class="popup-image text-center">
                               <div class="personal-image {{ $errors->has('image') ? ' has-error' : '' }}">
-                                <a href="javascript:void(0);">
                                   <img src="{{ asset("images/personal-images/".session('image')."") }}" alt="">
-                                </a>
                               </div>
                             </div>
                           </div>

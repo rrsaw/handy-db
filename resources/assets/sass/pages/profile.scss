@@ -1,5 +1,15 @@
 .profile-image {
   border-radius: 100%;
+
+  a {
+    img {
+      transition: 0.2s all ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
 }
 
 .tab-profile {
@@ -15,7 +25,6 @@
 
       &.active,
       &:hover {
-        text-decoration: none;
         color: $blue-d;
       }
     }
@@ -30,10 +39,39 @@
   .place {
     @include dnipro( 'regular', 16px, $grey-m);
   }
+
+  .statistics-profile {
+    h5 {
+      @include varelaFont(20px, $grey-d);
+    }
+
+    span {
+      @include varelaFont(14px, $grey-m);
+    }
+  }
 }
 
 .reviewsProfile {
-  padding-bottom: 35px;
+  padding: 25px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.info-profile {
+  .left-part {
+    h6 {
+      @include dnipro( 'regular', 14px, $grey-m);
+    }
+  }
+
+  .right-part {
+    h6 {
+      @include dnipro( 'medium', 14px, $grey-d);
+    }
+  }
+
+  h6 {
+    margin-top: 15px;
+  }
 }
 
 #profile_image_review {
@@ -41,8 +79,19 @@
   margin-left: 20px;
 }
 
+.profile_review {
+  a {
+    @include varelaFont(16px, $grey-d);
+    transition: 0.2s all ease;
+
+    &:hover {
+      color: $grey-m;
+    }
+  }
+}
+
 .commenter {
-  @include dnipro( 'regular', 14px, $grey-d);
+  @include dnipro( 'medium', 15px, $grey-d);
 }
 
 .comment {

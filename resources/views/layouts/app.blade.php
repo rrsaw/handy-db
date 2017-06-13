@@ -24,6 +24,12 @@
 </head>
 <body>
     <div id="app">
+      <div class="hidden-lg hidden-sm hidden-md visible-xs">
+        <h1 class="text-center">Fabri, ti vogliamo bene, ma non esageriamo</h1>
+      </div>
+      <div class="visible-lg visible-sm visible-md hidden-xs">
+        @yield('content')
+      </div>
         {{-- <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -79,8 +85,6 @@
                 </div>
             </div>
         </nav> --}}
-
-        @yield('content')
     </div>
 
     <!-- Scripts -->

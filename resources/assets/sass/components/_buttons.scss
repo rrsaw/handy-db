@@ -2,6 +2,7 @@
   @include button(100%, $blue-m, 16px);
 }
 // BOTTONI ARANCIONI TONDI
+
 .btn-circle {
   @include button(40px, $orange-d, 16px);
   margin-bottom: 20px;
@@ -40,5 +41,22 @@
   &:focus {
     outline: none;
     color: $white;
+  }
+}
+
+.button-outline {
+  width: 100%;
+  padding: 8px 0;
+  background-color: transparent;
+  transition: all ease 0.2s;
+  @include varelaFont(16px, $blue-m);
+  border-radius: 20px;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $blue-m;
+
+  &:hover {
+    transform: scale(1.05);
   }
 }

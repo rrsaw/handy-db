@@ -1,8 +1,38 @@
 /* variables */
 var hostname = window.location.host;
 
-$(".personal-image a").click(function() {
-  $('.add-personal-image').trigger("click");
+function closeModal(data) {
+  $(".button-modal-close").click(function() {
+    $(".modal" + data).fadeOut();
+  });
+}
+
+function clearImageInput() {
+  var val = $(".image-item").find("input").val("");
+  $(".image-item").css("background-color", "#E7E7E7");
+  $(".image-item").find("i").css("color", "#9B9B9B");
+  $(".image-item").find("i").addClass("fa-plus");
+  console.log(val);
+}
+
+$(".image-item,.personal-image-add").on("click", function(e) {
+  e.stopPropagation();
+  $(this).find("input")[0].click();
+  $(this).find("input").change(function() {
+    $(this).siblings("i").removeClass("fa-plus");
+    $(this).parent("div").css("background-color", "#c3ef93");
+    $(this).siblings("i").css("color", "#7ED321");
+    $(this).siblings("i").addClass("fa-check");
+  });
+});
+
+$(".option").find("label").on("click", function() {
+  $(this).find("input").prop('checked', true);
+  if ($(this).find("input").prop('checked', true)) {
+    $(".option").find("label").removeClass("checkedCategory");
+    $(this).addClass("checkedCategory");
+  }
+
 });
 
 $(".visibility-password").click(function() {
@@ -20,7 +50,9 @@ $(".visibility-password").click(function() {
 $(".btn-add-item").click(function() {
   $(".modal").fadeIn();
   if ($(".name-input").find("input").val() != null) {
+    clearImageInput();
     $(".modal-title>h3").text("Add item");
+    $(".option").find("label").removeClass("checkedCategory");
     $(".name-input").find("input").val("");
     $(".price-add").find("input").val("");
     $(".period-add").find('input[name="startDate"]').val("");
@@ -37,6 +69,7 @@ $(".btn-add-item").click(function() {
 $(".modal-close").click(function() {
   $(".modal").fadeOut();
 });
+
 $(".btn-search").click(function() {
   if ($("main").hasClass("open-search")) {
     $(".searchbar").find("input").css('top', '-80px');
@@ -47,8 +80,8 @@ $(".btn-search").click(function() {
   }
 });
 
-$(".delete-item").click(function() {
-  if (confirm("Are you sure to delete this item?")) {
+$(".refuse-loan").click(function() {
+  if (confirm("Are you sure to refuse this loan?")) {
     return true;
   }
   return false;
@@ -79,13 +112,16 @@ $(".edit-item").click(function() {
     url: '/api/v1/items/' + id,
     success: function(data) {
       var image = getImage(id_image);
+      clearImageInput();
       $(".modal-title>h3").text("Edit item");
+      $(".option").find("label").removeClass("checkedCategory");
       $(".name-input").find("input").val(data[0].name);
       $(".price-add").find("input").val(data[0].price);
       $(".period-add").find('input[name="startDate"]').val(data[0].start_date);
       $(".period-add").find('input[name="endDate"]').val(data[0].end_date);
       $("textarea[name='description']").val(data[0].description);
       $("input:radio[value=" + data[0].id_category + "]").prop('checked', true);
+      $("input:radio[value=" + data[0].id_category + "]").parent("label").addClass("checkedCategory");
       $(".modal-body").find("form").attr("action", "http://" + hostname + "/items/" + id).prepend('<input name="_method" type="hidden" value="PUT">');
     },
     complete: function() {
@@ -106,11 +142,13 @@ $(".rentButton").click(function() {
     success: function(data) {
       $startDate = data[0].start_date;
       $endDate = data[0].end_date;
-      $("body").html('<div class="modal"><div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4"><div class="modal-body request-loan"><form role="form" method="POST" action="/request-loan"><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="item" value="' + id + '"><div class="period-add"><h5>Period<h5><input type="date" name="startDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $startDate + '" required><span>to</span><input type="date" name="endDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $endDate + '" required><div class="col-lg-6"><button class="blueButton rent_button" type="submit">Rent</button></div><div class="col-lg-6"><button class="blueButton button-modal-close button_outline" type="button">Close</button></div></div></form></div></div></div>');
+      $("body").prepend('<div class="modalRent"><div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4"><div class="modal-body request-loan"><form role="form" method="POST" action="/request-loan"><div class="modal-title"><h3>Period</h3></div><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="item" value="' + id + '"><div class="period-add"><input type="date" name="startDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $startDate + '" required><span>to</span><input type="date" name="endDate" min="' + $startDate + '" max="' + $endDate + '" value="' + $endDate + '" required><div class="col-lg-6"><button class="blueButton rent_button" type="submit">Rent</button></div><div class="col-lg-6"><button class="button-modal-close button-outline" type="button">Close</button></div></div></form></div></div></div>');
       $(".images-add").hide();
     },
     complete: function() {
-      $(".modal").fadeIn();
+      $(".modalRent").fadeIn();
+      var data = "Rent";
+      closeModal(data);
 
     }
   });
@@ -128,11 +166,12 @@ $(".fa-comment-o").click(function() {
     success: function(data) {
       $startDate = data[0].start_date[0];
       $endDate = data[0].end_date.date;
-      $("body").html('<div class="modal"><div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4"><div class="modal-body modal-review"><form role="form" method="POST" action="/create-review"><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="loan" value="' + id + '"><div class="modal-title"><h3>How was your experience?</h3></div><p>Write a review to explain your experience:</p><span>Rate:</span>' + stars + '<textarea name="review"></textarea><button class="blueButton" type="submit">Send</button><button class="blueButton button-modal-close" type="button">Close</button></form></div></div></div>');
+      $("body").prepend('<div class="modalReview"><div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3"><div class="modal-body modal-review"><form role="form" method="POST" action="/create-review"><div class="modal-title"><h3>How was your experience?</h3></div><input type="hidden" name="_token" value="' + csrfToken + '"><input type="hidden" name="loan" value="' + id + '"><p>Write a review to explain your experience:</p><div class="rating-loan"><span>Rate</span>' + stars + '</div><textarea name="review"></textarea><button class="blueButton" type="submit">Send</button><button class="button-modal-close button-outline" type="button">Close</button></form></div></div></div>');
     },
     complete: function() {
-      $(".modal").fadeIn();
-
+      $(".modalReview").fadeIn();
+      var data = "Review";
+      closeModal(data);
     }
   });
 

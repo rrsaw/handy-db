@@ -2,12 +2,7 @@
   max-height: 40vh;
   overflow: hidden;
   text-align: center;
-  // &:before {
-  //   content: ' ';
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   height: 100%;
-  // }
+
   img {
     width: 100%;
     display: inline-block;
@@ -15,9 +10,65 @@
   }
 }
 
+.title-detail {
+  margin-top: 60px;
+
+  h1 {
+    color: $grey-d;
+  }
+
+  h3 {
+    @include varelaFont( 18px, $grey-m);
+    text-transform: capitalize;
+    margin: 10px 0;
+  }
+}
+
+.total-reviews-detail {
+  margin-top: 20px;
+
+  .rating {
+    float: none;
+    display: inline-block;
+  }
+
+  span {
+    display: block;
+    @include dnipro(regular, 14px, $grey-m);
+  }
+}
+
+.details-detail,
+.owner-detail,
+.reviews-detail {
+  h4 {
+    @include varelaFont( 18px, $grey-d);
+  }
+}
+
+.commenter {
+  a {
+    color: $grey-d;
+    transition: 0.2s all ease;
+
+    &:hover {
+      color: $grey-m;
+    }
+  }
+}
+
+.description-detail {
+  margin: 40px 0;
+  @include dnipro(regular, 14px, $grey-m);
+}
+
 .price-detail {
   float: left;
   margin-top: 50px;
+
+  h2 {
+    @include dnipro(medium, 25px, $blue-m);
+  }
 }
 
 .rent-btn-detail {
@@ -27,18 +78,26 @@
 }
 
 .owner-detail {
+  margin: 20px 0;
+
   .left-part {
-    width: 70%;
+    width: 100%;
     display: inline-block;
 
     .owner-image {
-      width: 32%;
+      width: 20%;
+      min-width: 70px;
       display: inline-block;
       vertical-align: top;
+      transition: 0.2s all ease;
 
       img {
         width: 100%;
         border-radius: 50px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
       }
     }
 
@@ -48,6 +107,15 @@
 
       h5 {
         display: block;
+        @include dnipro(medium, 16px, $grey-m);
+      }
+
+      span {
+        @include dnipro(regular, 14px, $grey-m);
+      }
+
+      i {
+        color: $grey-m;
       }
     }
   }

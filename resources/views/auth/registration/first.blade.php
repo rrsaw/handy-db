@@ -20,9 +20,12 @@
                             <div class="popup-image text-center">
                               <div class="personal-image {{ $errors->has('image') ? ' has-error' : '' }}">
                                 <a href="javascript:void(0);">
-                                  <img src="{{ asset('images/personal-images/defaultImage.png') }}" alt="">
+                                  <div class="personal-image-add">
+                                    <i class="fa fa-plus"></i>
+                                    <input type="file" name="image" class="input-personal-image" name="image" value="{{ old('image') }}" required/>
+                                  </div>
+                                  {{-- <img src="{{ asset('images/personal-images/defaultImage.png') }}" alt=""> --}}
                                 </a>
-                                  <input type="file" name="image" class="add-personal-image" name="image" value="{{ old('image') }}" required/>
                                   @if ($errors->has('image'))
                                       <span class="help-block">
                                           <strong>{{ $errors->first('image') }}</strong>
