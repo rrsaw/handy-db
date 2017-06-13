@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'varelaFont'.
-        on line 14 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss, in `varelaFont'
-        from line 14 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss
+        on line 24 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss, in `varelaFont'
+        from line 24 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss
 
-9:   li {
-10:     display: inline-block;
-11:     margin-right: 50px;
-12: 
-13:     a {
-14:       @include varelaFont(16px, $grey-m);
-15: 
-16:       &.active,
-17:       &:hover {
-18:         text-decoration: none;
-19:         color: $blue-d;
+19:   li {
+20:     display: inline-block;
+21:     margin-right: 50px;
+22: 
+23:     a {
+24:       @include varelaFont(16px, $grey-m);
+25: 
+26:       &.active,
+27:       &:hover {
+28:         color: $blue-d;
+29:       }
 
 Backtrace:
-/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss:14:in `varelaFont'
-/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss:14
+/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss:24:in `varelaFont'
+/Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss:24
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/stack.rb:98:in `block in with_mixin'
 /Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
@@ -88,4 +88,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'varelaFont'.\A         on line 14 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss, in `varelaFont'\A         from line 14 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss\A \A 9:   li {\A 10:     display: inline-block;\A 11:     margin-right: 50px;\A 12: \A 13:     a {\A 14:       @include varelaFont(16px, $grey-m);\A 15: \A 16:       &.active,\A 17:       &:hover {\A 18:         text-decoration: none;\A 19:         color: $blue-d;"; }
+  content: "Error: Undefined mixin 'varelaFont'.\A         on line 24 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss, in `varelaFont'\A         from line 24 of /Users/fc/Documents/Handy/HandyGit/handy-db/resources/assets/sass/pages/profile.scss\A \A 19:   li {\A 20:     display: inline-block;\A 21:     margin-right: 50px;\A 22: \A 23:     a {\A 24:       @include varelaFont(16px, $grey-m);\A 25: \A 26:       &.active,\A 27:       &:hover {\A 28:         color: $blue-d;\A 29:       }"; }
