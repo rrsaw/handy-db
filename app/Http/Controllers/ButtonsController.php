@@ -58,11 +58,6 @@ class ButtonsController extends Controller
             $image->id_item = $item->id;
             $image->save();
 
-            // Image::create([
-            //   'name' => $imageName,
-            //   'id_item' => $item->id,
-            // ]);
-
             Session::flash('message', 'Successfully creating!');
             return Redirect::to('/items');
         }

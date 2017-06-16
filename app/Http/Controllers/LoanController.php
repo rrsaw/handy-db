@@ -66,8 +66,8 @@ class LoanController extends Controller
         } elseif ($url == "confirmation/other") {
             $restrictions = ['id_receiver' => $id, 'loan_confirmation' => '0', 'return_confirmation' => '0' ];
         }
+        
         $loans = Loan::where($restrictions)->get();
-
 
         return view('items.confirmation', compact('loans', 'url'));
     }

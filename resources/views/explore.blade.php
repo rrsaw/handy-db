@@ -5,7 +5,6 @@
 @section('userMenu','deactivate')
 
 @section('explorePage')
-      <!-- col-sm-9 offset-sm-3 col-md-9 offset-md-3 pt-3 -->
       <main class="col-md-9 col-sm-10 col-md-offset-2 col-sm-offset-1">
         <h1>Explore</h1>
 

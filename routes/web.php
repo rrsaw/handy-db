@@ -2,18 +2,15 @@
 
 Route::group(['middleware' => 'auth'], function () {
     // General section
-    Route::post('/store-item', 'ButtonsController@storeItem')->name('storeItem');
+  Route::post('/store-item', 'ButtonsController@storeItem')->name('storeItem');
     Route::get('/logout', 'ButtonsController@logout')->name('logout');
     Route::get('/home', 'HomeController@index');
-
 
   /* Explore section */
   Route::get('/explore', 'ExploreController@index');
 
-
   /* Items section */
   Route::resource('/items', 'ItemsController');
-
 
   /* Loans section */
   Route::post('/request-loan', 'LoanController@requestLoan')->name('requestLoan');
@@ -26,7 +23,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/history', 'LoanController@indexHistory');
     Route::get('/history/other', 'LoanController@indexHistory');
     Route::post('/create-review', 'ReviewController@create');
-
 
   /* Profile section */
   Route::get('/profile', 'ProfileController@index');

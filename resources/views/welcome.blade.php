@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Handy</title>
 
+  <link rel="icon" href="{{ asset('images/landing/logo.png')}}" type="image/png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -33,12 +34,11 @@
           <li><a href="#title_browser">How it works</a></li>
           <li><a href="#sb_1">Service</a></li>
           <li><a href="#footer_one">Contacts</a></li>
-          <li><a href="{{ url('/login') }}" id="login">Login</a></li>
-          <li><a href="{{ url('/registration') }}">Register</a></li>
+          <li class="hidden-xs"><a href="{{ url('/login') }}" id="login">Login</a></li>
+          <li class="hidden-xs"><a href="{{ url('/registration') }}">Register</a></li>
 
         </ul>
       </div>
-      <!--/.nav-collapse -->
     </div>
   </nav>
 

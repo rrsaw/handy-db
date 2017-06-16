@@ -50,9 +50,7 @@ class RegistrationController extends Controller
              'image' => $imageName,
            ]);
 
-          //  $name = session('name');
-          //  Log::info($name);
-           return Redirect::to('/confirm');
+            return Redirect::to('/confirm');
         }
     }
 
@@ -76,8 +74,7 @@ class RegistrationController extends Controller
                 ])
                 ->get();
 
-         // possibile errore per Input::all() su app
-         $validator = Validator::make(Input::all(), $rules);
+        $validator = Validator::make(Input::all(), $rules);
         $address = json_decode($response, true);
 
         if ($validator->fails()) {

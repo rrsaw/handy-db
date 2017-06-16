@@ -26,11 +26,6 @@
                                   </div>
                                   {{-- <img src="{{ asset('images/personal-images/defaultImage.png') }}" alt=""> --}}
                                 </a>
-                                  @if ($errors->has('image'))
-                                      <span class="help-block">
-                                          <strong>{{ $errors->first('image') }}</strong>
-                                      </span>
-                                  @endif
                               </div>
                             </div>
                           </div>
@@ -77,7 +72,7 @@
 
                         <div class="form-group{{ $errors->has('phoneNumber') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 input-container">
-                                <input id="phoneNumber" type="number" class="" name="phoneNumber" required>
+                                <input id="phoneNumber" type="number" name="phoneNumber" required>
                                 <label class="label" for="phoneNumber">Phone number</label>
 
                                 @if ($errors->has('phoneNumber'))
@@ -88,7 +83,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
                             <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 input-container">
                                 <input id="birthday" type="date" name="birthday" min="1900-01-01" required>
                                 <label class="label dateLabel" for="birthday">Birthday</label>
@@ -102,6 +97,11 @@
                         </div>
 
                         <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+                          @if ($errors->has('image'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('image') }}</strong>
+                              </span>
+                          @endif
                             <button type="submit" class="blueButton">
                               Next
                             </button>

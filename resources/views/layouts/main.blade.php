@@ -10,7 +10,7 @@
       <nav class="sidebar col-lg-2 col-md-2 col-sm-1">
         <div class="img-responsive text-center" id="logo">
           <a href="/">
-            <img src="{{ asset('img/logo.png') }}" alt="handy logo" id="logo">
+            <img src="{{ asset('images/landing/logo.png') }}" alt="handy logo" id="logo">
           </a>
         </div>
         <ul class="nav nav-pills flex-column">

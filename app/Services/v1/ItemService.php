@@ -95,7 +95,6 @@ class ItemService
               'id' => $item->id,
               'name' => $item->name,
               'description' => $item->description,
-              // 'href' => route('loans.show', ['id' => $loan->id])
               'price' => $item->price,
               'start_date' => $item->start_date,
               'end_date' => $item->end_date,

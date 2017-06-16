@@ -6,7 +6,6 @@
 
 @section('itemsMain')
 
-<!-- col-sm-9 offset-sm-3 col-md-9 offset-md-3 pt-3 -->
 <main class="col-md-9 col-sm-10 col-md-offset-2 col-sm-offset-1">
   <h1>Items</h1>
   <div class="col-lg-12 col-md-12">

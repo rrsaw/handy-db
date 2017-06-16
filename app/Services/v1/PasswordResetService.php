@@ -5,7 +5,7 @@ namespace handy\Services\v1;
 use Validator;
 use handy\User;
 
-class AddressService
+class PasswordService
 {
     public function getPasswordResets($parameters)
     {
@@ -17,19 +17,7 @@ class AddressService
         }
     }
 
-// class AddressService {
-//   public function getAddresses($parameters) {
-//     if (empty($parameters)) {
-//         return $this->filterLoans(Loan::all());
-//     }
-//
-//     if (isset($parameters['include'])) {
-//         $includeParms = explode(',', $parameters['include']);
-//     }
-//
-//   }
-
-  protected $rules = [
+    protected $rules = [
     'email' => 'required',
     'token' => 'required',
   ];
