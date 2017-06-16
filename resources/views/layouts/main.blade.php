@@ -117,32 +117,32 @@
                     <h5>Categories</h5>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="1"/><span>Category 1</span>
+                        <input type="radio" name="category" value="1"/><span>House holds</span>
                       </label>
                     </div>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="2"/><span>Category 2</span>
+                        <input type="radio" name="category" value="2"/><span>Gardening</span>
                       </label>
                     </div>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="3"/><span>Category 3</span>
+                        <input type="radio" name="category" value="3"/><span>Cars and repairs</span>
                       </label>
                     </div>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="4"/><span>Category 4</span>
+                        <input type="radio" name="category" value="4"/><span>Pets</span>
                       </label>
                     </div>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="5"/><span>Category 5</span>
+                        <input type="radio" name="category" value="5"/><span>Party</span>
                       </label>
                     </div>
                     <div class="option">
                       <label>
-                        <input type="radio" name="category" value="6"/><span>Category 6</span>
+                        <input type="radio" name="category" value="6"/><span>Others</span>
                       </label>
                     </div>
                   </div>

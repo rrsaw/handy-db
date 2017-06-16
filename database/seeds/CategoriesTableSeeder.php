@@ -15,12 +15,12 @@ class CategoriesTableSeeder extends Seeder
     {
         DB::table('categories')->delete();
         DB::table('categories')->insert(array(
-             array('name'=>'category1','icon'=>'category1.png'),
-             array('name'=>'category2','icon'=>'category2.png'),
-             array('name'=>'category3','icon'=>'category3.png'),
-             array('name'=>'category4','icon'=>'category4.png'),
-             array('name'=>'category5','icon'=>'category5.png'),
-             array('name'=>'category6','icon'=>'category6.png')
+             array('name'=>'house holds','icon'=>'category1.png'),
+             array('name'=>'gardening','icon'=>'category2.png'),
+             array('name'=>'cars and repairs','icon'=>'category3.png'),
+             array('name'=>'pets','icon'=>'category4.png'),
+             array('name'=>'party','icon'=>'category5.png'),
+             array('name'=>'others','icon'=>'category6.png')
           ));
     }
 }
