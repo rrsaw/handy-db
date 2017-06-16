@@ -7,8 +7,6 @@ use handy\User;
 
 use Validator;
 
-// use handy\User;
-
 class UserService
 {
     public function getUsers($parameters)

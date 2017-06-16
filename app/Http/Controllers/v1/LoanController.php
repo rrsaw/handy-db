@@ -1,6 +1,5 @@
 <?php
 
-//////////CANCELLA DAL DB MA NON RIESCE A DARMI UNA RESPONSE
 
 namespace handy\Http\Controllers\v1;
 

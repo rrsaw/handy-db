@@ -18,19 +18,7 @@ class AddressService
         }
     }
 
-// class AddressService {
-//   public function getAddresses($parameters) {
-//     if (empty($parameters)) {
-//         return $this->filterLoans(Loan::all());
-//     }
-//
-//     if (isset($parameters['include'])) {
-//         $includeParms = explode(',', $parameters['include']);
-//     }
-//
-//   }
-
-  protected $rules = [
+    protected $rules = [
     'id' => 'required',
     'street' => 'required',
     'civic_number' => 'required',
