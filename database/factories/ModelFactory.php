@@ -80,10 +80,7 @@ $factory->define(handy\ProfileImage::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(handy\Review::class, function (Faker\Generator $faker) {
-    $type = Type::all()->random()->id;
-    // $loan = Loan::where('id', $id_loan_random)->get();
-    // $id_user_random = User::all()->pluck('id')->toArray();
-    // $id_item_random = Item::all()->pluck('id')->toArray();
+    $loan = Loan::all()->random()->id;
 
     return [
         'description' => $faker->text($maxNbChars = 200),
