@@ -181,7 +181,7 @@ li .activate { border-left: thick solid #FAB005; }
 
 .backgroundLogin { background: #99e9f2; background: -webkit-linear-gradient(#99e9f2 0%, #1098ad 100%); background: -o-linear-gradient(#99e9f2 0%, #1098ad 100%); background: linear-gradient(#99e9f2 0%, #1098ad 100%); height: 100vh; }
 
-.cards { margin-bottom: 20px; }
+.cards { margin-bottom: 20px; height: 500px; }
 .cards .image-item-card { margin-bottom: 0.75rem; box-shadow: 0 3px 6px rgba(155, 155, 155, 0.16), 0 3px 6px rgba(155, 155, 155, 0.23); max-height: 300px; overflow: hidden; transition: 0.2s all ease; }
 .cards .image-item-card:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(155, 155, 155, 0.19), 0 6px 6px rgba(155, 155, 155, 0.23); }
 .cards .item-price { font: normal 16px "DIN Pro Medium", sans-serif; color: #22B8CF; }
@@ -365,7 +365,7 @@ li .activate { border-left: thick solid #FAB005; }
 .details-detail .owner-name-address h5 { font: normal 15px "DIN Pro", sans-serif; color: #9B9B9B; }
 .details-detail .owner-name-address span { font: normal 15px "DIN Pro", sans-serif; color: #22B8CF; display: block; margin: 10px 0; text-align: right; }
 
-.profile-image { border-radius: 100%; }
+.profile-image { border-radius: 100%; min-width: 100px; min-height: 100px; }
 .profile-image a img { transition: 0.2s all ease; }
 .profile-image a img:hover { transform: scale(1.05); }
 
